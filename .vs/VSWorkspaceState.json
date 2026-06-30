@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Backend",
+    "\\Backend\\ImmoScoutRapidApi",
+    "\\Backend\\ImmoScoutRapidApi\\bin",
+    "\\Backend\\ImmoScoutRapidApi\\bin\\Debug",
+    "\\Backend\\ImmoScoutRapidApi\\bin\\Debug\\net8.0"
+  ],
+  "SelectedNode": "\\Backend\\ImmoScoutRapidApi\\Program.cs",
+  "PreviewInSolutionExplorer": false
+}
