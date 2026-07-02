@@ -1,0 +1,19 @@
+#Layer_15 path {
+  cursor: pointer;
+  transition: opacity 0.2s ease-in-out, filter 0.2s ease-in-out;
+  opacity: 0.4;              // как было изначально — спокойный фон
+  filter: saturate(0.5);     // приглушаем цвет в обычном состоянии
+}
+
+#Layer_15 path.hovered {
+  opacity: 0.8;
+  filter: saturate(1.2);
+  // без stroke, раз мы не хотим выделять именно Stadtteil-границы
+}
+
+#Layer_15 path.selected {
+ fill: #004488;      // твой единый акцентный цвет — перебивает все родные цвета кусочков
+  opacity: 1;          // тоже перебиваем родной opacity="0.4", чтобы цвет был плотным, не полупрозрачным
+  filter: none;        // если ранее что-то накладывал через filter — сбрасываем
+
+}

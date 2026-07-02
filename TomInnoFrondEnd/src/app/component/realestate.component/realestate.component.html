@@ -1,0 +1,22 @@
+<div class="listings-container">
+  @if (filteredListings.length > 0) {
+    <h2>{{ filteredListings.length }} Immobilien gefunden.</h2>
+  } @else {
+    <h2>Keine Immobilien gefunden.</h2>
+  }
+
+  <div class="listings-grid">
+    @for (list of filteredListings; track list.id) {
+      <div class="listing-card">
+        <img [src]="list.pictureUrls[0]" [alt]="list.title" />
+        <div class="card-body">
+          <h3>{{ list.title }}</h3>
+          <p class="price">{{ list.price }} €</p>
+          <p class="meta">{{ list.livingSpace }} m², {{ list.rooms }} Zimmer</p>
+          <p class="address">{{ list.address.line }}</p>
+          <a [href]="list.url" target="_blank">Zum Angebot</a>
+        </div>
+      </div>
+    }
+  </div>
+</div>

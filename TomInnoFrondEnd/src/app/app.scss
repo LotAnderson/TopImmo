@@ -1,0 +1,52 @@
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;  
+}
+
+.app-header {
+  background: #004488;  
+  color: #fff;
+  padding: 16px 24px;
+
+  h1 {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+}
+
+.main-layout {
+  flex: 1;   
+  display: flex;   
+}
+
+.app-footer {
+  background: #2b2b2b;
+  color: #cfcfcf;
+  padding: 12px 24px;
+  text-align: center;
+  font-size: 0.85rem;
+
+  p {
+    margin: 0;
+  }
+}
+.map-sidebar {
+  position: sticky;
+  top: 80px;     
+  align-self: flex-start;   
+  height: fit-content;
+}
+.map-sidebar {
+  position: sticky;
+  top: 80px;
+  align-self: flex-start;
+  height: fit-content;
+
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e8e6e0;   
+}
