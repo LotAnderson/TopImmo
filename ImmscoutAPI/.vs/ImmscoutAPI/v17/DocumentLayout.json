@@ -1,0 +1,484 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|c:\\projects\\bfks project immoscout\\immscoutapi\\model\\authorization\\refreshtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|solutionrelative:model\\authorization\\refreshtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|c:\\projects\\bfks project immoscout\\immscoutapi\\model\\jwtsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|solutionrelative:model\\jwtsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|c:\\projects\\bfks project immoscout\\immscoutapi\\service\\authservice .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|solutionrelative:service\\authservice .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|c:\\projects\\bfks project immoscout\\immscoutapi\\interface\\iauthservice .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|solutionrelative:interface\\iauthservice .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|c:\\projects\\bfks project immoscout\\immscoutapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|c:\\projects\\bfks project immoscout\\immscoutapi\\model\\authorization\\loginresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|solutionrelative:model\\authorization\\loginresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|c:\\projects\\bfks project immoscout\\immscoutapi\\service\\tokenservice .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|solutionrelative:service\\tokenservice .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|c:\\projects\\bfks project immoscout\\immscoutapi\\model\\immoscoutresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|solutionrelative:model\\immoscoutresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|c:\\projects\\bfks project immoscout\\immscoutapi\\model\\authorization\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|solutionrelative:model\\authorization\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|c:\\projects\\bfks project immoscout\\immscoutapi\\interface\\itokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|solutionrelative:interface\\itokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|c:\\projects\\bfks project immoscout\\immscoutapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|c:\\projects\\bfks project immoscout\\immscoutapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|c:\\projects\\bfks project immoscout\\immscoutapi\\dto\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|solutionrelative:dto\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|c:\\projects\\bfks project immoscout\\immscoutapi\\model\\authresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|solutionrelative:model\\authresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|c:\\projects\\bfks project immoscout\\immscoutapi\\dto\\registerrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|solutionrelative:dto\\registerrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|c:\\projects\\bfks project immoscout\\immscoutapi\\database\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|solutionrelative:database\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|c:\\projects\\bfks project immoscout\\immscoutapi\\controllers\\realestatecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|solutionrelative:controllers\\realestatecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|c:\\projects\\bfks project immoscout\\immscoutapi\\service\\immoscoutapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|solutionrelative:service\\immoscoutapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|c:\\projects\\bfks project immoscout\\immscoutapi\\service\\districtdataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|solutionrelative:service\\districtdataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|c:\\projects\\bfks project immoscout\\immscoutapi\\model\\unit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|solutionrelative:model\\unit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|c:\\projects\\bfks project immoscout\\immscoutapi\\model\\project.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|solutionrelative:model\\project.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|c:\\projects\\bfks project immoscout\\immscoutapi\\model\\paginationinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|solutionrelative:model\\paginationinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|c:\\projects\\bfks project immoscout\\immscoutapi\\model\\locationinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|solutionrelative:model\\locationinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|c:\\projects\\bfks project immoscout\\immscoutapi\\model\\listing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|solutionrelative:model\\listing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|c:\\projects\\bfks project immoscout\\immscoutapi\\model\\attributeitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|solutionrelative:model\\attributeitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|c:\\projects\\bfks project immoscout\\immscoutapi\\model\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05DA37F6-F324-4F81-A4BD-7E5A70BEFE52}|ImmscoutAPI.csproj|solutionrelative:model\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 506,
+          "SelectedChildIndex": 15,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cdbdee54-b399-484b-b763-db2c3393d646}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1525959839:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "LoginResult.cs",
+              "DocumentMoniker": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Model\\Authorization\\LoginResult.cs",
+              "RelativeDocumentMoniker": "Model\\Authorization\\LoginResult.cs",
+              "ToolTip": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Model\\Authorization\\LoginResult.cs",
+              "RelativeToolTip": "Model\\Authorization\\LoginResult.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T15:01:04.904Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TokenService .cs",
+              "DocumentMoniker": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Service\\TokenService .cs",
+              "RelativeDocumentMoniker": "Service\\TokenService .cs",
+              "ToolTip": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Service\\TokenService .cs",
+              "RelativeToolTip": "Service\\TokenService .cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T13:27:33.396Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ITokenService.cs",
+              "DocumentMoniker": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Interface\\ITokenService.cs",
+              "RelativeDocumentMoniker": "Interface\\ITokenService.cs",
+              "ToolTip": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Interface\\ITokenService.cs",
+              "RelativeToolTip": "Interface\\ITokenService.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAQwAcAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T13:27:17.106Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "JwtSettings.cs",
+              "DocumentMoniker": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Model\\JwtSettings.cs",
+              "RelativeDocumentMoniker": "Model\\JwtSettings.cs",
+              "ToolTip": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Model\\JwtSettings.cs",
+              "RelativeToolTip": "Model\\JwtSettings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T13:26:07.999Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-07-01T13:20:22.8Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "LoginRequest.cs",
+              "DocumentMoniker": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\DTO\\LoginRequest.cs",
+              "RelativeDocumentMoniker": "DTO\\LoginRequest.cs",
+              "ToolTip": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\DTO\\LoginRequest.cs",
+              "RelativeToolTip": "DTO\\LoginRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T13:13:03.532Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Controllers\\AuthController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T12:53:27.618Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "AuthResult.cs",
+              "DocumentMoniker": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Model\\AuthResult.cs",
+              "RelativeDocumentMoniker": "Model\\AuthResult.cs",
+              "ToolTip": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Model\\AuthResult.cs",
+              "RelativeToolTip": "Model\\AuthResult.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T12:50:06.955Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IAuthService .cs",
+              "DocumentMoniker": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Interface\\IAuthService .cs",
+              "RelativeDocumentMoniker": "Interface\\IAuthService .cs",
+              "ToolTip": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Interface\\IAuthService .cs",
+              "RelativeToolTip": "Interface\\IAuthService .cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAkAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T12:35:11.551Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AuthService .cs",
+              "DocumentMoniker": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Service\\AuthService .cs",
+              "RelativeDocumentMoniker": "Service\\AuthService .cs",
+              "ToolTip": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Service\\AuthService .cs*",
+              "RelativeToolTip": "Service\\AuthService .cs*",
+              "ViewState": "AgIAADUAAAAAAAAAAAAgwD4AAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T12:34:56.082Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "RegisterRequest.cs",
+              "DocumentMoniker": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\DTO\\RegisterRequest.cs",
+              "RelativeDocumentMoniker": "DTO\\RegisterRequest.cs",
+              "ToolTip": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\DTO\\RegisterRequest.cs",
+              "RelativeToolTip": "DTO\\RegisterRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T12:32:48.515Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\DataBase\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "DataBase\\AppDbContext.cs",
+              "ToolTip": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\DataBase\\AppDbContext.cs",
+              "RelativeToolTip": "DataBase\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T12:23:37.589Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RefreshToken.cs",
+              "DocumentMoniker": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Model\\Authorization\\RefreshToken.cs",
+              "RelativeDocumentMoniker": "Model\\Authorization\\RefreshToken.cs",
+              "ToolTip": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Model\\Authorization\\RefreshToken.cs",
+              "RelativeToolTip": "Model\\Authorization\\RefreshToken.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwAsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T12:19:08.62Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Model\\Authorization\\User.cs",
+              "RelativeDocumentMoniker": "Model\\Authorization\\User.cs",
+              "ToolTip": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Model\\Authorization\\User.cs",
+              "RelativeToolTip": "Model\\Authorization\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T12:18:49.231Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAUwC4AAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-30T10:16:26.431Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "RealEstateController.cs",
+              "DocumentMoniker": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Controllers\\RealEstateController.cs",
+              "RelativeDocumentMoniker": "Controllers\\RealEstateController.cs",
+              "ToolTip": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Controllers\\RealEstateController.cs",
+              "RelativeToolTip": "Controllers\\RealEstateController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAswBIAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-30T10:14:05.334Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "DistrictDataService.cs",
+              "DocumentMoniker": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Service\\DistrictDataService.cs",
+              "RelativeDocumentMoniker": "Service\\DistrictDataService.cs",
+              "ToolTip": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Service\\DistrictDataService.cs",
+              "RelativeToolTip": "Service\\DistrictDataService.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAgwB0AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-30T10:05:44.954Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "PaginationInfo.cs",
+              "DocumentMoniker": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Model\\PaginationInfo.cs",
+              "RelativeDocumentMoniker": "Model\\PaginationInfo.cs",
+              "ToolTip": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Model\\PaginationInfo.cs",
+              "RelativeToolTip": "Model\\PaginationInfo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAIBJwBAAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-30T09:53:32.858Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ImmoScoutAPIService.cs",
+              "DocumentMoniker": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Service\\ImmoScoutAPIService.cs",
+              "RelativeDocumentMoniker": "Service\\ImmoScoutAPIService.cs",
+              "ToolTip": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Service\\ImmoScoutAPIService.cs",
+              "RelativeToolTip": "Service\\ImmoScoutAPIService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAACkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-30T09:43:08.426Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "LocationInfo.cs",
+              "DocumentMoniker": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Model\\LocationInfo.cs",
+              "RelativeDocumentMoniker": "Model\\LocationInfo.cs",
+              "ToolTip": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Model\\LocationInfo.cs",
+              "RelativeToolTip": "Model\\LocationInfo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAIBJwA0AAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-30T09:53:11.87Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Listing.cs",
+              "DocumentMoniker": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Model\\Listing.cs",
+              "RelativeDocumentMoniker": "Model\\Listing.cs",
+              "ToolTip": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Model\\Listing.cs",
+              "RelativeToolTip": "Model\\Listing.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAgwD8AAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-30T09:54:02.219Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Project.cs",
+              "DocumentMoniker": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Model\\Project.cs",
+              "RelativeDocumentMoniker": "Model\\Project.cs",
+              "ToolTip": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Model\\Project.cs",
+              "RelativeToolTip": "Model\\Project.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAADwvyAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-30T09:55:28.729Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ImmoScoutResponse.cs",
+              "DocumentMoniker": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Model\\ImmoScoutResponse.cs",
+              "RelativeDocumentMoniker": "Model\\ImmoScoutResponse.cs",
+              "ToolTip": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Model\\ImmoScoutResponse.cs",
+              "RelativeToolTip": "Model\\ImmoScoutResponse.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAYwBEAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-30T09:52:50.289Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Unit.cs",
+              "DocumentMoniker": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Model\\Unit.cs",
+              "RelativeDocumentMoniker": "Model\\Unit.cs",
+              "ToolTip": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Model\\Unit.cs",
+              "RelativeToolTip": "Model\\Unit.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBEAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-30T09:56:08.982Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "AttributeItem.cs",
+              "DocumentMoniker": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Model\\AttributeItem.cs",
+              "RelativeDocumentMoniker": "Model\\AttributeItem.cs",
+              "ToolTip": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Model\\AttributeItem.cs",
+              "RelativeToolTip": "Model\\AttributeItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-30T09:55:09.945Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Address.cs",
+              "DocumentMoniker": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Model\\Address.cs",
+              "RelativeDocumentMoniker": "Model\\Address.cs",
+              "ToolTip": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\Model\\Address.cs",
+              "RelativeToolTip": "Model\\Address.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-30T09:54:53.328Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedHeight": 108,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
