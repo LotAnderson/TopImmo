@@ -17,3 +17,53 @@
   filter: none;        // если ранее что-то накладывал через filter — сбрасываем
 
 }
+
+.district-legend {
+  margin-top: 16px;
+
+  h3 {
+    margin: 0 0 8px;
+    font-size: 0.95rem;
+    color: #004488;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: 320px;
+    overflow-y: auto;
+  }
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 6px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+
+    &:hover {
+      background: #f0f4f8;
+    }
+
+    &.active {
+      background: #004488;
+      color: #fff;
+    }
+
+    &.empty {
+      cursor: default;
+      color: #888;
+
+      &:hover {
+        background: transparent;
+      }
+    }
+  }
+
+  .count {
+    font-weight: 600;
+  }
+}

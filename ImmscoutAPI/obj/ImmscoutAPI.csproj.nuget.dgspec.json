@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\ImmscoutAPI.csproj": {}
+    "C:\\Projects\\Angular\\TopImmoF\\ImmscoutAPI\\ImmscoutAPI.csproj": {}
   },
   "projects": {
-    "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\ImmscoutAPI.csproj": {
+    "C:\\Projects\\Angular\\TopImmoF\\ImmscoutAPI\\ImmscoutAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\ImmscoutAPI.csproj",
+        "projectUniqueName": "C:\\Projects\\Angular\\TopImmoF\\ImmscoutAPI\\ImmscoutAPI.csproj",
         "projectName": "ImmscoutAPI",
-        "projectPath": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\ImmscoutAPI.csproj",
+        "projectPath": "C:\\Projects\\Angular\\TopImmoF\\ImmscoutAPI\\ImmscoutAPI.csproj",
         "packagesPath": "C:\\Users\\oskonbaev\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\BFKS Project Immoscout\\ImmscoutAPI\\obj\\",
+        "outputPath": "C:\\Projects\\Angular\\TopImmoF\\ImmscoutAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -93,7 +93,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.307/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.316/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

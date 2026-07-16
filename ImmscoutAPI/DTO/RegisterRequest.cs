@@ -1,4 +1,4 @@
-﻿namespace ImmscoutAPI.DTO
+namespace ImmscoutAPI.DTO
 {
     public class RegisterRequest
     {

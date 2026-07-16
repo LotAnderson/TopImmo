@@ -1,11 +1,13 @@
 ﻿using ImmscoutAPI.Model;
 using ImmscoutAPI.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ImmscoutAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class RealEstateController : ControllerBase
     {
         private readonly DistrictDataService _districtDataService;
@@ -33,7 +35,7 @@ namespace ImmscoutAPI.Controllers
             }
             catch (Exception ex)
             {
-                // В учебном проекте можно вернуть ошибку с описанием, чтобы видеть, если что-то пойдет не так
+               
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }

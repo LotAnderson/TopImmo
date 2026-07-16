@@ -25,18 +25,15 @@ const BEZIRK_RANGES: {min: number; max: number; bezirk: string}[] = [
 ];
 
 export function getBezirkFromStadtteilId(elementId: string): string | null {
-  // 1. Как вытащить число "205" из строки "a205_Cannstatt-Mitte"?
-  //    Подсказка: regex /a(\d+)_/ или parseInt после slice
+
 
   const match = elementId?.match(/a(\d+)_/);
   const elementNumber = match ? parseInt(match[1], 10) : null;
 
-  // 2. Как найти подходящий диапазон в BEZIRK_RANGES?
-  //    Подсказка: Array.find()
+ 
 
  const bezirkRange = BEZIRK_RANGES.find(range => (elementNumber !== null && elementNumber >= range.min && elementNumber <= range.max));
 
-  // 3. Вернуть название района или null, если не найдено
   return bezirkRange ? bezirkRange.bezirk : null;
 
 

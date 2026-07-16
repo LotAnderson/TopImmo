@@ -1,4 +1,4 @@
-﻿using ImmscoutAPI.DTO;
+using ImmscoutAPI.DTO;
 using ImmscoutAPI.Model;
 using ImmscoutAPI.Model.Authorization;
 
@@ -8,5 +8,6 @@ namespace ImmscoutAPI.Interface
     {
         Task<AuthResult> RegisterAsync(RegisterRequest request);
         Task<LoginResult> LoginAsync(LoginRequest request);
+        Task<LoginResult> RefreshAsync(RefreshRequest request);
     }
 }

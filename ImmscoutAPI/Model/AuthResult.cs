@@ -1,4 +1,4 @@
-﻿namespace ImmscoutAPI.Model
+namespace ImmscoutAPI.Model
 {
     public class AuthResult
     {

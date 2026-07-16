@@ -1,0 +1,50 @@
+<div class="listing-detail-page">
+  <a routerLink="/" class="back-link">← Zurück zur Übersicht</a>
+
+  @if (listing(); as l) {
+    <div class="listing-detail">
+      <div class="gallery">
+        @if (l.pictureUrls.length > 0) {
+          <img class="main-image" [src]="l.pictureUrls[activeImageIndex()]" [alt]="l.title" />
+          @if (l.pictureUrls.length > 1) {
+            <div class="thumbnails">
+              @for (url of l.pictureUrls; track url; let i = $index) {
+                <img
+                  [src]="url"
+                  [alt]="l.title"
+                  [class.active]="i === activeImageIndex()"
+                  (click)="selectImage(i)"
+                />
+              }
+            </div>
+          }
+        }
+      </div>
+
+      <div class="info">
+        <h2>{{ l.title }}</h2>
+        <p class="price">{{ l.price }} €</p>
+        <p class="meta">{{ l.livingSpace }} m², {{ l.rooms }} Zimmer</p>
+        <p class="address">{{ l.address.line }}</p>
+        <p class="district">Stadtteil: {{ l.mappedDistrict }}</p>
+        <p class="published">{{ l.publishedLabel }}</p>
+
+        @if (l.attributes.length) {
+          <ul class="attributes">
+            @for (attr of l.attributes; track $index) {
+              @if (attr.label) {
+                <li><span class="label">{{ attr.label }}</span>: {{ attr.value }}</li>
+              } @else {
+                <li>{{ attr.value }}</li>
+              }
+            }
+          </ul>
+        }
+      </div>
+    </div>
+  } @else if (notFound()) {
+    <p class="status-message">Diese Immobilie konnte nicht gefunden werden.</p>
+  } @else {
+    <p class="status-message">Wird geladen…</p>
+  }
+</div>

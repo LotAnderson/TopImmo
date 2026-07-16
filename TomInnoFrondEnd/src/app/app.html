@@ -1,21 +1,16 @@
 <div class="app-shell">
   <header class="app-header">
     <h1>Stuttgart Immobilien</h1>   <!-- название проекта -->
+    @if (authService.isLoggedIn()) {
+      <button class="logout-btn" (click)="onLogout()">Abmelden</button>
+    }
   </header>
 
-  <div class="main-layout">
-    <div class="map-sidebar">
-      <app-stutgartsmap></app-stutgartsmap>
-    </div>
-    <div class="content-panel">
-      <app-real-estate></app-real-estate>
-      <router-outlet></router-outlet>
-    </div>
-  </div>
+  <router-outlet></router-outlet>
 
   <footer class="app-footer">
     <p>© 2023 Stuttgart Immobilien. Alle Rechte vorbehalten.
-      
+
     </p>   <!-- твой текст про автора -->
   </footer>
 </div>

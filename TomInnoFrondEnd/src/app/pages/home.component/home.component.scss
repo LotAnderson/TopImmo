@@ -1,0 +1,28 @@
+// Macht den Component-Host transparent für das Flex-Layout von .app-shell,
+// damit .main-layout so funktioniert, als wäre es direkt in app.html.
+:host {
+  display: contents;
+}
+
+.main-layout {
+  flex: 1;
+  display: flex;
+}
+
+.content-panel {
+  flex: 1;
+  min-width: 0;
+}
+
+.map-sidebar {
+  position: sticky;
+  top: 80px;
+  align-self: flex-start;
+  height: fit-content;
+
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e8e6e0;
+}
