@@ -41,3 +41,4 @@ C:\Users\Microsoft\source\repos\TopImmo\Backend\ImmoScoutRapidApi\obj\Debug\net8
 C:\Users\Microsoft\source\repos\TopImmo\Backend\ImmoScoutRapidApi\obj\Debug\net8.0\ImmoScoutRapidApi.pdb
 C:\Users\Microsoft\source\repos\TopImmo\Backend\ImmoScoutRapidApi\obj\Debug\net8.0\ImmoScoutRapidApi.genruntimeconfig.cache
 C:\Users\Microsoft\source\repos\TopImmo\Backend\ImmoScoutRapidApi\obj\Debug\net8.0\ref\ImmoScoutRapidApi.dll
+C:\Users\Microsoft\source\repos\TopImmo\Backend\ImmoScoutRapidApi\obj\Debug\net8.0\ImmoScoutRapidApi.sourcelink.json
