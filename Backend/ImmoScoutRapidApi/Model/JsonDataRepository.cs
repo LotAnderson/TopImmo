@@ -12,7 +12,6 @@ namespace Model
             _connection.Open();
             CreateTableIfNotExists();
         }
-
         private void CreateTableIfNotExists()
         {
             using var createTableCmd = _connection.CreateCommand();
@@ -40,6 +39,7 @@ namespace Model
         }
 
 
+
         public int Insert(string city, string body, string houseUrl)
         {
             using var insertCmd = _connection.CreateCommand();
@@ -53,6 +53,7 @@ namespace Model
             var id = (long)insertCmd.ExecuteScalar()!;
             return (int)id;
         }
+
 
 
         public IEnumerable<(int Id, string City, string Body)> GetByCity(string city)

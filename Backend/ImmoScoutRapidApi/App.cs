@@ -1,5 +1,7 @@
 ﻿using Model;
 using Api;
+using System.Text.Json;
+using System;
 
 public class App
 {
@@ -12,6 +14,39 @@ public class App
         _repository = repository;
         _apiClient = apiClient;
         _queryComposer = queryComposer;
+    }
+
+    private string ExtractFirstHouseUrl(string json)
+    {
+        using var doc = JsonDocument.Parse(json);
+        var root = doc.RootElement;
+
+        if (root.TryGetProperty("units", out var units) && units.ValueKind == JsonValueKind.Array && units.GetArrayLength() > 0)
+        {
+            var firstUnit = units[0];
+            if (firstUnit.TryGetProperty("url", out var urlProp))
+            {
+                return urlProp.GetString() ?? "";
+            }
+        }
+        return "";
+    }
+
+    private async Task RunRequestAndSaveAsync()
+    {
+        Console.Write("Enter city: ");
+        var city = Console.ReadLine()?.Trim();
+        if (string.IsNullOrWhiteSpace(city))
+        {
+            Console.WriteLine("City cannot be empty.");
+            return;
+        }
+
+        var url = _queryComposer.ComposeUrl(city);
+        var body = await _apiClient.GetApartmentsAsync(url);
+        var houseUrl = ExtractFirstHouseUrl(body);
+        int newId = _repository.Insert(city, body, houseUrl);
+        Console.WriteLine($"Response saved to database with Id: {newId}, HouseUrl: {houseUrl}");
     }
 
     public async Task RunAsync()
@@ -65,23 +100,5 @@ public class App
         {
             Console.WriteLine("No entries found in the database for this city.");
         }
-    }
-
-    private async Task RunRequestAndSaveAsync()
-    {
-        Console.Write("Enter city: ");
-        var city = Console.ReadLine()?.Trim();
-        if (string.IsNullOrWhiteSpace(city))
-        {
-            Console.WriteLine("City cannot be empty.");
-            return;
-        }
-
-        var url = _queryComposer.ComposeUrl(city);
-        var body = await _apiClient.GetApartmentsAsync(url);
-        Console.WriteLine(body);
-
-        int newId = _repository.Insert(city, body);
-        Console.WriteLine($"Response saved to database with Id: {newId}");
     }
 }

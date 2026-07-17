@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Microsoft\\source\\repos\\TopImmo\\Backend\\ImmoScoutRapidApi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8E753C74-F75F-4605-B1B2-330ADA63E88A}|ImmoScoutRapidApi.csproj|c:\\users\\microsoft\\source\\repos\\topimmo\\backend\\immoscoutrapidapi\\model\\jsondatarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E753C74-F75F-4605-B1B2-330ADA63E88A}|ImmoScoutRapidApi.csproj|solutionrelative:model\\jsondatarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8E753C74-F75F-4605-B1B2-330ADA63E88A}|ImmoScoutRapidApi.csproj|c:\\users\\microsoft\\source\\repos\\topimmo\\backend\\immoscoutrapidapi\\app.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E753C74-F75F-4605-B1B2-330ADA63E88A}|ImmoScoutRapidApi.csproj|solutionrelative:app.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8E753C74-F75F-4605-B1B2-330ADA63E88A}|ImmoScoutRapidApi.csproj|c:\\users\\microsoft\\source\\repos\\topimmo\\backend\\immoscoutrapidapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8E753C74-F75F-4605-B1B2-330ADA63E88A}|ImmoScoutRapidApi.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8E753C74-F75F-4605-B1B2-330ADA63E88A}|ImmoScoutRapidApi.csproj|c:\\users\\microsoft\\source\\repos\\topimmo\\backend\\immoscoutrapidapi\\app.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E753C74-F75F-4605-B1B2-330ADA63E88A}|ImmoScoutRapidApi.csproj|solutionrelative:app.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8E753C74-F75F-4605-B1B2-330ADA63E88A}|ImmoScoutRapidApi.csproj|c:\\users\\microsoft\\source\\repos\\topimmo\\backend\\immoscoutrapidapi\\api\\immoscoutapiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8E753C74-F75F-4605-B1B2-330ADA63E88A}|ImmoScoutRapidApi.csproj|solutionrelative:api\\immoscoutapiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E753C74-F75F-4605-B1B2-330ADA63E88A}|ImmoScoutRapidApi.csproj|c:\\users\\microsoft\\source\\repos\\topimmo\\backend\\immoscoutrapidapi\\model\\jsondatarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E753C74-F75F-4605-B1B2-330ADA63E88A}|ImmoScoutRapidApi.csproj|solutionrelative:model\\jsondatarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -47,39 +47,41 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "App.cs",
+              "DocumentMoniker": "C:\\Users\\Microsoft\\source\\repos\\TopImmo\\Backend\\ImmoScoutRapidApi\\App.cs",
+              "RelativeDocumentMoniker": "App.cs",
+              "ToolTip": "C:\\Users\\Microsoft\\source\\repos\\TopImmo\\Backend\\ImmoScoutRapidApi\\App.cs*",
+              "RelativeToolTip": "App.cs*",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAQwGcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-30T10:43:55.882Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "JsonDataRepository.cs",
               "DocumentMoniker": "C:\\Users\\Microsoft\\source\\repos\\TopImmo\\Backend\\ImmoScoutRapidApi\\Model\\JsonDataRepository.cs",
               "RelativeDocumentMoniker": "Model\\JsonDataRepository.cs",
-              "ToolTip": "C:\\Users\\Microsoft\\source\\repos\\TopImmo\\Backend\\ImmoScoutRapidApi\\Model\\JsonDataRepository.cs",
-              "RelativeToolTip": "Model\\JsonDataRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAANAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Microsoft\\source\\repos\\TopImmo\\Backend\\ImmoScoutRapidApi\\Model\\JsonDataRepository.cs*",
+              "RelativeToolTip": "Model\\JsonDataRepository.cs*",
+              "ViewState": "AgIAABUAAAAAAAAAAAAiwCkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-30T10:38:09.168Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "ImmoScoutApiClient.cs",
               "DocumentMoniker": "C:\\Users\\Microsoft\\source\\repos\\TopImmo\\Backend\\ImmoScoutRapidApi\\Api\\ImmoScoutApiClient.cs",
               "RelativeDocumentMoniker": "Api\\ImmoScoutApiClient.cs",
               "ToolTip": "C:\\Users\\Microsoft\\source\\repos\\TopImmo\\Backend\\ImmoScoutRapidApi\\Api\\ImmoScoutApiClient.cs",
               "RelativeToolTip": "Api\\ImmoScoutApiClient.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAiwBcAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAAAiwCAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-30T10:46:20.395Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "App.cs",
-              "DocumentMoniker": "C:\\Users\\Microsoft\\source\\repos\\TopImmo\\Backend\\ImmoScoutRapidApi\\App.cs",
-              "RelativeDocumentMoniker": "App.cs",
-              "ToolTip": "C:\\Users\\Microsoft\\source\\repos\\TopImmo\\Backend\\ImmoScoutRapidApi\\App.cs",
-              "RelativeToolTip": "App.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-30T10:43:55.882Z"
+              "WhenOpened": "2026-06-30T10:46:20.395Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
