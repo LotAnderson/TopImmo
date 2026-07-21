@@ -8,12 +8,69 @@ public class App
     private readonly JsonDataRepository _repository;
     private readonly ImmoScoutApiClient _apiClient;
     private readonly QueryComposer _queryComposer;
+    private readonly UserLoginService _loginService;
 
     public App(JsonDataRepository repository, ImmoScoutApiClient apiClient, QueryComposer queryComposer)
     {
         _repository = repository;
         _apiClient = apiClient;
         _queryComposer = queryComposer;
+        _loginService = new UserLoginService();
+    }
+
+    private bool Login()
+    {
+        Console.Write("Username: ");
+        var username = Console.ReadLine();
+        Console.Write("Password: ");
+        var password = Console.ReadLine();
+
+        bool isValid = _loginService.ValidateCredentials(username, password);
+        if (isValid)
+        {
+            Console.WriteLine("Login successful!");
+            string sid = _loginService.GenerateSessionId();
+            Console.WriteLine($"Session ID: {sid}");
+            return true;
+        }
+        else
+        {
+            Console.WriteLine("Invalid credentials.");
+            return false;
+        }
+    }
+
+    public async Task RunAsync()
+    {
+        // Require login before proceeding
+        if (!Login())
+            return;
+
+        while (true)
+        {
+            Console.WriteLine("\nChoose an option:");
+            Console.WriteLine("a) Get all infos from the DB for a city");
+            Console.WriteLine("b) Send a new request");
+            Console.WriteLine("c) Exit");
+            Console.Write("Your choice: ");
+            var choice = Console.ReadLine()?.Trim().ToLower();
+
+            switch (choice)
+            {
+                case "a":
+                    GetByCityFromDb();
+                    break;
+                case "b":
+                    await RunRequestAndSaveAsync();
+                    break;
+                case "c":
+                    Console.WriteLine("Exiting...");
+                    return;
+                default:
+                    Console.WriteLine("Invalid option. Please choose a, b, or c.");
+                    break;
+            }
+        }
     }
 
     private string ExtractFirstHouseUrl(string json)
@@ -47,35 +104,6 @@ public class App
         var houseUrl = ExtractFirstHouseUrl(body);
         int newId = _repository.Insert(city, body, houseUrl);
         Console.WriteLine($"Response saved to database with Id: {newId}, HouseUrl: {houseUrl}");
-    }
-
-    public async Task RunAsync()
-    {
-        while (true)
-        {
-            Console.WriteLine("\nChoose an option:");
-            Console.WriteLine("a) Get all infos from the DB for a city");
-            Console.WriteLine("b) Send a new request");
-            Console.WriteLine("c) Exit");
-            Console.Write("Your choice: ");
-            var choice = Console.ReadLine()?.Trim().ToLower();
-
-            switch (choice)
-            {
-                case "a":
-                    GetByCityFromDb();
-                    break;
-                case "b":
-                    await RunRequestAndSaveAsync();
-                    break;
-                case "c":
-                    Console.WriteLine("Exiting...");
-                    return;
-                default:
-                    Console.WriteLine("Invalid option. Please choose a, b, or c.");
-                    break;
-            }
-        }
     }
 
     private void GetByCityFromDb()

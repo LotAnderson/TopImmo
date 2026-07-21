@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ImmoScoutRapidApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c411b2afc10834b2b62039abd4ecb442996fd675")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d178848e1916f234810193c5f5e4d87ac53b6b6a")]
 [assembly: System.Reflection.AssemblyProductAttribute("ImmoScoutRapidApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ImmoScoutRapidApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
