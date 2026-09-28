@@ -78,10 +78,12 @@ public class App
         using var doc = JsonDocument.Parse(json);
         var root = doc.RootElement;
 
-        if (root.TryGetProperty("units", out var units) && units.ValueKind == JsonValueKind.Array && units.GetArrayLength() > 0)
+        if (root.TryGetProperty("listings", out var listings) &&
+            listings.ValueKind == JsonValueKind.Array &&
+            listings.GetArrayLength() > 0)
         {
-            var firstUnit = units[0];
-            if (firstUnit.TryGetProperty("url", out var urlProp))
+            var firstListing = listings[0];
+            if (firstListing.TryGetProperty("url", out var urlProp))
             {
                 return urlProp.GetString() ?? "";
             }
