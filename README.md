@@ -119,6 +119,9 @@ akzeptiert; der geforderte Umfang bleibt unverändert.
 - [Konfigurationsbereinigung und Prüfung des frischen Stands](docs/konfigurationsbereinigung.md)
 - [Echte Demoprobe und Sicherung (#37)](docs/demoprobe.md)
 - [Offline-Screenshotansicht der erfolgreichen Probe](docs/demo/index.html)
+- [Vollständiger Bezirks-/Stadtteilabgleich und Kartenprüfung](docs/stadtbezirke-pruefung.md)
+- [Lerntext für NotebookLM / Audioübersicht](docs/notebooklm-projekttext.md)
+- [Schlüssel abschließen und Anwendung Schritt für Schritt testen](docs/schluessel-und-anwendung-testen.md)
 - [Vortrag und Demo-Ablauf](docs/praesentation.md)
 - [Lokale Präsentationsfolien](docs/praesentation.html)
 - [Präsentations-PDF](docs/praesentation-2026-10-05.pdf)
@@ -134,12 +137,11 @@ Details und verbleibende Grenzen stehen in `docs/demoprobe.md`.
 
 Die Probe unter #37 gilt für den damals vorgeführten Stand. Anschließend wurden
 die Schlüssel in lokale Konfiguration ausgelagert und der lokale JWT-Schlüssel
-ersetzt; neue Ergebnisse werden erst nach tatsächlicher Prüfung eingetragen.
+ersetzt. Die neue lokale API-Konfiguration wurde inzwischen ebenfalls live geprüft. Alle 152 Stadtteilflächen und 23 Bezirkslegenden bestanden echte Klickprüfungen in Chrome und WebKit; die Detailrückkehr erhält jetzt die Kartenmarkierung.
 Der zuvor veröffentlichte Commit bleibt im Git-Verlauf. Den darin enthaltenen
 RapidAPI-Schlüssel muss der Kontoinhaber bei RapidAPI ersetzen und den alten
 Schlüssel widerrufen; die Auslagerung allein ersetzt ihn nicht. Die neuen
-Startanweisungen stehen oben; HTML-Folien und PDF bewahren den früheren
-Präsentationsstand.
+Startanweisungen stehen oben; HTML-Folien, PDF und NotebookLM-Lerntext beschreiben den aktualisierten Stand.
 
 Der zuletzt geprüfte Boardstand vom 04.10.2026, ca. 16:08 Uhr, hat 33 Done- und
 3 Backlog-Einträge. Nutzer/Copilot haben die Nachträge #34–#41 angelegt und die

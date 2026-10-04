@@ -9,6 +9,7 @@
   <ItemGroup>
     <Content Update="appsettings.Local.json" CopyToOutputDirectory="Never" CopyToPublishDirectory="Never" />
     <Content Update="Data/map-districts.json" CopyToOutputDirectory="PreserveNewest" />
+    <Content Update="Data/stuttgart-subdistricts.json" CopyToOutputDirectory="PreserveNewest" />
     <PackageReference Include="BCrypt.Net-Next" Version="4.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.17" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.17" />

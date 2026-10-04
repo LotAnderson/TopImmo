@@ -1,4 +1,4 @@
-import { Component, inject, Renderer2, ElementRef, OnInit, signal, DestroyRef } from '@angular/core';
+import { Component, computed, inject, Renderer2, ElementRef, OnInit, signal, DestroyRef } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { CommonModule } from '@angular/common';
 import { DistrictFilterService } from '../../services/district-filter';
@@ -17,92 +17,76 @@ interface DistrictCount {
   styleUrl: './stutgartsmap.component.scss',
 })
 export class StutgartsmapComponent implements OnInit {
-
   private districtFilterService = inject(DistrictFilterService);
   private realEstateService = inject(RealEstateService);
   private renderer = inject(Renderer2);
   private elementRef = inject(ElementRef);
   private destroyRef = inject(DestroyRef);
 
-  // Anzahl Mietwohnungen je Stadtteil, für die Legende neben der Karte
   districtCounts = signal<DistrictCount[]>([]);
-  private mapDistricts: Record<string, string> = {};
+  private mapDistricts = signal<Record<string, string>>({});
   selectedDistrict = signal<string | null>(null);
 
+  // Auch Bezirke ohne Angebot bleiben auswählbar. Unbestimmte Adressen
+  // sind eine eigene Ergebnisgruppe und gehören zu keiner Kartenfläche.
+  legendDistricts = computed(() => {
+    const counts = new Map(this.districtCounts().map(item => [item.district, item.count]));
+    const districts = [...new Set(Object.values(this.mapDistricts()))]
+      .sort((a, b) => a.localeCompare(b, 'de'));
+    if (counts.has('Unknown')) districts.push('Unknown');
+    return districts.map(district => ({ district, count: counts.get(district) ?? 0 }));
+  });
+
   ngOnInit(): void {
-    this.realEstateService
-      .getStuttgartListings()
+    this.realEstateService.getStuttgartListings()
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
         next: (result) => {
           this.districtCounts.set(result.districtCounts);
-          this.mapDistricts = result.mapDistricts;
+          this.mapDistricts.set(result.mapDistricts);
+          this.highlightBezirk(this.selectedDistrict(), 'selected');
         },
         error: () => this.districtCounts.set([]),
       });
 
-    this.districtFilterService
-      .selectedDistrict$
+    this.districtFilterService.selectedDistrict$
       .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe((district) => this.selectedDistrict.set(district));
+      .subscribe((district) => {
+        this.selectedDistrict.set(district);
+        this.highlightBezirk(district, 'selected');
+      });
   }
 
-//click on the map
   onMapClick(event: MouseEvent): void {
-    const target = event.target as SVGElement;
-    const clickedId = target.id;
-    if (!clickedId || !clickedId.startsWith('a')) {
-            return;
-    }
-    const bezirk = this.mapDistricts[clickedId];
-    if (bezirk) {
-      this.selectBezirk(bezirk);
-    }
+    const district = this.districtFromEvent(event);
+    if (district) this.onLegendClick(district);
   }
 
-  // Klick auf einen Eintrag der Legende neben der Karte
-  onLegendClick(bezirk: string): void {
-    this.selectBezirk(bezirk);
+  onLegendClick(district: string): void {
+    this.districtFilterService.setSelectedDistrict(district);
   }
 
-  private selectBezirk(bezirk: string): void {
-    this.districtFilterService.setSelectedDistrict(bezirk);
-    this.highlightBezirk(bezirk, 'selected');
+  private districtFromEvent(event: MouseEvent): string | undefined {
+    if (!(event.target instanceof Element)) return undefined;
+    const path = event.target.closest('#Layer_15 path');
+    return path ? this.mapDistricts()[path.id] : undefined;
   }
 
- //highlight the selected district on the map
-  highlightBezirk(bezirk: string, className:string): void {
-  const allPaths = this.elementRef.nativeElement.querySelectorAll('#Layer_15 path');
-
-  allPaths.forEach((el: SVGElement) => {
-    this.renderer.removeClass(el, className);
-    if(this.mapDistricts[el.id] === bezirk) {
-      this.renderer.addClass(el, className);
-    }
-  });
-}
-
-//hover on the map
-onMapMouseOver(event: MouseEvent): void {
-  const target = event.target as SVGElement;
-  const clickedId = target.id;
-
-  if (!clickedId || !clickedId.startsWith('a')) {
-    return;
+  private highlightBezirk(district: string | null, className: string): void {
+    const allPaths = this.elementRef.nativeElement.querySelectorAll('#Layer_15 path');
+    allPaths.forEach((path: SVGElement) => {
+      this.renderer.removeClass(path, className);
+      if (district && this.mapDistricts()[path.id] === district) {
+        this.renderer.addClass(path, className);
+      }
+    });
   }
 
-  const bezirk = this.mapDistricts[clickedId];
-
-  if (bezirk) {
-    this.highlightBezirk(bezirk, 'hovered');
+  onMapMouseOver(event: MouseEvent): void {
+    this.highlightBezirk(this.districtFromEvent(event) ?? null, 'hovered');
   }
-}
-//hover out on the map
-onMapMouseOut(event: MouseEvent): void {
-  const allPaths = this.elementRef.nativeElement.querySelectorAll('#Layer_15 path');
-  allPaths.forEach((el: SVGElement) => {
-    this.renderer.removeClass(el, 'hovered');
-  });
-}
 
+  onMapMouseOut(_event: MouseEvent): void {
+    this.highlightBezirk(null, 'hovered');
+  }
 }

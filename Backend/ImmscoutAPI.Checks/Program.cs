@@ -14,6 +14,8 @@ using ImmscoutAPI.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Caching.Memory;
+using System.Text.Json;
+using System.Text.RegularExpressions;
 
 var backendPath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "../../../../ImmscoutAPI"));
 var environment = WebApplication.CreateBuilder(new WebApplicationOptions { ContentRootPath = backendPath }).Environment;
@@ -64,6 +66,87 @@ cache.Remove("stuttgart-listings");
 handler.Body = "{\"listings\":[]}";
 Assert((await service.SearchAsync(null)).DistrictCounts.Count == 0, "Empty upstream data returns empty counts");
 cache.Remove("stuttgart-listings");
+
+// The canonical reference was independently checked against the city of
+// Stuttgart's complete list. Exercise every Stadtteil through the real search
+// pipeline, including known district boundaries and ambiguous location data.
+var officialSubdistricts = JsonSerializer.Deserialize<List<OfficialSubdistrict>>(
+    File.ReadAllText(Path.Combine(backendPath, "Data", "stuttgart-subdistricts.json")),
+    new JsonSerializerOptions { PropertyNameCaseInsensitive = true })!;
+var expectedDistrictSizes = new Dictionary<string, int>
+{
+    ["Mitte"] = 10, ["Nord"] = 11, ["Ost"] = 8, ["Süd"] = 7, ["West"] = 9,
+    ["Bad Cannstatt"] = 18, ["Birkach"] = 3, ["Botnang"] = 4, ["Degerloch"] = 5,
+    ["Feuerbach"] = 8, ["Hedelfingen"] = 4, ["Möhringen"] = 9, ["Mühlhausen"] = 5,
+    ["Münster"] = 1, ["Obertürkheim"] = 2, ["Plieningen"] = 5, ["Sillenbuch"] = 3,
+    ["Stammheim"] = 2, ["Untertürkheim"] = 8, ["Vaihingen"] = 12, ["Wangen"] = 1,
+    ["Weilimdorf"] = 6, ["Zuffenhausen"] = 11
+};
+Assert(officialSubdistricts.Count == 152 && officialSubdistricts.Select(item => item.Number).Distinct().Count() == 152,
+    "The canonical reference contains all 152 unique official Stadtteile");
+Assert(officialSubdistricts.Select(item => item.Name).Distinct().Count() == 152,
+    "Official Stadtteil names are unambiguous");
+Assert(officialSubdistricts.Select(item => item.District).Distinct().Count() == 23 &&
+    expectedDistrictSizes.All(pair => officialSubdistricts.Count(item => item.District == pair.Key) == pair.Value),
+    "The reference matches all 23 official district sizes");
+Assert(officialSubdistricts.Single(item => item.Name == "Killesberg").Number == 124 &&
+    officialSubdistricts.Single(item => item.Name == "Gehrenwald").Number == 661,
+    "Official numbering resolves two typos on the city overview with its street directory");
+foreach (var entry in all.MapDistricts)
+{
+    var number = int.Parse(entry.Key.AsSpan(1, 3));
+    var official = officialSubdistricts.Single(item => item.Number == number);
+    var mapName = Regex.Replace(entry.Key[5..], @"_\d+_$", "")
+        .Replace("_x5F_", "_").Replace("x5F_", "").Replace("_x2F_", "/").Replace('_', ' ').Trim();
+    Assert(mapName == official.Name && entry.Value == official.District,
+        $"Map ID {entry.Key} matches its official Stadtteil name and parent district");
+}
+Assert(all.MapDistricts.Count == 458 && officialSubdistricts.All(item =>
+    all.MapDistricts.Keys.Any(id => id.StartsWith($"a{item.Number}_", StringComparison.Ordinal))),
+    "All 458 SVG mapping IDs cover every official Stadtteil");
+var locationCases = officialSubdistricts.Select(item =>
+    (Address: $"Beispielstraße 1, 70173 Stuttgart, {item.Name}", Expected: item.District)).ToList();
+locationCases.AddRange(expectedDistrictSizes.Keys.Select(district =>
+    (Address: $"Beispielstraße 1, 70173 Stuttgart, Stuttgart-{district}", Expected: district)));
+locationCases.AddRange(new[]
+{
+    ("Beispielstraße 1, 70329 Stuttgart, Uhlbach", "Obertürkheim"),
+    ("Beispielstraße 1, 70327 Stuttgart, Untertürkheim", "Untertürkheim"),
+    ("Beispielstraße 1, 70173 Stuttgart, sTuTtGaRt - mItTe", "Mitte"),
+    ("Beispielstraße 1, 70173 Stuttgart, Uhlbach (Stuttgart), Deutschland", "Obertürkheim"),
+    ("Beispielstraße 1, 70173 Stuttgart, Stuttgart–Mitte", "Mitte"),
+    ("Beispielstraße 1, D-70173 Stuttgart-Mitte", "Mitte"),
+    ("Beispielstraße 1, 70173 Stuttgart, Universität".Normalize(System.Text.NormalizationForm.FormD), "Mitte"),
+    ("Beispielstraße 1, 70173 Stuttgart", "Unknown"),
+    ("Beispielstraße 1, 70173 Stuttgart, Stuttgart", "Unknown"),
+    ("Beispielstraße 1, 70173 Stuttgart, unbekannter Ort", "Unknown"),
+    ("Beispielstraße 1, 70329 Stuttgart", "Unknown"),
+    ("Rathaus, 70173 Stuttgart", "Unknown"),
+    ("Beispielstraße 1, 70173 Stuttgart, Stuttgart-Mitte, Uhlbach", "Unknown"),
+    ("", "Unknown")
+});
+handler.Body = JsonSerializer.Serialize(new
+{
+    listings = locationCases.Select((item, index) => new
+    {
+        id = $"location-{index}", realEstateType = "apartmentrent", address = new { line = item.Address }
+    })
+});
+var locations = await service.SearchAsync(null);
+for (var index = 0; index < locationCases.Count; index++)
+    Assert(locations.Listings[index].MappedDistrict == locationCases[index].Expected,
+        $"Address case {index}: maps complete official locations and preserves unknown data");
+Assert(locations.DistrictCounts.All(item => expectedDistrictSizes.ContainsKey(item.District) || item.District == "Unknown"),
+    "City-wide counts contain only official districts or Unknown");
+foreach (var district in expectedDistrictSizes.Keys)
+{
+    var filteredLocations = await service.SearchAsync(district);
+    Assert(filteredLocations.Listings.Count == locationCases.Count(item => item.Expected == district) &&
+        filteredLocations.DistrictCounts.Sum(item => item.Count) == locationCases.Count,
+        $"Filtering {district} includes its Stadtteile and retains city-wide counts");
+}
+Console.WriteLine($"Official location audit passed: 23 districts, 152 Stadtteile, 458 map IDs, {locationCases.Count} address cases.");
+cache.Remove("stuttgart-listings");
 handler.Body = null;
 await service.SearchAsync(null);
 // Exercise real controller routing, authorization and JSON serialization over HTTP.
@@ -109,6 +192,8 @@ static void Assert(bool condition, string message)
 {
     if (!condition) throw new Exception(message);
 }
+
+sealed record OfficialSubdistrict(int Number, string Name, string District);
 
 sealed class FixtureHandler : HttpMessageHandler
 {

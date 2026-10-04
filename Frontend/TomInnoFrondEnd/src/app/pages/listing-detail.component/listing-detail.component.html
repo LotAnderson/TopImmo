@@ -29,7 +29,7 @@
         <p class="price">{{ l.price }} €</p>
         <p class="meta">{{ l.livingSpace }} m², {{ l.rooms }} Zimmer</p>
         <p class="address">{{ l.address.line }}</p>
-        <p class="district">Stadtteil: {{ l.mappedDistrict }}</p>
+        <p class="district">Stadtbezirk: {{ l.mappedDistrict === 'Unknown' ? 'Ohne Bezirksangabe' : l.mappedDistrict }}</p>
         <p class="published">{{ l.publishedLabel }}</p>
 
         @if (l.attributes.length) {

@@ -13199,15 +13199,17 @@
 </svg>
 
 <div class="district-legend">
-	<h3>Mietwohnungen je Stadtteil</h3>
+	<h3>Mietwohnungen je Stadtbezirk</h3>
 	<ul>
-		@for (item of districtCounts(); track item.district) {
+		@for (item of legendDistricts(); track item.district) {
 			<li
 				[class.active]="selectedDistrict() === item.district"
-				(click)="onLegendClick(item.district)"
 			>
-				<span class="name">{{ item.district }}</span>
-				<span class="count">{{ item.count }}</span>
+				<button type="button" [attr.aria-pressed]="selectedDistrict() === item.district"
+					(click)="onLegendClick(item.district)">
+					<span class="name">{{ item.district === 'Unknown' ? 'Ohne Bezirksangabe' : item.district }}</span>
+					<span class="count">{{ item.count }}</span>
+				</button>
 			</li>
 		} @empty {
 			<li class="empty">Keine Daten geladen.</li>
@@ -13215,4 +13217,3 @@
 	</ul>
 </div>
 </div>
-

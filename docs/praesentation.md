@@ -4,9 +4,11 @@
 
 **Zeitannahme: 8–10 Minuten, hier auf 9 Minuten geplant.** Eine verbindliche Vorgabe zur Vortragsdauer wurde nicht genannt; Dauer an die Lehrkraft anpassen. Bei sechs Minuten Folie 2 und 4 kürzen sowie die Demo auf Login → Bezirk → Detail begrenzen. Bei zehn Minuten eine Rückfrage zur Architektur aufnehmen. Die Live-Demo benötigt separat das laufende Produkt und eine funktionierende externe API; die Foliendatei selbst benötigt beides nicht.
 
+**Neue Lernquelle:** [NotebookLM-Projekttext mit Audio-Anpassung und Prüfungsfragen](notebooklm-projekttext.md). [Vollständige Karten-/Gebietsprüfung](stadtbezirke-pruefung.md).
+
 **Begleitunterlagen:** [Architektur](architektur.md), [Algorithmen](algorithmen.md), [Backlog](backlog.md), [Retrospektive](retrospektive.md), [Prüfungen](pruefungen.md) und [Scrum-Nachträge / Boardabgleich](scrum-nachtraege.md). Der Produktstand vom 02.10.2026 und spätere Änderungen werden getrennt beschrieben. Das Datum ist kein bestätigter Beginn der Alleinarbeit.
 
-**Nachtrag zur Konfiguration:** Nach der #37-Probe wurde der Präsentationsstand als `2d447a7` auf dem öffentlichen Arbeitsbranch nachgewiesen. Die anschließende Konfigurationspflege lagert API-/JWT-Schlüssel in lokale Konfiguration aus und nimmt lokale Datenbank-/Builddateien aus der Versionierung. Der lokale JWT-Schlüssel wurde ersetzt; die RapidAPI-Rotation beim Provider ist noch offen. Die frühere Probe bleibt für den damaligen Stand gültig; Ergebnisse für die neue Konfiguration werden erst nach tatsächlicher Prüfung ergänzt. HTML-Folien und PDF bewahren den früheren Präsentationsstand.
+**Nachtrag zur Konfiguration:** Nach der #37-Probe wurde der Präsentationsstand als `2d447a7` auf dem öffentlichen Arbeitsbranch nachgewiesen. Die anschließende Konfigurationspflege lagert API-/JWT-Schlüssel in lokale Konfiguration aus und nimmt lokale Datenbank-/Builddateien aus der Versionierung. Der lokale JWT-Schlüssel wurde ersetzt; ein neuer lokaler RapidAPI-Schlüssel ist live geprüft, der Widerruf des alten Schlüssels beim Provider bleibt unbestätigt. Die frühere Probe bleibt für den damaligen Stand gültig. Neue lokale API-Konfiguration und vollständige Kartenprüfung sind inzwischen erfolgreich geprüft. HTML-Folien und PDF werden auf den jetzigen Stand aktualisiert; alte Screenshots bleiben als damalige Nachweise erhalten.
 
 ## Ablauf und Zeitbudget
 
@@ -103,7 +105,7 @@ Auswahl = alle Angebote oder nur gewählter Bezirk
 liefere { listings: Auswahl, districtCounts: Trefferzahlen, mapDistricts }
 ```
 
-**Code zeigen:** [DistrictDataService.cs](../Backend/ImmscoutAPI/Service/DistrictDataService.cs), Zeilen 22, 51, 62. Bei Rückfrage erklären: Ohne Adresse entsteht `Unknown`; die Adressauswertung ist eine einfache Komma-/Präfixlogik und kein allgemeiner Geocoder.
+**Code zeigen:** [DistrictDataService.cs](../Backend/ImmscoutAPI/Service/DistrictDataService.cs), Zeilen 22, 51, 62. Bei Rückfrage erklären: Ohne Adresse entsteht `Unknown`; die Adressauswertung vergleicht vollständige Ortsnamen mit 23 Bezirken und 152 Stadtteilen; sie ist kein allgemeiner Geocoder. Stadtteile werden ihrem Elternbezirk zugeordnet, unbestimmte oder widersprüchliche Angaben bleiben `Unknown`.
 
 ## Folie 5 – Live-Demo und verlässlicher Ausweichablauf
 
@@ -117,7 +119,7 @@ liefere { listings: Auswahl, districtCounts: Trefferzahlen, mapDistricts }
 2. Übersicht zeigen: Karte, Legende und Angebotskarten. Zahl der tatsächlich geladenen Treffer benennen, keine feste Zahl versprechen.
 3. Einen Bezirk mit Treffern in der Legende wählen. Zeigen, dass Karte/Legende und angezeigte Angebote zusammenhängen. Kein Zurücksetzen auf „alle“ versprechen: Dieser UI-Knopf fehlt derzeit.
 4. „Zum Angebot“ öffnen; Titel, Preis, Fläche, Adresse und Bilder zeigen. Thumbnails nur vorführen, wenn dieses Angebot mehrere Bilder enthält.
-5. Zur Übersicht zurückkehren und abmelden. Darauf hinweisen, dass die Legende den Filter behält; Kartenhervorhebung kann beim Rückweg verloren gehen.
+5. Zur Übersicht zurückkehren und abmelden. Zeigen, dass Legende und Kartenhervorhebung den Filter beim Rückweg behalten. Die Karte wurde für alle 152 Flächen und 23 Bezirke in Chrome und WebKit geprüft.
 
 **Sprechtext zum Einstieg:**
 
@@ -134,7 +136,7 @@ Dieser Ausweichablauf ist eine Test-/Codevorführung. Eine offline mit Fixture-D
 
 ## Folie 6 – Welche Qualität wurde überprüft?
 
-**Auf der Folie:** acht Frontendtests bestanden; Backendbuild erfolgreich mit Warnungen; Backendchecks bestanden; Entwicklungsbuild erfolgreich; Produktionsbuild offen.
+**Auf der Folie:** zwölf Frontendtests bestanden; Backendbuild erfolgreich mit Warnungen; Backendchecks bestanden; Entwicklungsbuild erfolgreich; Produktionsbuild offen.
 
 Vertiefung: [Prüfungen und Grenzen](pruefungen.md).
 
@@ -142,7 +144,7 @@ Vertiefung: [Prüfungen und Grenzen](pruefungen.md).
 
 | Prüfung | Ergebnis | Aussagegrenze |
 |---|---|---|
-| `npm test -- --watch=false` | 8/8 Tests, 2 Dateien bestanden | Komponenten/Mock-HTTP; kein Browser-E2E, kein echter Authflow |
+| `npm test -- --watch=false` | 12/12 Tests, 2 Dateien bestanden | Komponenten/Mock-HTTP; kein Browser-E2E, kein echter Authflow |
 | `npm run build -- --configuration development` | Erfolgreich | Entwicklungsbuild; Initialbundle 4,43 MB |
 | `npm run build` | Fehlgeschlagen | Produktionsbundle 1,71 MB überschreitet 1-MB-Budget |
 | Backend vollständig neu kompiliert | 0 Fehler, 28 CS8618-Warnungen | Nicht initialisierte nicht-nullbare Modelleigenschaften offen |
@@ -152,7 +154,7 @@ Vertiefung: [Prüfungen und Grenzen](pruefungen.md).
 
 **Sprechnotiz, ungefähr 75 Sekunden:**
 
-> „Die vorhandenen Frontendtests laufen erfolgreich und sichern unter anderem Filter, Fehlerzustände und Details. Der Entwicklungsbuild funktioniert. Der Produktionsbuild scheitert dagegen am Bundlebudget; die große Inline-SVG-Karte ist die wahrscheinliche Hauptursache. Das Backend kompiliert ohne Fehler, aber mit 28 Nullability-Warnungen. Seine vorhandenen Checks prüfen Verarbeitung, JSON, Routing und den Schutz der Endpunkte mit Testauth. Zusätzlich wurde die echte Authentifizierung isoliert mit einer temporären Datenbank geprüft. Dabei wurde auch eine Lücke reproduziert: ungültige Registrierungsdaten werden serverseitig angenommen. Tests und Live-Demo ergänzen sich; der konkrete Desktopablauf mit echtem Login, API-Abruf und Bildwechsel wurde anschließend erfolgreich geprobt. Die Kartenmarkierung geht beim Rückweg verloren; umfassende End-to-End-Regression bleibt offen.“
+> „Die vorhandenen Frontendtests laufen erfolgreich und sichern unter anderem Filter, Fehlerzustände und Details. Der Entwicklungsbuild funktioniert. Der Produktionsbuild scheitert dagegen am Bundlebudget; die große Inline-SVG-Karte ist die wahrscheinliche Hauptursache. Das Backend kompiliert ohne Fehler, aber mit 28 Nullability-Warnungen. Seine vorhandenen Checks prüfen Verarbeitung, JSON, Routing und den Schutz der Endpunkte mit Testauth. Zusätzlich wurde die echte Authentifizierung isoliert mit einer temporären Datenbank geprüft. Dabei wurde auch eine Lücke reproduziert: ungültige Registrierungsdaten werden serverseitig angenommen. Tests und Live-Demo ergänzen sich; der konkrete Desktopablauf mit echtem Login, API-Abruf und Bildwechsel wurde anschließend erfolgreich geprobt. Alle 152 Kartenflächen und 23 Bezirkslegenden bestanden zusätzlich in Chrome und WebKit. Die Kartenmarkierung bleibt beim Rückweg erhalten; umfassende Mobil- und Fehlerfallabdeckung bleibt offen.“
 
 **Befehle zum Vorführen, Backend ab Repo-Wurzel:**
 
@@ -205,7 +207,7 @@ Vertiefung: [Backlog](backlog.md), [Retrospektive](retrospektive.md), [heutiger 
 
 1. Aktuellen lauffähigen Stand und Dokumente vollständig abgeben; Board, Architektur/Algorithmus und individuellen Beitrag nachvollziehbar halten.
 2. Den veröffentlichten alten RapidAPI-Schlüssel beim Provider ersetzen; danach Produktionsbundle reduzieren, Backendvalidierung ergänzen, 401-/Refresh-Verhalten im Frontend umsetzen und API-Fehler kontrolliert behandeln.
-3. Optionaler Produktfeinschliff: mobile Ansicht, „alle Bezirke“-Reset, Kartenhervorhebung beim Rückweg, Bildfallback und Tastaturbedienung.
+3. Optionaler Produktfeinschliff: mobile Ansicht, „alle Bezirke“-Reset, Bildfallback und Tastaturbedienung der Kartenflächen. Die Legendenbuttons sind bereits per Tastatur bedienbar.
 
 ## Vorbereitung heute / vor dem Vortrag
 

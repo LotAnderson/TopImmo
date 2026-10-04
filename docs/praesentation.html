@@ -245,7 +245,7 @@
         <div class="cards algorithm">
           <div class="card"><h3>Laden</h3><p>Cache prüfen; bei Bedarf API-JSON lesen.</p></div>
           <div class="card"><h3>Miettyp filtern</h3><p>Nur <code>apartmentrent</code> behalten.</p></div>
-          <div class="card"><h3>Bezirk ableiten</h3><p>Adresszeile auswerten und Stuttgart-Präfix normalisieren.</p></div>
+          <div class="card"><h3>Bezirk ableiten</h3><p>Ortsnamen abgleichen: 152 Stadtteile → 23 Stadtbezirke.</p></div>
           <div class="card"><h3>Zählen + sortieren</h3><p>Nach Bezirk gruppieren; Anzahl absteigend sortieren.</p></div>
           <div class="card"><h3>Auswahl filtern</h3><p>Gewählten Bezirk auf die Angebotsliste anwenden.</p></div>
           <div class="card"><h3>JSON darstellen</h3><p>Liste, Bezirkszahlen und SVG-Zuordnung ans Frontend.</p></div>
@@ -253,7 +253,7 @@
         <div class="callout">Cache: 5 Minuten. Eine Ladesperre vermeidet parallele doppelte API-Abrufe.</div>
         <p class="caption">Counts beziehen sich auf geladene Angebote, aktuell erste Seite mit bis zu 30 Treffern. Bezirksauswahl reduziert die Liste; die Legende zählt weiter alle geladenen Bezirke.</p>
         <p class="evidence"><a href="algorithmen.md">Algorithmen und Darstellung</a> · Code: <a href="../Backend/ImmscoutAPI/Service/DistrictDataService.cs">DistrictDataService.cs · Z. 22/51/62</a></p>
-        <aside class="speaker-notes"><strong>Sprechnotiz · 60 Sekunden</strong><p>Bei vorhandenem Cache wird er verwendet. Andernfalls folgt Ladesperre, erneute Cacheprüfung, API-JSON, Mietfilter und Bezirksableitung. Die Sperre wird im finally freigegeben. GroupBy liefert Zahlen; die Bezirksauswahl filtert nur die Liste. mapDistricts verbindet SVG-IDs mit Bezirken. Adressauswertung ist einfache Komma-/Präfixlogik, kein Geocoder. Ohne Adresse entsteht Unknown. Die erste Seite ist eine Stichprobe, kein vollständiger Stuttgarter Markt.</p></aside>
+        <aside class="speaker-notes"><strong>Sprechnotiz · 60 Sekunden</strong><p>Bei vorhandenem Cache wird er verwendet. Andernfalls folgt Ladesperre, erneute Cacheprüfung, API-JSON, Mietfilter und Bezirksableitung. Die Sperre wird im finally freigegeben. GroupBy liefert Zahlen; die Bezirksauswahl filtert nur die Liste. mapDistricts verbindet SVG-IDs mit Bezirken. Adressauswertung vergleicht vollständige Ortskomponenten mit allen amtlichen Stadtteilen und Bezirken, kein Geocoder. Fehlende oder widersprüchliche Angaben ergeben Unknown. Die erste Seite ist eine Stichprobe, kein vollständiger Stuttgarter Markt.</p></aside>
       </section>
 
       <section class="slide" id="folie-5" aria-labelledby="title-5">
@@ -269,7 +269,7 @@
         </div>
         <div class="callout warn">Liveprobe am 04.10. bestanden: 28 Angebote, Bad Cannstatt, Detail/Bildwechsel und Logout. Screenshots sind offline verfügbar.</div>
         <p class="evidence">Ausweichbeleg: <a href="../Frontend/TomInnoFrondEnd/src/app/listing-flow.spec.ts">listing-flow.spec.ts · Z. 12/37/69</a><a href="../Backend/ImmscoutAPI.Checks/Program.cs">Backendchecks · Z. 22</a></p>
-        <aside class="speaker-notes"><strong>Sprechnotiz · Demo 2 Minuten</strong><p>Ungültige E-Mail/kurzes Passwort im Formular zeigen, danach vorbereitetes gültiges Demokonto anmelden. Übersicht, Bezirk mit Treffern und ein Detail öffnen; Bilder nur wechseln, wenn mehrere vorhanden sind. Zum Schluss abmelden. Bei Ausfall kurz Fehler zeigen und zur Test-/Codevorführung wechseln. Fixtures ausdrücklich als Testdaten benennen, keine erfolgreiche Live-Verbindung behaupten. Kein UI-Reset auf alle Bezirke versprechen; der fehlt. Rückweg kann Kartenhervorhebung verlieren. Passwörter, Tokens und Schlüssel nicht projizieren.</p></aside>
+        <aside class="speaker-notes"><strong>Sprechnotiz · Demo 2 Minuten</strong><p>Ungültige E-Mail/kurzes Passwort im Formular zeigen, danach vorbereitetes gültiges Demokonto anmelden. Übersicht, Bezirk mit Treffern und ein Detail öffnen; Bilder nur wechseln, wenn mehrere vorhanden sind. Zum Schluss abmelden. Bei Ausfall kurz Fehler zeigen und zur Test-/Codevorführung wechseln. Fixtures ausdrücklich als Testdaten benennen, keine erfolgreiche Live-Verbindung behaupten. Kein UI-Reset auf alle Bezirke versprechen; der fehlt. Beim Rückweg bleibt die Kartenhervorhebung jetzt erhalten; zusätzlich wurden alle 152 Flächen und 23 Bezirke in Chrome und WebKit geprüft. Passwörter, Tokens und Schlüssel nicht projizieren.</p></aside>
       </section>
 
       <section class="slide" id="folie-6" aria-labelledby="title-6">
@@ -278,7 +278,7 @@
         <table class="results">
           <thead><tr><th scope="col">Prüfung am 04.10.2026</th><th scope="col">Ergebnis</th><th scope="col">Grenze / offener Punkt</th></tr></thead>
           <tbody>
-            <tr><td>Frontend-Komponenten / HTTP</td><td class="passed">8 / 8 bestanden</td><td>Mockdaten; kein Browser-E2E oder echter Authflow</td></tr>
+            <tr><td>Frontend-Komponenten / HTTP</td><td class="passed">12 / 12 bestanden</td><td>Mockdaten; kein Browser-E2E oder echter Authflow</td></tr>
             <tr><td>Frontend-Entwicklungsbuild</td><td class="passed">Erfolgreich</td><td>Initialbundle: 4,43 MB</td></tr>
             <tr><td>Frontend-Produktionsbuild</td><td class="failed">Fehlgeschlagen</td><td>1,71 MB überschreiten das 1-MB-Budget</td></tr>
             <tr><td>Backendbuild / vorhandene Checks</td><td class="passed">0 Fehler / Checks bestanden</td><td>28 Nullability-Warnungen; Fixtures und Testauth</td></tr>
@@ -286,9 +286,9 @@
           </tbody>
         </table>
         <div class="callout">Zusätzlich isoliert geprüft: echte Registrierung, Login und Refreshrotation mit temporärer SQLite. Kein Live-Immobilienabruf.</div>
-        <p class="caption">Reproduzierter Fehler: serverseitige Registrierung akzeptiert ungültige Eingaben. Automatischer Frontend-Refresh bleibt offen. Kartenmarkierung verschwindet beim Rückweg.</p>
+        <p class="caption">Reproduzierter Fehler: serverseitige Registrierung akzeptiert ungültige Eingaben. Automatischer Frontend-Refresh bleibt offen. Karte: 152 Flächen / 23 Bezirke in Chrome und WebKit geprüft; Rückwegmarkierung behoben.</p>
         <p class="evidence"><a href="pruefungen.md">Prüfungen und Grenzen</a><a href="demoprobe.md">Liveprobe / Sicherung</a> · Code: <a href="../Frontend/TomInnoFrondEnd/src/app/listing-flow.spec.ts">Frontendtests</a><a href="../Backend/ImmscoutAPI.Checks/Program.cs">Backendchecks</a><a href="../Frontend/TomInnoFrondEnd/src/app/services/auth.ts">Frontend-Auth · Z. 33</a></p>
-        <aside class="speaker-notes"><strong>Sprechnotiz · 75 Sekunden</strong><p>Acht Frontendtests bestanden, unter anderem Filter, Fehlerzustände und Details. Entwicklungsbuild klappt, Produktionsbuild scheitert am Budget; große Inline-SVG-Karte wahrscheinlich Hauptursache. Backend: 0 Fehler, 28 CS8618-Warnungen. Vorhandene Checks prüfen Verarbeitung/HTTP mit Testauth. Zusätzlich echte Auth isoliert geprüft: normale Abläufe, Dublette, falsches Passwort, Rotation und abgelehnter alter Refresh-Token. Ungültige Registrierungen wurden trotzdem angenommen. Die isolierte Authprüfung ist noch kein eingecheckter Regressionstest. Konkrete echte Desktopprobe anschließend bestanden, inklusive Bildwechsel und Logout. Keine umfassende Browserregression behaupten.</p></aside>
+        <aside class="speaker-notes"><strong>Sprechnotiz · 75 Sekunden</strong><p>Zwölf Frontendtests bestanden, unter anderem Filter, Fehlerzustände und Details. Entwicklungsbuild klappt, Produktionsbuild scheitert am Budget; große Inline-SVG-Karte wahrscheinlich Hauptursache. Backend: 0 Fehler, 28 CS8618-Warnungen. Vorhandene Checks prüfen Verarbeitung/HTTP mit Testauth. Zusätzlich echte Auth isoliert geprüft: normale Abläufe, Dublette, falsches Passwort, Rotation und abgelehnter alter Refresh-Token. Ungültige Registrierungen wurden trotzdem angenommen. Die isolierte Authprüfung ist noch kein eingecheckter Regressionstest. Konkrete echte Desktopprobe anschließend bestanden, inklusive Bildwechsel und Logout. Zusätzlich alle 152 Stadtteilflächen und 23 Bezirkslegenden in Chrome und WebKit geprüft. Keine vollständige Mobil- oder Fehlerfallabdeckung behaupten.</p></aside>
       </section>
 
       <section class="slide" id="folie-7" aria-labelledby="title-7">
@@ -312,7 +312,7 @@
         <ol class="priorities">
           <li><strong>Abgabe nachvollziehbar machen</strong><span>Aktuellen Code, Startanleitung, Architektur/Algorithmus, Scrum und individuellen Beitrag konsistent abgeben.</span></li>
           <li><strong>Technische Korrektheit erhöhen</strong><span>Produktionsbundle, Backendvalidierung, Frontend-Sitzungsablauf und externe API-Fehlerbehandlung.</span></li>
-          <li><strong>Bedienung verbessern</strong><span>Mobile Ansicht, Bezirksreset, Kartenhervorhebung beim Rückweg, Bildfallback und Tastaturzugang.</span></li>
+          <li><strong>Bedienung verbessern</strong><span>Mobile Ansicht, Bezirksreset, Bildfallback und Tastaturbedienung der Kartenflächen.</span></li>
         </ol>
         <p class="caption">Technische Fixes werden hier als nächste Schritte genannt, nicht als bereits abgeschlossen. Weiterer Funktionsumfang folgt nach Stabilisierung des vorhandenen Ablaufs.</p>
         <p class="evidence"><a href="../README.md">Startanleitung</a><a href="praesentation.md">Vollständiger Vortragsleitfaden</a></p>

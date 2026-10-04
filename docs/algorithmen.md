@@ -37,31 +37,38 @@ Belege: [Cache, Sperre, Filter und Verarbeitung](../Backend/ImmscoutAPI/Service/
 
 ## 2. Bezirk aus einer Adresse ermitteln
 
-Ziel: Adressangaben wie `Stuttgart-Mitte` und `Mitte` für Karte und Filter vereinheitlichen.
+Ziel: Amtliche Stadtteil- und Bezirksnamen eindeutig einem der 23 Stadtbezirke zuordnen.
 
 ```text
+BEIM START:
+    lade Bezirksnamen aus map-districts.json
+    lade alle 152 Stadtteile mit Elternbezirk aus stuttgart-subdistricts.json
+    baue Nachschlagetabelle: normalisierter Ortsname → Stadtbezirk
+
 FUNKTION ErmittleBezirk(Adresszeile):
-    WENN Adresszeile fehlt, leer ist oder nur Leerzeichen enthält:
+    WENN Adresszeile fehlt oder leer ist:
         GIB "Unknown" zurück
 
     Teile = trenne Adresszeile an Kommas
-    WENN Teile mehr als 2 Elemente enthalten:
-        Bezirk = letztes Element ohne äußere Leerzeichen
-        WENN Bezirk mit "Stuttgart-" beginnt (Groß-/Kleinschreibung egal):
-            entferne dieses Präfix
+    WENN mehrere Teile vorliegen:
+        überspringe erste Komponente (Straße)
 
-        WENN ein Bezirksname aus map-districts.json zu Bezirk passt
-             (Groß-/Kleinschreibung egal):
-            GIB den Bezirksnamen in der Schreibweise der JSON-Datei zurück
-        SONST:
-            GIB Bezirk zurück
+    FÜR jede verbleibende Ortskomponente:
+        vereinheitliche Unicode, Leerzeichen und Gedankenstriche
+        entferne gegebenenfalls führende PLZ, Stuttgart-Präfix,
+                 abschließendes "(Stuttgart)"
+        schlage vollständigen Ortsnamen in Referenz nach
+        sammle jeden gefundenen Elternbezirk ohne Dubletten
 
-    GIB "Stuttgart" zurück
+    WENN genau ein eindeutiger Bezirk gefunden wurde:
+        GIB diesen Bezirk zurück
+    SONST:
+        GIB "Unknown" zurück
 ```
 
-Beispiel: `Beispielstraße 1, 70174 Stuttgart, stuttgart-mitte` ergibt `Mitte`. Es handelt sich um eine Regel zur Zerlegung einer Zeichenkette, keine geografische Zuordnung über Koordinaten. Bei einem anderen Adressformat kann die Zuordnung ungenau sein.
+`Beispielstraße 1, 70174 Stuttgart, stuttgart-mitte` ergibt `Mitte`; `Beispielstraße 1, 70329 Stuttgart, Uhlbach` ergibt `Obertürkheim`. Eine allgemeine Stadtangabe, ein unbekannter Ort oder widersprüchliche Bezirke bleiben `Unknown`. Das Frontend nennt diese Gruppe „Ohne Bezirksangabe“. Es wird kein Bezirk aus Straßen, PLZ oder Koordinaten geschätzt. 189 Adressfälle und alle 23 Bezirksfilter wurden geprüft.
 
-Belege: [ExtractDistrictFromAddress](../Backend/ImmscoutAPI/Service/DistrictDataService.cs#L62), [Kartenzuordnung](../Backend/ImmscoutAPI/Data/map-districts.json).
+Belege: [DistrictDataService](../Backend/ImmscoutAPI/Service/DistrictDataService.cs), [Kartenzuordnung](../Backend/ImmscoutAPI/Data/map-districts.json), [amtliche Stadtteilreferenz](../Backend/ImmscoutAPI/Data/stuttgart-subdistricts.json), [Vollvergleich mit Quellen](stadtbezirke-pruefung.md).
 
 ## 3. Bezirkszählungen und gefilterte Suche
 

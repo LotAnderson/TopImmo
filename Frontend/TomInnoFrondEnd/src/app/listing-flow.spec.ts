@@ -12,7 +12,8 @@ const url = `${environment.apiUrl}/realestate`;
 const listing = { id: '1', title: 'Apartment in Mitte', price: 900, livingSpace: 50, rooms: 2,
   pictureUrls: ['photo.jpg'], address: { line: 'Stuttgart, Mitte' }, attributes: [], mappedDistrict: 'Mitte' };
 const response = { listings: [listing], districtCounts: [{ district: 'Mitte', count: 7 }],
-  mapDistricts: { a101_Oberer_Schlossgarten: 'Mitte' } };
+  mapDistricts: { a101_Oberer_Schlossgarten_3_: 'Mitte', a121_Relenberg_3_: 'Nord',
+    a521_Obertürkheim_3_: 'Obertürkheim' } };
 
 describe('Listing API and display flow', () => {
   let http: HttpTestingController;
@@ -39,12 +40,79 @@ describe('Listing API and display flow', () => {
     const map = TestBed.createComponent(StutgartsmapComponent);
     cards.detectChanges(); map.detectChanges();
     http.expectOne(`${url}/stuttgart-listings`).flush(response);
-    map.nativeElement.querySelector('#a101_Oberer_Schlossgarten').dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    map.nativeElement.querySelector('#a101_Oberer_Schlossgarten_3_').dispatchEvent(new MouseEvent('click', { bubbles: true }));
     http.expectOne(req => req.url === `${url}/stuttgart-listings` && req.params.get('district') === 'Mitte')
       .flush({ ...response, listings: [] });
     cards.detectChanges();
     expect(cards.nativeElement.textContent).toContain('Keine Immobilien gefunden');
     cards.destroy(); map.destroy();
+  });
+
+  it('lists mapped districts with zero offers and selects them with a button', () => {
+    const map = TestBed.createComponent(StutgartsmapComponent);
+    map.detectChanges();
+    http.expectOne(`${url}/stuttgart-listings`).flush(response);
+    map.detectChanges();
+    const rows = [...map.nativeElement.querySelectorAll('.district-legend li')] as HTMLElement[];
+    expect(rows.map(row => [row.querySelector('.name')?.textContent?.trim(),
+      row.querySelector('.count')?.textContent?.trim()])).toEqual([
+        ['Mitte', '7'], ['Nord', '0'], ['Obertürkheim', '0']
+      ]);
+    rows[2].querySelector('button')!.click();
+    map.detectChanges();
+    expect(TestBed.inject(DistrictFilterService).getCurrentDistrict()).toBe('Obertürkheim');
+    expect(map.nativeElement.querySelector('#a521_Obertürkheim_3_').classList.contains('selected')).toBe(true);
+    expect(rows[2].querySelector('button')!.getAttribute('aria-pressed')).toBe('true');
+    map.destroy();
+  });
+
+  it('restores the map selection after delayed mapping and component recreation', () => {
+    TestBed.inject(DistrictFilterService).setSelectedDistrict('Mitte');
+    const map = TestBed.createComponent(StutgartsmapComponent);
+    map.detectChanges();
+    expect(map.nativeElement.querySelector('#Layer_15 path.selected')).toBeNull();
+    http.expectOne(`${url}/stuttgart-listings`).flush(response);
+    map.detectChanges();
+    expect(map.nativeElement.querySelector('#a101_Oberer_Schlossgarten_3_').classList.contains('selected')).toBe(true);
+    map.destroy();
+    const returnedMap = TestBed.createComponent(StutgartsmapComponent);
+    returnedMap.detectChanges();
+    http.expectNone(`${url}/stuttgart-listings`);
+    expect(returnedMap.nativeElement.querySelector('#a101_Oberer_Schlossgarten_3_').classList.contains('selected')).toBe(true);
+    TestBed.inject(DistrictFilterService).setSelectedDistrict(null);
+    expect(returnedMap.nativeElement.querySelector('#Layer_15 path.selected')).toBeNull();
+    returnedMap.destroy();
+  });
+
+  it('ignores hidden and boundary paths and accepts an active path child', () => {
+    const map = TestBed.createComponent(StutgartsmapComponent);
+    map.detectChanges();
+    http.expectOne(`${url}/stuttgart-listings`).flush({ ...response,
+      mapDistricts: { ...response.mapDistricts, a101_Oberer_Schlossgarten: 'Mitte',
+        a101_Oberer_Schlossgarten_1_: 'Mitte' } });
+    for (const id of ['a101_Oberer_Schlossgarten', 'a101_Oberer_Schlossgarten_1_']) {
+      map.nativeElement.querySelector(`[id="${id}"]`).dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      expect(TestBed.inject(DistrictFilterService).getCurrentDistrict()).toBeNull();
+    }
+    const title = document.createElementNS('http://www.w3.org/2000/svg', 'title');
+    map.nativeElement.querySelector('#a101_Oberer_Schlossgarten_3_').appendChild(title);
+    title.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    expect(TestBed.inject(DistrictFilterService).getCurrentDistrict()).toBe('Mitte');
+    map.destroy();
+  });
+
+  it('shows unknown addresses separately without selecting a geographic district', () => {
+    const map = TestBed.createComponent(StutgartsmapComponent);
+    map.detectChanges();
+    http.expectOne(`${url}/stuttgart-listings`).flush({ ...response,
+      districtCounts: [...response.districtCounts, { district: 'Unknown', count: 2 }] });
+    map.detectChanges();
+    const row = map.nativeElement.querySelector('.district-legend li:last-child');
+    expect(row.querySelector('.name').textContent.trim()).toBe('Ohne Bezirksangabe');
+    row.querySelector('button').click();
+    expect(TestBed.inject(DistrictFilterService).getCurrentDistrict()).toBe('Unknown');
+    expect(map.nativeElement.querySelector('#Layer_15 path.selected')).toBeNull();
+    map.destroy();
   });
 
   it('cancels stale requests and recovers after an API error', () => {

@@ -15,6 +15,7 @@ flowchart LR
     District -->|"Cache leer oder abgelaufen"| APIService["ImmoScoutAPIService\nHttpClient"]
     APIService -->|"HTTPS GET"| API["ImmoScout24 über RapidAPI\nExterner Dienst"]
     Mapping["Data/map-districts.json\nSVG-ID zu Bezirk"] --> District
+    Stadtteile["Data/stuttgart-subdistricts.json\n152 amtliche Stadtteile zu 23 Bezirken"] --> District
     AuthController --> AuthService["AuthService\nPasswortprüfung, Tokenrotation"]
     AuthService --> TokenService["TokenService\nJWT und zufällige RefreshTokens"]
     AuthService --> DbContext["AppDbContext\nEntity Framework Core"]
@@ -23,7 +24,7 @@ flowchart LR
 
 Das Angular-Frontend ruft das eigene Backend auf. Die externe Immobiliensuche führt der C#-Service mit `HttpClient` aus. Das Backend verarbeitet die Antwort und liefert JSON an das Frontend. Der `RealEstateController` ist mit `[Authorize]` geschützt; Registrierung, Login und Refresh sind separate Auth-Endpunkte.
 
-Die Immobiliendaten liegen für fünf Minuten im RAM-Cache. SQLite speichert Benutzer mit Passwort-Hash sowie RefreshTokens. Eine Speicherung der Immobilien in SQLite ist im aktuellen Code nicht implementiert. Die lokale JSON-Datei ordnet SVG-Elemente der Karte Bezirken zu; sie enthält keine laufend geladenen Wohnungsangebote.
+Die Immobiliendaten liegen für fünf Minuten im RAM-Cache. SQLite speichert Benutzer mit Passwort-Hash sowie RefreshTokens. Eine Speicherung der Immobilien in SQLite ist im aktuellen Code nicht implementiert. Lokale JSON-Dateien ordnen SVG-Elemente und amtliche Stadtteilnamen den Bezirken zu; sie enthalten keine laufend geladenen Wohnungsangebote. Ein Stadtteilklick filtert dessen Elternbezirk. Die Legende zeigt alle 23 Bezirke, auch ohne Treffer, und gegebenenfalls die Gruppe „Ohne Bezirksangabe“.
 
 Belege: [Programmstart und registrierte Dienste](../Backend/ImmscoutAPI/Program.cs#L14), [Immobiliencontroller](../Backend/ImmscoutAPI/Controllers/RealEstateController.cs#L8), [AuthController](../Backend/ImmscoutAPI/Controllers/AuthController.cs#L18), [Datenverarbeitung und Cache](../Backend/ImmscoutAPI/Service/DistrictDataService.cs#L22), [Frontend-Immobiliendienst](../Frontend/TomInnoFrondEnd/src/app/services/realestate.ts#L10), [Bearer-Interceptor](../Frontend/TomInnoFrondEnd/src/app/interceptors/auth.interceptor.ts#L20).
 
@@ -107,6 +108,6 @@ Am 04.10.2026 war der vollständig neu kompilierte Backend-Build erfolgreich, mi
 
 Zusätzlich wurde der echte Backend-Auth-Flow mit einer eigenen temporären SQLite-Datenbank geprüft: Registrierung, Duplikatprüfung, Passwortprüfung, Ausgabe von Tokens und Refresh-Rotation funktionierten. Ein bereits rotierter RefreshToken wurde abgewiesen. Dabei wurde auch nachgewiesen, dass leere oder ungültige Registrierungsdaten akzeptiert werden. Dieser zusätzliche Prüflauf ist bisher kein automatisierter Test im Repository.
 
-Die externe RapidAPI wurde bei diesen Prüfungen nicht aufgerufen. Ein vollständiger Live-Durchlauf vom Login bis zur Anzeige aktueller externer Immobilienangebote ist damit nicht nachgewiesen. Der gültige JWT wurde in diesem zusätzlichen Prüflauf nicht gegen einen Live-Immobilienabruf getestet.
+Die externe RapidAPI wurde bei diesen isolierten Prüfungen nicht aufgerufen. Spätere echte Desktopproben bestätigten Login, API HTTP 200, Angebote, Bezirksfilter, Details/Bildwechsel und Logout. Die jüngste Kartenprüfung deckt zusätzlich alle 152 sichtbaren Stadtteilflächen und 23 Bezirkslegenden mit echten Mausklicks in Chrome und WebKit ab; die Detailrückkehr erhält jetzt die Markierung. Das sind konkrete lokale Liveprüfungen, keine Zusicherung vollständiger Markt- oder Mobilabdeckung. [Vollprüfung und Quellen](stadtbezirke-pruefung.md).
 
 Weiterlesen: [Pseudocode der wichtigsten Algorithmen](algorithmen.md).
