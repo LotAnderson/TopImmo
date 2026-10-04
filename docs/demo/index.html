@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TopImmo – gespeicherte Demoansichten</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font:16px/1.5 system-ui,sans-serif;color:#172b39;background:#f4f6f8}header{padding:16px 24px;background:white;border-bottom:1px solid #ccd6de}h1{font-size:22px;margin:0 0 4px}p{margin:4px 0}a{color:#004488}nav{display:flex;align-items:center;flex-wrap:wrap;gap:12px;padding:12px 24px}button{font:inherit;padding:8px 16px;border:1px solid #bbcbd8;border-radius:6px;background:white;color:#004488;cursor:pointer}button:disabled{opacity:.45;cursor:default}button:focus-visible,a:focus-visible{outline:3px solid #d79712;outline-offset:3px}#caption{margin:0 24px 12px}figure{margin:0 16px 16px;height:calc(100vh - 235px);min-height:300px;overflow:auto;background:white;border:1px solid #ccd6de;border-radius:8px}img{display:block;width:100%;height:auto}small{display:block;margin:8px 24px 16px;color:#526573}
+</style>
+</head>
+<body>
+<header><h1>TopImmo – gespeicherte echte Demoansichten</h1><p>Erfolgreiche Browser-/Live-API-Probe vom 04.10.2026. Diese Ansicht zeigt Screenshots und funktioniert offline.</p><p>Der Datenbestand stammt aus der damaligen ersten API-Seite. <a href="../demoprobe.md">Prüfnachweis</a> · <a href="../praesentation.html">Zurück zu den Folien</a></p></header>
+<nav aria-label="Screenshotnavigation"><button id="prev">← Zurück</button><span id="count" aria-live="polite"></span><button id="next">Weiter →</button><a id="original" target="_blank" rel="noopener">Original öffnen</a></nav>
+<p id="caption"></p><figure><img id="screen" alt=""></figure>
+<small>Pfeiltasten wechseln die Ansicht. In langen Screenshots scrollen. Diese gespeicherten Ansichten sind keine laufende Offline-Anwendung.</small>
+<script>
+const shots=[
+['01-formularvalidierung.png','Registrierungsformular: ungültige E-Mail und zu kurzes Passwort werden im Browser abgewiesen.'],
+['02-uebersicht.png','Übersicht: 28 geladene Mietangebote. Die Zahlen beschreiben den damaligen API-Ausschnitt.'],
+['03-bezirksauswahl.png','Bad Cannstatt ausgewählt: ein Angebot; Legende und Karte markieren den Bezirk.'],
+['04-details.png','Detail des Angebots 144472924: 709 €, 13 m², ein Zimmer, fünf Bilder verfügbar.'],
+['05-bildwechsel.png','Zweites Thumbnail gewählt: ein anderes Hauptbild ist erfolgreich geladen.']
+];let pos=0;
+function show(){const [file,caption]=shots[pos];document.querySelector('#screen').src=file;document.querySelector('#screen').alt=caption;document.querySelector('#caption').textContent=caption;document.querySelector('#count').textContent=`${pos+1} / ${shots.length}`;document.querySelector('#original').href=file;document.querySelector('#prev').disabled=pos===0;document.querySelector('#next').disabled=pos===shots.length-1;document.querySelector('figure').scrollTop=0;}
+function move(delta){pos=Math.max(0,Math.min(shots.length-1,pos+delta));show();}
+document.querySelector('#prev').onclick=()=>move(-1);document.querySelector('#next').onclick=()=>move(1);document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();move(e.key==='ArrowRight'?1:-1);}});show();
+</script>
+</body>
+</html>

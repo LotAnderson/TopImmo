@@ -3,7 +3,6 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { CommonModule } from '@angular/common';
 import { DistrictFilterService } from '../../services/district-filter';
 import { RealEstateService } from '../../services/realestate';
-import { getBezirkFromStadtteilId } from './district.models';
 
 interface DistrictCount {
   district: string;
@@ -27,25 +26,19 @@ export class StutgartsmapComponent implements OnInit {
 
   // Anzahl Mietwohnungen je Stadtteil, für die Legende neben der Karte
   districtCounts = signal<DistrictCount[]>([]);
+  private mapDistricts: Record<string, string> = {};
   selectedDistrict = signal<string | null>(null);
 
   ngOnInit(): void {
     this.realEstateService
       .getStuttgartListings()
       .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe((listings) => {
-        const counts = new Map<string, number>();
-        for (const listing of listings) {
-          const isMietwohnung = listing.realEstateType?.toLowerCase() === 'apartmentrent';
-          if (!isMietwohnung || !listing.mappedDistrict) {
-            continue;
-          }
-          counts.set(listing.mappedDistrict, (counts.get(listing.mappedDistrict) ?? 0) + 1);
-        }
-        const sorted = [...counts.entries()]
-          .map(([district, count]) => ({ district, count }))
-          .sort((a, b) => b.count - a.count);
-        this.districtCounts.set(sorted);
+      .subscribe({
+        next: (result) => {
+          this.districtCounts.set(result.districtCounts);
+          this.mapDistricts = result.mapDistricts;
+        },
+        error: () => this.districtCounts.set([]),
       });
 
     this.districtFilterService
@@ -61,7 +54,7 @@ export class StutgartsmapComponent implements OnInit {
     if (!clickedId || !clickedId.startsWith('a')) {
             return;
     }
-    const bezirk = getBezirkFromStadtteilId(clickedId);
+    const bezirk = this.mapDistricts[clickedId];
     if (bezirk) {
       this.selectBezirk(bezirk);
     }
@@ -83,7 +76,7 @@ export class StutgartsmapComponent implements OnInit {
 
   allPaths.forEach((el: SVGElement) => {
     this.renderer.removeClass(el, className);
-    if(getBezirkFromStadtteilId(el.id) === bezirk) {
+    if(this.mapDistricts[el.id] === bezirk) {
       this.renderer.addClass(el, className);
     }
   });
@@ -98,7 +91,7 @@ onMapMouseOver(event: MouseEvent): void {
     return;
   }
 
-  const bezirk = getBezirkFromStadtteilId(clickedId);
+  const bezirk = this.mapDistricts[clickedId];
 
   if (bezirk) {
     this.highlightBezirk(bezirk, 'hovered');

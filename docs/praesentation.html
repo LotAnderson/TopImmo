@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>TopImmo – Projektpräsentation · 05.10.2026</title>
+  <style>
+    :root { --ink:#172b39; --blue:#004488; --green:#187a63; --paper:#faf9f6; --line:#dde3e5; --muted:#5b6c77; --red:#a12f39; }
+    * { box-sizing:border-box; }
+    body { margin:0; color:var(--ink); background:var(--paper); font:16px/1.5 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    button,a { -webkit-tap-highlight-color:transparent; }
+    button { font:inherit; cursor:pointer; }
+    a { color:var(--blue); text-underline-offset:3px; }
+    button:focus-visible,a:focus-visible,summary:focus-visible { outline:3px solid #dfaa21; outline-offset:4px; }
+    header { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:18px 28px; border-bottom:1px solid var(--line); background:white; }
+    .brand { display:flex; gap:12px; align-items:center; font-weight:750; font-size:1.1rem; }
+    .mark { display:grid; place-items:center; width:40px; height:40px; background:var(--blue); color:white; border-radius:10px; font-size:.9rem; }
+    .header-meta { color:var(--muted); font-size:.85rem; }
+    .toolbar { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+    .quiet { color:var(--ink); background:white; border:1px solid var(--line); border-radius:7px; padding:7px 12px; font-size:.85rem; }
+    .quiet[aria-pressed="true"] { background:#e6f0f5; border-color:var(--blue); }
+    .workspace { display:grid; grid-template-columns:210px minmax(0,1fr); max-width:1600px; margin:0 auto; }
+    .slide-index { padding:30px 16px; border-right:1px solid var(--line); }
+    .slide-index ol { padding:0; margin:0; list-style:none; display:grid; gap:7px; }
+    .index-button { width:100%; padding:11px; display:flex; gap:11px; text-align:left; border:0; border-radius:8px; color:var(--muted); background:transparent; line-height:1.3; font-size:.9rem; }
+    .index-button span { font-variant-numeric:tabular-nums; color:var(--green); font-weight:700; }
+    .index-button:hover { background:#edf1f3; }
+    .index-button[aria-current="step"] { color:var(--blue); background:#e6eff6; font-weight:650; }
+    .side-note { padding:20px 11px 0; color:var(--muted); font-size:.8rem; }
+    main { min-width:0; }
+    .slide { position:relative; min-height:670px; padding:38px clamp(25px,5vw,72px) 28px; background:white; border-bottom:1px solid var(--line); }
+    .slide[hidden] { display:none; }
+    .eyebrow { color:var(--green); text-transform:uppercase; letter-spacing:.12em; font-size:.75rem; font-weight:750; margin:0 0 14px; }
+    .time { position:absolute; top:38px; right:30px; font-size:.8rem; color:var(--muted); }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { font-size:clamp(3rem,6vw,5.3rem); line-height:1.02; letter-spacing:-.065em; margin:0 0 24px; max-width:880px; }
+    h2 { font-size:clamp(2rem,3.3vw,3rem); line-height:1.12; letter-spacing:-.04em; margin-bottom:20px; max-width:900px; }
+    h3 { font-size:1.08rem; margin-bottom:9px; }
+    .lead { color:var(--muted); font-size:clamp(1.05rem,1.6vw,1.35rem); max-width:900px; margin-bottom:30px; }
+    .hero-intro { max-width:710px; font-size:1.4rem; line-height:1.5; margin-bottom:36px; }
+    .tag { display:inline-block; padding:5px 10px; border:1px solid var(--line); border-radius:20px; font-size:.8rem; color:var(--muted); margin-bottom:20px; }
+    .flow { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin:22px 0; }
+    .flow .step { border:1px solid #cedde7; background:#f1f6fa; color:var(--blue); padding:13px 18px; border-radius:9px; font-weight:650; }
+    .arrow { color:var(--green); font-size:1.2rem; }
+    .cards { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; margin:22px 0; }
+    .card { padding:20px; background:#f5f7f8; border:1px solid var(--line); border-radius:12px; }
+    .card p:last-child { margin-bottom:0; }
+    .card p { color:var(--muted); font-size:.96rem; }
+    .big { font-size:2.5rem; font-weight:750; letter-spacing:-.04em; line-height:1.1; color:var(--blue); margin:0 0 10px; }
+    .caption { font-size:.82rem; color:var(--muted); margin:16px 0 0; }
+    .evidence { font-size:.8rem; margin-top:22px; color:var(--muted); }
+    .evidence a { margin-right:10px; }
+    .callout { border-left:4px solid var(--green); background:#eef6f1; padding:13px 18px; border-radius:0 8px 8px 0; margin-top:22px; color:#245344; }
+    .callout.warn { border-color:#b47b16; background:#fff8e8; color:#725019; }
+    .callout.problem { border-color:var(--red); background:#fff1f1; color:var(--red); }
+    .weights { display:grid; grid-template-columns:1fr 4fr 1fr 4fr; margin-top:26px; gap:5px; }
+    .weight { color:white; background:var(--blue); padding:18px 12px; border-radius:7px; min-width:0; }
+    .weight:nth-child(2) { background:#26688e; }
+    .weight:nth-child(3) { background:#3f849f; }
+    .weight:nth-child(4) { background:var(--green); }
+    .weight strong { display:block; font-size:1.6rem; }
+    .weight span { font-size:.8rem; }
+    .architecture { border:1px solid var(--line); border-radius:14px; padding:22px; background:#f8fafb; }
+    .arch-layer { text-align:center; border:1px solid #c9dce7; background:#edf4fa; border-radius:10px; padding:15px; color:var(--blue); }
+    .arch-layer strong { display:block; font-size:1.15rem; }
+    .arch-layer small { display:block; margin-top:4px; }
+    .arch-arrow { text-align:center; font-size:.85rem; margin:8px 0; color:var(--muted); }
+    .arch-paths { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:16px; }
+    .arch-path { padding:16px; background:white; border:1px solid var(--line); border-radius:9px; }
+    .arch-path strong { display:block; font-size:1rem; margin-bottom:6px; }
+    .arch-path p { color:var(--muted); font-size:.9rem; margin-bottom:12px; }
+    .destination { padding:9px 12px; color:var(--green); background:#eef6f1; border-radius:6px; font-weight:600; font-size:.9rem; }
+    .algorithm { counter-reset:algorithm; }
+    .algorithm .card { position:relative; padding-top:48px; }
+    .algorithm .card::before { counter-increment:algorithm; content:counter(algorithm); position:absolute; top:14px; left:20px; color:var(--green); font-size:.85rem; font-weight:750; }
+    code { font: .88em/1.5 ui-monospace,SFMono-Regular,Consolas,monospace; overflow-wrap:anywhere; }
+    .demo-steps { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:10px; margin:22px 0; }
+    .demo-step { border-top:3px solid var(--green); padding:14px 12px; background:#f5f7f8; border-radius:0 0 8px 8px; }
+    .demo-step span { display:block; font-size:.78rem; color:var(--green); margin-bottom:7px; }
+    .demo-step strong { font-size:.95rem; }
+    .primary { display:inline-block; color:white; background:var(--blue); padding:10px 17px; border-radius:7px; text-decoration:none; font-weight:600; }
+    .two-col { display:grid; grid-template-columns:1fr 1fr; gap:22px; margin:24px 0; }
+    .two-col h3 { color:var(--blue); }
+    .two-col ul { padding-left:20px; color:var(--muted); margin:0; }
+    .two-col li { margin-bottom:9px; }
+    .results { width:100%; border-collapse:collapse; margin:20px 0; font-size:.94rem; }
+    .results th { text-align:left; color:var(--muted); font-weight:600; font-size:.8rem; }
+    .results th,.results td { border-bottom:1px solid var(--line); padding:12px 10px 12px 0; vertical-align:top; }
+    .results th:last-child,.results td:last-child { padding-right:0; }
+    .passed { color:var(--green); font-weight:650; }
+    .failed { color:var(--red); font-weight:650; }
+    .contribution { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin-top:24px; }
+    .contribution div { padding:20px 15px; border:1px solid var(--line); border-radius:10px; }
+    .contribution strong { display:block; color:var(--blue); font-size:1.15rem; margin-bottom:7px; }
+    .contribution span { font-size:.9rem; color:var(--muted); }
+    .priorities { list-style:none; padding:0; margin:20px 0; display:grid; gap:14px; counter-reset:priority; }
+    .priorities li { padding:17px 20px 17px 60px; position:relative; border:1px solid var(--line); border-radius:10px; }
+    .priorities li::before { counter-increment:priority; content:counter(priority); position:absolute; left:20px; top:17px; color:var(--green); font-size:1.3rem; font-weight:750; }
+    .priorities strong { display:block; margin-bottom:4px; }
+    .priorities span { color:var(--muted); font-size:.93rem; }
+    .speaker-notes { margin-top:26px; padding:15px 18px; color:#344c5b; background:#fffbe9; border:1px solid #ebdda5; border-radius:8px; font-size:.92rem; }
+    .speaker-notes strong { display:block; color:#76621c; margin-bottom:6px; font-size:.78rem; text-transform:uppercase; letter-spacing:.08em; }
+    .speaker-notes p { margin-bottom:0; }
+    .speaker-notes { display:none; }
+    body.notes-visible .speaker-notes { display:block; }
+    footer { display:flex; align-items:center; justify-content:space-between; gap:18px; padding:18px 28px; background:white; border-top:1px solid var(--line); }
+    .controls { display:flex; align-items:center; gap:12px; }
+    .nav-button { padding:9px 16px; color:white; background:var(--blue); border:1px solid var(--blue); border-radius:7px; }
+    .nav-button:disabled { background:#ecf0f2; border-color:var(--line); color:#82909a; cursor:default; }
+    .counter { min-width:46px; text-align:center; font-variant-numeric:tabular-nums; color:var(--muted); }
+    .progress { height:4px; background:#e4eceb; }
+    .progress div { height:100%; width:12.5%; background:var(--green); transition:width .2s; }
+    .keyboard-hint { font-size:.8rem; color:var(--muted); }
+    .footer-link { font-size:.85rem; }
+    @media(max-width:1000px) {
+      .workspace { grid-template-columns:160px minmax(0,1fr); }
+      .slide { padding:32px 26px 24px; }
+      .cards { gap:10px; }
+      .card { padding:16px; }
+      .weights { grid-template-columns:repeat(4,1fr); }
+      .demo-steps { grid-template-columns:repeat(3,1fr); }
+      .contribution { grid-template-columns:repeat(2,1fr); }
+    }
+    @media(max-width:700px) {
+      header { padding:14px 18px; align-items:flex-start; }
+      .header-meta { display:none; }
+      .toolbar { justify-content:flex-end; }
+      .workspace { display:block; }
+      .slide-index { padding:10px 12px; border-right:0; border-bottom:1px solid var(--line); }
+      .slide-index ol { display:flex; overflow-x:auto; gap:3px; }
+      .index-button { padding:8px; min-width:36px; width:auto; white-space:nowrap; }
+      .index-button .index-label { display:none; }
+      .side-note { display:none; }
+      .slide { min-height:560px; padding:28px 20px; }
+      .time { top:28px; right:20px; }
+      .cards,.arch-paths,.two-col { grid-template-columns:1fr; }
+      .algorithm { grid-template-columns:1fr 1fr; }
+      .demo-steps { grid-template-columns:1fr 1fr; }
+      .weights { grid-template-columns:1fr 1fr; }
+      .hero-intro { font-size:1.2rem; }
+      .results { font-size:.82rem; }
+      footer { flex-wrap:wrap; padding:14px 18px; }
+      .keyboard-hint { display:none; }
+    }
+    @media(prefers-reduced-motion:reduce) { .progress div { transition:none; } }
+    @page { size:A4 landscape; margin:12mm; }
+    @media print {
+      body { background:white; font-size:11pt; print-color-adjust:exact; -webkit-print-color-adjust:exact; }
+      header,.slide-index,footer,.progress,.speaker-notes { display:none!important; }
+      .workspace { display:block; max-width:none; }
+      .slide,.slide[hidden] { display:block!important; min-height:0; height:auto; padding:5mm 2mm; border:0; page-break-after:always; break-after:page; break-inside:avoid; }
+      .slide:last-child { page-break-after:auto; break-after:auto; }
+      h1 { font-size:42pt; }
+      h2 { font-size:27pt; }
+      .lead { font-size:13pt; margin-bottom:15px; }
+      .hero-intro { font-size:18pt; }
+      .time { top:5mm; right:2mm; }
+      .cards { margin:12px 0; }
+      .card { padding:13px; }
+      .algorithm .card { padding-top:34px; }
+      .architecture { padding:12px; }
+      .arch-layer,.arch-path { padding:11px; }
+      .callout { margin-top:14px; padding:9px 13px; }
+      .evidence,.caption { font-size:8.5pt; margin-top:13px; }
+      .results th,.results td { padding-top:8px; padding-bottom:8px; }
+      a { text-decoration:none; }
+      .primary { color:var(--blue); background:transparent; border:1px solid var(--blue); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand"><span class="mark" aria-hidden="true">TI</span><div>TopImmo <span class="header-meta">/ Softwareentwicklung · 05.10.2026</span></div></div>
+    <div class="toolbar">
+      <button class="quiet" id="notes-toggle" type="button" aria-pressed="false">Sprechnotizen</button>
+      <button class="quiet" id="print-button" type="button">Drucken / PDF</button>
+    </div>
+  </header>
+
+  <div class="workspace">
+    <nav class="slide-index" aria-label="Folienübersicht">
+      <ol>
+        <li><button type="button" class="index-button" data-slide="0"><span>01</span><span class="index-label">Produktidee</span></button></li>
+        <li><button type="button" class="index-button" data-slide="1"><span>02</span><span class="index-label">Anforderungen</span></button></li>
+        <li><button type="button" class="index-button" data-slide="2"><span>03</span><span class="index-label">Architektur</span></button></li>
+        <li><button type="button" class="index-button" data-slide="3"><span>04</span><span class="index-label">Algorithmus</span></button></li>
+        <li><button type="button" class="index-button" data-slide="4"><span>05</span><span class="index-label">Demo</span></button></li>
+        <li><button type="button" class="index-button" data-slide="5"><span>06</span><span class="index-label">Prüfungen</span></button></li>
+        <li><button type="button" class="index-button" data-slide="6"><span>07</span><span class="index-label">Eigener Beitrag</span></button></li>
+        <li><button type="button" class="index-button" data-slide="7"><span>08</span><span class="index-label">Nächste Schritte</span></button></li>
+      </ol>
+      <p class="side-note">8 Folien · ca. 9 Minuten<br>Zeitannahme anpassbar.<br><br>Prüfstand: 04.10.2026</p>
+    </nav>
+
+    <main id="slides" tabindex="-1">
+      <section class="slide" id="folie-1" aria-labelledby="title-1">
+        <p class="eyebrow">01 / Produktidee</p><span class="time">0:45 min</span>
+        <span class="tag">Schulprojekt · Softwareentwicklung</span>
+        <h1 id="title-1">Wohnungen finden.<br>Bezirk auswählen.</h1>
+        <p class="hero-intro">TopImmo macht geladene Mietwohnungsangebote in Stuttgart über eine Karte und eine Angebotsliste zugänglich.</p>
+        <div class="flow" aria-label="Ablauf: Registrierung, Login, Karte und Liste, Details">
+          <span class="step">Registrierung</span><span class="arrow" aria-hidden="true">→</span><span class="step">Login</span><span class="arrow" aria-hidden="true">→</span><span class="step">Karte + Liste</span><span class="arrow" aria-hidden="true">→</span><span class="step">Details</span>
+        </div>
+        <p class="caption">Gemeinsam begonnen. Inzwischen allein weitergeführt. Aktueller Stand und offene Punkte werden getrennt dargestellt.</p>
+        <aside class="speaker-notes"><strong>Sprechnotiz · 45 Sekunden</strong><p>TopImmo ist ein Schulprojekt. Karte und Trefferzahlen erleichtern die Bezirksauswahl; Details zeigen Bilder und wichtige Angaben. Das Projekt begann zu zweit und wird inzwischen von mir weitergeführt. Heute zeige ich Produkt, Architektur, geprüfte Ergebnisse und offene Punkte. Die Angebote bilden keine vollständige Marktstatistik: derzeit wird nur die erste API-Seite geladen.</p></aside>
+      </section>
+
+      <section class="slide" id="folie-2" aria-labelledby="title-2">
+        <p class="eyebrow">02 / Anforderungen</p><span class="time">0:45 min</span>
+        <h2 id="title-2">Ein Produkt mit API,<br>Datenbank und C#-Backend.</h2>
+        <p class="lead">Technische Anforderungen und nachvollziehbare Entwicklung gehören zusammen.</p>
+        <div class="cards">
+          <div class="card"><p class="big">C#</p><h3>Backend</h3><p>ASP.NET Core mit Controllern, Services und Dependency Injection.</p></div>
+          <div class="card"><p class="big">API</p><h3>Externe Angebote</h3><p>ImmoScout24 über RapidAPI; Verarbeitung erfolgt im Backend.</p></div>
+          <div class="card"><p class="big">SQLite</p><h3>Persistente Accounts</h3><p>Benutzer und Refresh-Tokens werden mit EF Core gespeichert.</p></div>
+        </div>
+        <div class="weights" aria-label="Bewertung: Scrum 10 Prozent, Implementierung 40 Prozent, Präsentation 10 Prozent, individuelle Leistung 40 Prozent">
+          <div class="weight"><strong>10 %</strong><span>Scrum</span></div><div class="weight"><strong>40 %</strong><span>Implementierung</span></div><div class="weight"><strong>10 %</strong><span>Präsentation</span></div><div class="weight"><strong>40 %</strong><span>Individuelle Leistung</span></div>
+        </div>
+        <p class="caption">Zusätzlich gefordert: Scrum-Nachweise, Architektur, wichtige Algorithmen und lauffähige Abgabe mit Startanleitung. Gewichtung laut Bewertung.xlsx.</p>
+        <aside class="speaker-notes"><strong>Sprechnotiz · 45 Sekunden</strong><p>Pflicht sind C#, externe API und SQLite; Angular ist als Frontend zulässig. Hinzu kommen Scrum und dokumentierte Architektur/Algorithmen. Die Excel-Datei gewichtet die individuelle Leistung mit 40 %. Favoriten oder Preis-Speicherung wären zusätzliche Produktfunktionen; sie sind keine konkrete PDF-Pflicht. Die akzeptierte Alleinarbeit ändert die Gewichtung nicht automatisch. Eingetragene Beispielpunkte werden nicht als unsere Note ausgegeben.</p></aside>
+      </section>
+
+      <section class="slide" id="folie-3" aria-labelledby="title-3">
+        <p class="eyebrow">03 / Architektur</p><span class="time">1:15 min</span>
+        <h2 id="title-3">Zwei Datenwege.<br>Ein gemeinsames Backend.</h2>
+        <div class="architecture" role="img" aria-label="Angular sendet HTTP-JSON an ASP.NET Core. AuthController und AuthService speichern mit EF Core Benutzer und Refresh-Tokens in SQLite. Der geschützte RealEstateController verarbeitet über DistrictDataService Angebote von ImmoScoutAPIService und RapidAPI mit fünf Minuten RAM-Cache.">
+          <div class="arch-layer"><strong>Angular im Browser</strong><small>Login/Register · Karte/Liste/Details · HttpClient-Services · Guard + Interceptor</small></div>
+          <div class="arch-arrow">↓ HTTP / JSON · Bearer-Token für Immobilienanfragen</div>
+          <div class="arch-layer"><strong>ASP.NET Core / C#</strong><small>Controller · Services · serverseitige Authentifizierung</small></div>
+          <div class="arch-paths">
+            <div class="arch-path"><strong>AuthController → AuthService</strong><p>BCrypt-Passwortprüfung · TokenService · EF Core</p><div class="destination">↓ SQLite: Users + RefreshTokens</div></div>
+            <div class="arch-path"><strong>RealEstateController [Authorize]</strong><p>DistrictDataService · Filter/Zahlen · RAM-Cache 5 min</p><div class="destination">↔ ImmoScoutAPIService → RapidAPI</div></div>
+          </div>
+        </div>
+        <p class="caption">SQLite persistiert Konten und Tokens. Wohnungsangebote liegen derzeit im RAM-Cache. Der Server prüft den Zugriff; der Frontend-Guard unterstützt die Navigation.</p>
+        <p class="evidence"><a href="architektur.md">Architekturdokument</a> · Code: <a href="../Backend/ImmscoutAPI/Program.cs">Program.cs · Z. 14/20</a><a href="../Backend/ImmscoutAPI/DataBase/AppDbContext.cs">AppDbContext · Z. 11</a><a href="../Backend/ImmscoutAPI/Controllers/RealEstateController.cs">RealEstateController · Z. 8</a></p>
+        <aside class="speaker-notes"><strong>Sprechnotiz · 75 Sekunden</strong><p>Angular übernimmt Formulare, Navigation und Darstellung. JSON geht an localhost:5197. Auth verwendet Services, EF Core und SQLite für Benutzer und Refresh-Tokens. Angebote werden extern geladen und im RAM verarbeitet; keine Immobilientabelle behaupten. Authorize auf dem Server schützt Endpunkte, der Guard allein wäre keine Sicherheitsgrenze. Automatischer Refresh im Frontend ist noch offen. Für Codefragen Controller, DbContext und DistrictDataService zeigen; keine unredigierten Konfigurationsschlüssel oder Tokenwerte projizieren.</p></aside>
+      </section>
+
+      <section class="slide" id="folie-4" aria-labelledby="title-4">
+        <p class="eyebrow">04 / Algorithmus</p><span class="time">1:00 min</span>
+        <h2 id="title-4">Aus Angeboten werden<br>Bezirke und Trefferzahlen.</h2>
+        <div class="cards algorithm">
+          <div class="card"><h3>Laden</h3><p>Cache prüfen; bei Bedarf API-JSON lesen.</p></div>
+          <div class="card"><h3>Miettyp filtern</h3><p>Nur <code>apartmentrent</code> behalten.</p></div>
+          <div class="card"><h3>Bezirk ableiten</h3><p>Adresszeile auswerten und Stuttgart-Präfix normalisieren.</p></div>
+          <div class="card"><h3>Zählen + sortieren</h3><p>Nach Bezirk gruppieren; Anzahl absteigend sortieren.</p></div>
+          <div class="card"><h3>Auswahl filtern</h3><p>Gewählten Bezirk auf die Angebotsliste anwenden.</p></div>
+          <div class="card"><h3>JSON darstellen</h3><p>Liste, Bezirkszahlen und SVG-Zuordnung ans Frontend.</p></div>
+        </div>
+        <div class="callout">Cache: 5 Minuten. Eine Ladesperre vermeidet parallele doppelte API-Abrufe.</div>
+        <p class="caption">Counts beziehen sich auf geladene Angebote, aktuell erste Seite mit bis zu 30 Treffern. Bezirksauswahl reduziert die Liste; die Legende zählt weiter alle geladenen Bezirke.</p>
+        <p class="evidence"><a href="algorithmen.md">Algorithmen und Darstellung</a> · Code: <a href="../Backend/ImmscoutAPI/Service/DistrictDataService.cs">DistrictDataService.cs · Z. 22/51/62</a></p>
+        <aside class="speaker-notes"><strong>Sprechnotiz · 60 Sekunden</strong><p>Bei vorhandenem Cache wird er verwendet. Andernfalls folgt Ladesperre, erneute Cacheprüfung, API-JSON, Mietfilter und Bezirksableitung. Die Sperre wird im finally freigegeben. GroupBy liefert Zahlen; die Bezirksauswahl filtert nur die Liste. mapDistricts verbindet SVG-IDs mit Bezirken. Adressauswertung ist einfache Komma-/Präfixlogik, kein Geocoder. Ohne Adresse entsteht Unknown. Die erste Seite ist eine Stichprobe, kein vollständiger Stuttgarter Markt.</p></aside>
+      </section>
+
+      <section class="slide" id="folie-5" aria-labelledby="title-5">
+        <p class="eyebrow">05 / Produktdemo</p><span class="time">2:00 min</span>
+        <h2 id="title-5">Der Weg von der Anmeldung<br>zum konkreten Angebot.</h2>
+        <div class="demo-steps">
+          <div class="demo-step"><span>01</span><strong>Konto / Login</strong></div><div class="demo-step"><span>02</span><strong>Karte + Liste</strong></div><div class="demo-step"><span>03</span><strong>Bezirk wählen</strong></div><div class="demo-step"><span>04</span><strong>Detail + Bilder</strong></div><div class="demo-step"><span>05</span><strong>Abmelden</strong></div>
+        </div>
+        <a class="primary" href="http://localhost:4200/login" target="_blank" rel="noopener">Lokale Produktdemo öffnen ↗</a>
+        <div class="two-col">
+          <div><h3>Vorbereitete Live-Demo</h3><ul><li>Backend auf Port 5197; Angular auf 4200.</li><li>Lokaler Entwicklungsmodus mit <code>npm start</code>.</li><li>Internet und funktionierender API-Zugang für Angebote.</li></ul></div>
+          <div><h3>Wenn die API ausfällt</h3><ul><li>Sichtbaren Fehlerzustand ehrlich benennen.</li><li><a href="demo/index.html">Gespeicherte echte Demoansichten</a> zeigen.</li><li>Testausgaben und Fixture-Abläufe erklären.</li><li>Live-Ergebnis und kontrollierten Test getrennt erklären.</li></ul></div>
+        </div>
+        <div class="callout warn">Liveprobe am 04.10. bestanden: 28 Angebote, Bad Cannstatt, Detail/Bildwechsel und Logout. Screenshots sind offline verfügbar.</div>
+        <p class="evidence">Ausweichbeleg: <a href="../Frontend/TomInnoFrondEnd/src/app/listing-flow.spec.ts">listing-flow.spec.ts · Z. 12/37/69</a><a href="../Backend/ImmscoutAPI.Checks/Program.cs">Backendchecks · Z. 22</a></p>
+        <aside class="speaker-notes"><strong>Sprechnotiz · Demo 2 Minuten</strong><p>Ungültige E-Mail/kurzes Passwort im Formular zeigen, danach vorbereitetes gültiges Demokonto anmelden. Übersicht, Bezirk mit Treffern und ein Detail öffnen; Bilder nur wechseln, wenn mehrere vorhanden sind. Zum Schluss abmelden. Bei Ausfall kurz Fehler zeigen und zur Test-/Codevorführung wechseln. Fixtures ausdrücklich als Testdaten benennen, keine erfolgreiche Live-Verbindung behaupten. Kein UI-Reset auf alle Bezirke versprechen; der fehlt. Rückweg kann Kartenhervorhebung verlieren. Passwörter, Tokens und Schlüssel nicht projizieren.</p></aside>
+      </section>
+
+      <section class="slide" id="folie-6" aria-labelledby="title-6">
+        <p class="eyebrow">06 / Prüfungen</p><span class="time">1:15 min</span>
+        <h2 id="title-6">Ergebnisse sind belegt.<br>Ihre Grenzen ebenfalls.</h2>
+        <table class="results">
+          <thead><tr><th scope="col">Prüfung am 04.10.2026</th><th scope="col">Ergebnis</th><th scope="col">Grenze / offener Punkt</th></tr></thead>
+          <tbody>
+            <tr><td>Frontend-Komponenten / HTTP</td><td class="passed">8 / 8 bestanden</td><td>Mockdaten; kein Browser-E2E oder echter Authflow</td></tr>
+            <tr><td>Frontend-Entwicklungsbuild</td><td class="passed">Erfolgreich</td><td>Initialbundle: 4,43 MB</td></tr>
+            <tr><td>Frontend-Produktionsbuild</td><td class="failed">Fehlgeschlagen</td><td>1,71 MB überschreiten das 1-MB-Budget</td></tr>
+            <tr><td>Backendbuild / vorhandene Checks</td><td class="passed">0 Fehler / Checks bestanden</td><td>28 Nullability-Warnungen; Fixtures und Testauth</td></tr>
+            <tr><td>Echte Desktop-Demoprobe</td><td class="passed">Bestanden</td><td>Live-API HTTP 200; Login → Bezirk → Bilder → Logout</td></tr>
+          </tbody>
+        </table>
+        <div class="callout">Zusätzlich isoliert geprüft: echte Registrierung, Login und Refreshrotation mit temporärer SQLite. Kein Live-Immobilienabruf.</div>
+        <p class="caption">Reproduzierter Fehler: serverseitige Registrierung akzeptiert ungültige Eingaben. Automatischer Frontend-Refresh bleibt offen. Kartenmarkierung verschwindet beim Rückweg.</p>
+        <p class="evidence"><a href="pruefungen.md">Prüfungen und Grenzen</a><a href="demoprobe.md">Liveprobe / Sicherung</a> · Code: <a href="../Frontend/TomInnoFrondEnd/src/app/listing-flow.spec.ts">Frontendtests</a><a href="../Backend/ImmscoutAPI.Checks/Program.cs">Backendchecks</a><a href="../Frontend/TomInnoFrondEnd/src/app/services/auth.ts">Frontend-Auth · Z. 33</a></p>
+        <aside class="speaker-notes"><strong>Sprechnotiz · 75 Sekunden</strong><p>Acht Frontendtests bestanden, unter anderem Filter, Fehlerzustände und Details. Entwicklungsbuild klappt, Produktionsbuild scheitert am Budget; große Inline-SVG-Karte wahrscheinlich Hauptursache. Backend: 0 Fehler, 28 CS8618-Warnungen. Vorhandene Checks prüfen Verarbeitung/HTTP mit Testauth. Zusätzlich echte Auth isoliert geprüft: normale Abläufe, Dublette, falsches Passwort, Rotation und abgelehnter alter Refresh-Token. Ungültige Registrierungen wurden trotzdem angenommen. Die isolierte Authprüfung ist noch kein eingecheckter Regressionstest. Konkrete echte Desktopprobe anschließend bestanden, inklusive Bildwechsel und Logout. Keine umfassende Browserregression behaupten.</p></aside>
+      </section>
+
+      <section class="slide" id="folie-7" aria-labelledby="title-7">
+        <p class="eyebrow">07 / Eigener Beitrag · 40 %</p><span class="time">1:15 min</span>
+        <h2 id="title-7">Gemeinsamer Start.<br>Nachvollziehbare Fortführung.</h2>
+        <p class="lead">Frühere gemeinsame Arbeit bleibt sichtbar. Der Stand vom 02.10.2026 und spätere Änderungen werden getrennt dokumentiert.</p>
+        <div class="flow"><span class="step">Gemeinsamer Ursprung</span><span class="arrow" aria-hidden="true">→</span><span class="step">Stand 02.10.</span><span class="arrow" aria-hidden="true">→</span><span class="step">Heutige Fortführung</span></div>
+        <div class="contribution">
+          <div><strong>Aufgabe</strong><span>Was wurde konkret übernommen oder bearbeitet?</span></div><div><strong>Nachweis</strong><span>Datei, Commit, Boardtask oder belegter Arbeitsschritt.</span></div><div><strong>Ergebnis</strong><span>Was funktioniert danach und wie wurde es geprüft?</span></div><div><strong>Erklärung</strong><span>Fachliche Entscheidung, Verständnis und Unterstützung.</span></div>
+        </div>
+        <div class="callout warn">Persönliche Zuordnung einzelner Features ist noch zu bestätigen. Vorhandener Code allein belegt keine Solo-Autorenschaft.</div>
+        <p class="caption">Scrum: Aufgabenstatus, Verantwortlichkeit, geschätzte/tatsächliche Zeit und Retrospektive. Fehlende historische Zeiten bleiben als unbekannt kenntlich.</p>
+        <p class="evidence"><a href="https://github.com/users/LotAnderson/projects/2" target="_blank" rel="noopener">Projektboard ↗</a><a href="backlog.md">Backlog</a><a href="retrospektive.md">Retrospektive</a><a href="scrum-nachtraege.md">Boardabgleich / Phasen</a></p>
+        <aside class="speaker-notes"><strong>Sprechnotiz · 75 Sekunden · vorher persönlich konkretisieren</strong><p>Das Projekt begann zu zweit; die Alleinarbeit ist akzeptiert. Zeitpunkt der Umstellung ist unbestätigt; 02.10. ist ein Vergleichsstand, kein behaupteter Beginn der Alleinarbeit. Produktbestand und persönliche Autorenschaft trennen. Nur bestätigte eigene Arbeiten nennen: Meine Aufgabe war …; in Datei/Commit … habe ich … umgesetzt/geprüft; Ergebnis …; fachliche Entscheidung … . Aktuell sind einzelne Feature-Zuordnungen unbestätigt. Mehrere Basisfeatures existierten bereits im Juli. Historische Partnerarbeit und tatsächlich eingesetzte Unterstützung benennen, keine Zeiten erfinden. Den aktuellen Boardstand zeigen; die Audit-Zahlen vor Überarbeitung sind keine aktuellen Pflegezahlen.</p></aside>
+      </section>
+
+      <section class="slide" id="folie-8" aria-labelledby="title-8">
+        <p class="eyebrow">08 / Stand und nächste Schritte</p><span class="time">0:45 min</span>
+        <h2 id="title-8">Der Produktweg steht.<br>Die nächsten Schritte sind klar.</h2>
+        <p class="lead">C#, externe API und SQLite sind eingebunden. Wesentliche Datenabläufe sind getestet; der konkrete Desktopablauf mit echter API wurde erfolgreich geprobt.</p>
+        <ol class="priorities">
+          <li><strong>Abgabe nachvollziehbar machen</strong><span>Aktuellen Code, Startanleitung, Architektur/Algorithmus, Scrum und individuellen Beitrag konsistent abgeben.</span></li>
+          <li><strong>Technische Korrektheit erhöhen</strong><span>Produktionsbundle, Backendvalidierung, Frontend-Sitzungsablauf und externe API-Konfiguration/Fehlerbehandlung.</span></li>
+          <li><strong>Bedienung verbessern</strong><span>Mobile Ansicht, Bezirksreset, Kartenhervorhebung beim Rückweg, Bildfallback und Tastaturzugang.</span></li>
+        </ol>
+        <p class="caption">Technische Fixes werden hier als nächste Schritte genannt, nicht als bereits abgeschlossen. Weiterer Funktionsumfang folgt nach Stabilisierung des vorhandenen Ablaufs.</p>
+        <p class="evidence"><a href="../README.md">Startanleitung</a><a href="praesentation.md">Vollständiger Vortragsleitfaden</a></p>
+        <aside class="speaker-notes"><strong>Sprechnotiz · 45 Sekunden</strong><p>Der zentrale Produktweg und die technischen Pflichtbestandteile sind vorhanden. Für die Abgabe braucht es vollständigen konsistenten Code und Nachweise. Technisch folgen Bundlegröße, serverseitige Validierung, Sitzungsauslauf und API-Fehler/Konfiguration. Mobile Ansicht und kleine Bedienungsfehler kommen danach. Das ist die Priorisierung der offenen Arbeit, keine Behauptung bereits umgesetzter Fixes. Raum für Rückfragen lassen.</p></aside>
+      </section>
+    </main>
+  </div>
+
+  <div class="progress" aria-hidden="true"><div id="progress-fill"></div></div>
+  <footer>
+    <a class="footer-link" href="praesentation.md">Vortragsleitfaden + Demo-Vorbereitung</a>
+    <span class="keyboard-hint">← → / Bild ↑ ↓ · Home / End · N Notizen · P Drucken</span>
+    <div class="controls"><button type="button" class="nav-button" id="previous">← Zurück</button><span class="counter" id="counter" aria-live="polite" aria-atomic="true">1 / 8</span><button type="button" class="nav-button" id="next">Weiter →</button></div>
+  </footer>
+  <noscript><p style="padding:20px">JavaScript ist deaktiviert. Alle Folien stehen untereinander zur Verfügung und lassen sich über den Browser drucken.</p></noscript>
+  <script>
+    (() => {
+      const slides = Array.from(document.querySelectorAll('.slide'));
+      const indexButtons = Array.from(document.querySelectorAll('[data-slide]'));
+      const previous = document.getElementById('previous');
+      const next = document.getElementById('next');
+      const counter = document.getElementById('counter');
+      const progress = document.getElementById('progress-fill');
+      const notes = document.getElementById('notes-toggle');
+      let current = 0;
+
+      function showSlide(index, updateHash = true) {
+        current = Math.max(0, Math.min(slides.length - 1, index));
+        slides.forEach((slide, slideIndex) => { slide.hidden = slideIndex !== current; });
+        indexButtons.forEach((button, slideIndex) => {
+          if (slideIndex === current) button.setAttribute('aria-current', 'step');
+          else button.removeAttribute('aria-current');
+        });
+        previous.disabled = current === 0;
+        next.disabled = current === slides.length - 1;
+        counter.textContent = `${current + 1} / ${slides.length}`;
+        progress.style.width = `${(current + 1) / slides.length * 100}%`;
+        if (updateHash && location.hash !== `#${slides[current].id}`) {
+          try { history.replaceState(null, '', `#${slides[current].id}`); }
+          catch { location.hash = slides[current].id; }
+        }
+      }
+
+      function showHash() {
+        const index = slides.findIndex(slide => `#${slide.id}` === location.hash);
+        showSlide(index < 0 ? 0 : index, false);
+      }
+
+      function toggleNotes() {
+        const visible = document.body.classList.toggle('notes-visible');
+        notes.setAttribute('aria-pressed', String(visible));
+      }
+
+      indexButtons.forEach(button => button.addEventListener('click', () => showSlide(Number(button.dataset.slide))));
+      previous.addEventListener('click', () => showSlide(current - 1));
+      next.addEventListener('click', () => showSlide(current + 1));
+      notes.addEventListener('click', toggleNotes);
+      document.getElementById('print-button').addEventListener('click', () => window.print());
+      window.addEventListener('hashchange', showHash);
+      document.addEventListener('keydown', event => {
+        if (event.altKey || event.ctrlKey || event.metaKey) return;
+        if (event.target instanceof Element && event.target.closest('input,textarea,select,[contenteditable="true"]')) return;
+        if (event.key === 'ArrowRight' || event.key === 'PageDown') { event.preventDefault(); showSlide(current + 1); }
+        else if (event.key === 'ArrowLeft' || event.key === 'PageUp') { event.preventDefault(); showSlide(current - 1); }
+        else if (event.key === 'Home') { event.preventDefault(); showSlide(0); }
+        else if (event.key === 'End') { event.preventDefault(); showSlide(slides.length - 1); }
+        else if (event.key.toLowerCase() === 'n') { event.preventDefault(); toggleNotes(); }
+        else if (event.key.toLowerCase() === 'p') { event.preventDefault(); window.print(); }
+      });
+      showHash();
+    })();
+  </script>
+</body>
+</html>

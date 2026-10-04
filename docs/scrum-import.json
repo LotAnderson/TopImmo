@@ -1,0 +1,183 @@
+{
+  "repository": "LotAnderson/TopImmo",
+  "project_url": "https://github.com/users/LotAnderson/projects/2",
+  "prepared_at": "2026-10-04",
+  "written_to_github": false,
+  "block_reason": "Erster Issue-PATCH erhielt HTTP 403: Resource not accessible by integration. Keine Änderung ausgeführt. Projektschreibwerkzeug und lokale Projects-Anmeldung fehlen.",
+  "existing_issue_updates": [
+    {
+      "issue_number": 8,
+      "url": "https://github.com/LotAnderson/TopImmo/issues/8",
+      "title": "Back End",
+      "proposed_issue_state": "closed",
+      "proposed_project_status": "Done",
+      "body": "Interfaces, Services erstellen\nSie in Programm.cs melden in DI Container als Scope\n\n---\n\n## Nachträglicher Bestandsabgleich – 04.10.2026\n\nInterfaces, Services und DI bereits in 8a91593 vom 02.07.2026.\n\nGrundaufgabe im aktuellen Backend vorhanden.\n\nErfasst am 04.10.2026. Ursprüngliche Erstellungsdaten bleiben erhalten. Historische Schätz-/Istzeit ist nicht überliefert. Die ursprüngliche Autorschaft ist aus den Belegcommits zu erklären; die heutige Statuskorrektur ist keine neue historische Solo-Leistung.\n\nAktueller lokaler Stand und Belege: docs/backlog.md, docs/architektur.md und docs/pruefungen.md. Der heutige Gesamtstand ist noch nicht vollständig eingecheckt; main enthält einen anderen Stand. Eine erfolgreiche Live-API-Demo wird nicht behauptet.",
+      "addition": "## Nachträglicher Bestandsabgleich – 04.10.2026\n\nInterfaces, Services und DI bereits in 8a91593 vom 02.07.2026.\n\nGrundaufgabe im aktuellen Backend vorhanden.\n\nErfasst am 04.10.2026. Ursprüngliche Erstellungsdaten bleiben erhalten. Historische Schätz-/Istzeit ist nicht überliefert. Die ursprüngliche Autorschaft ist aus den Belegcommits zu erklären; die heutige Statuskorrektur ist keine neue historische Solo-Leistung.\n\nAktueller lokaler Stand und Belege: docs/backlog.md, docs/architektur.md und docs/pruefungen.md. Der heutige Gesamtstand ist noch nicht vollständig eingecheckt; main enthält einen anderen Stand. Eine erfolgreiche Live-API-Demo wird nicht behauptet."
+    },
+    {
+      "issue_number": 12,
+      "url": "https://github.com/LotAnderson/TopImmo/issues/12",
+      "title": "Back End Entity frame work als ORM",
+      "proposed_issue_state": "closed",
+      "proposed_project_status": "Done",
+      "body": "In Package Manage Console installieren EF core und seine andere tools. \nSQlite als Datenbank auswahlen\n\n---\n\n## Nachträglicher Bestandsabgleich – 04.10.2026\n\nEF Core, SQLite, DbContext und Migrationen bereits in 8a91593.\n\nKonten-/Tokenpersistenz am 04.10.2026 separat geprüft; Immobilienpersistenz ist keine zusätzliche PDF-Pflicht.\n\nErfasst am 04.10.2026. Ursprüngliche Erstellungsdaten bleiben erhalten. Historische Schätz-/Istzeit ist nicht überliefert. Die ursprüngliche Autorschaft ist aus den Belegcommits zu erklären; die heutige Statuskorrektur ist keine neue historische Solo-Leistung.\n\nAktueller lokaler Stand und Belege: docs/backlog.md, docs/architektur.md und docs/pruefungen.md. Der heutige Gesamtstand ist noch nicht vollständig eingecheckt; main enthält einen anderen Stand. Eine erfolgreiche Live-API-Demo wird nicht behauptet.",
+      "addition": "## Nachträglicher Bestandsabgleich – 04.10.2026\n\nEF Core, SQLite, DbContext und Migrationen bereits in 8a91593.\n\nKonten-/Tokenpersistenz am 04.10.2026 separat geprüft; Immobilienpersistenz ist keine zusätzliche PDF-Pflicht.\n\nErfasst am 04.10.2026. Ursprüngliche Erstellungsdaten bleiben erhalten. Historische Schätz-/Istzeit ist nicht überliefert. Die ursprüngliche Autorschaft ist aus den Belegcommits zu erklären; die heutige Statuskorrektur ist keine neue historische Solo-Leistung.\n\nAktueller lokaler Stand und Belege: docs/backlog.md, docs/architektur.md und docs/pruefungen.md. Der heutige Gesamtstand ist noch nicht vollständig eingecheckt; main enthält einen anderen Stand. Eine erfolgreiche Live-API-Demo wird nicht behauptet."
+    },
+    {
+      "issue_number": 23,
+      "url": "https://github.com/LotAnderson/TopImmo/issues/23",
+      "title": "Angular Project Erstellen",
+      "proposed_issue_state": "closed",
+      "proposed_project_status": "Done",
+      "body": "\n\n---\n\n## Nachträglicher Bestandsabgleich – 04.10.2026\n\nAngular-Projekt in d59e6b3 vom 02.07.2026; spätere Strukturänderung in 65d0d31.\n\nGrundgerüst vorhanden. Die Strukturänderung ist keine erneute Implementierung von Angular.\n\nErfasst am 04.10.2026. Ursprüngliche Erstellungsdaten bleiben erhalten. Historische Schätz-/Istzeit ist nicht überliefert. Die ursprüngliche Autorschaft ist aus den Belegcommits zu erklären; die heutige Statuskorrektur ist keine neue historische Solo-Leistung.\n\nAktueller lokaler Stand und Belege: docs/backlog.md, docs/architektur.md und docs/pruefungen.md. Der heutige Gesamtstand ist noch nicht vollständig eingecheckt; main enthält einen anderen Stand. Eine erfolgreiche Live-API-Demo wird nicht behauptet.",
+      "addition": "## Nachträglicher Bestandsabgleich – 04.10.2026\n\nAngular-Projekt in d59e6b3 vom 02.07.2026; spätere Strukturänderung in 65d0d31.\n\nGrundgerüst vorhanden. Die Strukturänderung ist keine erneute Implementierung von Angular.\n\nErfasst am 04.10.2026. Ursprüngliche Erstellungsdaten bleiben erhalten. Historische Schätz-/Istzeit ist nicht überliefert. Die ursprüngliche Autorschaft ist aus den Belegcommits zu erklären; die heutige Statuskorrektur ist keine neue historische Solo-Leistung.\n\nAktueller lokaler Stand und Belege: docs/backlog.md, docs/architektur.md und docs/pruefungen.md. Der heutige Gesamtstand ist noch nicht vollständig eingecheckt; main enthält einen anderen Stand. Eine erfolgreiche Live-API-Demo wird nicht behauptet."
+    },
+    {
+      "issue_number": 24,
+      "url": "https://github.com/LotAnderson/TopImmo/issues/24",
+      "title": "Interfaces erstellen aufgrund JSON responce from Back End",
+      "proposed_issue_state": "closed",
+      "proposed_project_status": "Done",
+      "body": "\n\n---\n\n## Nachträglicher Bestandsabgleich – 04.10.2026\n\nListing-/Adress-/Antwortinterfaces in d59e6b3; Authinterfaces in 23ceb19 vom 16.07.2026.\n\nGrundaufgabe vorhanden; der neue ListingSearchResult-Vertrag wird getrennt nachgetragen.\n\nErfasst am 04.10.2026. Ursprüngliche Erstellungsdaten bleiben erhalten. Historische Schätz-/Istzeit ist nicht überliefert. Die ursprüngliche Autorschaft ist aus den Belegcommits zu erklären; die heutige Statuskorrektur ist keine neue historische Solo-Leistung.\n\nAktueller lokaler Stand und Belege: docs/backlog.md, docs/architektur.md und docs/pruefungen.md. Der heutige Gesamtstand ist noch nicht vollständig eingecheckt; main enthält einen anderen Stand. Eine erfolgreiche Live-API-Demo wird nicht behauptet.",
+      "addition": "## Nachträglicher Bestandsabgleich – 04.10.2026\n\nListing-/Adress-/Antwortinterfaces in d59e6b3; Authinterfaces in 23ceb19 vom 16.07.2026.\n\nGrundaufgabe vorhanden; der neue ListingSearchResult-Vertrag wird getrennt nachgetragen.\n\nErfasst am 04.10.2026. Ursprüngliche Erstellungsdaten bleiben erhalten. Historische Schätz-/Istzeit ist nicht überliefert. Die ursprüngliche Autorschaft ist aus den Belegcommits zu erklären; die heutige Statuskorrektur ist keine neue historische Solo-Leistung.\n\nAktueller lokaler Stand und Belege: docs/backlog.md, docs/architektur.md und docs/pruefungen.md. Der heutige Gesamtstand ist noch nicht vollständig eingecheckt; main enthält einen anderen Stand. Eine erfolgreiche Live-API-Demo wird nicht behauptet."
+    },
+    {
+      "issue_number": 25,
+      "url": "https://github.com/LotAnderson/TopImmo/issues/25",
+      "title": "Service wie Http Client(back end aufzurufen), bridge zwischen dem Map und dem API Responce",
+      "proposed_issue_state": "closed",
+      "proposed_project_status": "Done",
+      "body": "\n\n---\n\n## Nachträglicher Bestandsabgleich – 04.10.2026\n\nRealEstateService und DistrictFilterService in d59e6b3; aktueller Backendfilter-/Kartenvertrag lokal weiterentwickelt.\n\nGrundaufgabe vorhanden; Live-Browserablauf bleibt ungeprüft.\n\nErfasst am 04.10.2026. Ursprüngliche Erstellungsdaten bleiben erhalten. Historische Schätz-/Istzeit ist nicht überliefert. Die ursprüngliche Autorschaft ist aus den Belegcommits zu erklären; die heutige Statuskorrektur ist keine neue historische Solo-Leistung.\n\nAktueller lokaler Stand und Belege: docs/backlog.md, docs/architektur.md und docs/pruefungen.md. Der heutige Gesamtstand ist noch nicht vollständig eingecheckt; main enthält einen anderen Stand. Eine erfolgreiche Live-API-Demo wird nicht behauptet.",
+      "addition": "## Nachträglicher Bestandsabgleich – 04.10.2026\n\nRealEstateService und DistrictFilterService in d59e6b3; aktueller Backendfilter-/Kartenvertrag lokal weiterentwickelt.\n\nGrundaufgabe vorhanden; Live-Browserablauf bleibt ungeprüft.\n\nErfasst am 04.10.2026. Ursprüngliche Erstellungsdaten bleiben erhalten. Historische Schätz-/Istzeit ist nicht überliefert. Die ursprüngliche Autorschaft ist aus den Belegcommits zu erklären; die heutige Statuskorrektur ist keine neue historische Solo-Leistung.\n\nAktueller lokaler Stand und Belege: docs/backlog.md, docs/architektur.md und docs/pruefungen.md. Der heutige Gesamtstand ist noch nicht vollständig eingecheckt; main enthält einen anderen Stand. Eine erfolgreiche Live-API-Demo wird nicht behauptet."
+    },
+    {
+      "issue_number": 27,
+      "url": "https://github.com/LotAnderson/TopImmo/issues/27",
+      "title": "Token und Refresch Token Erstellen",
+      "proposed_issue_state": "closed",
+      "proposed_project_status": "Done",
+      "body": "damit Frond end und Back end komunizieren können\nauch Refresh Token in der DB speichern\n\n---\n\n## Nachträglicher Bestandsabgleich – 04.10.2026\n\nTokenmodelle, Generierung und Persistenz in 8a91593; Refreshablauf in 23ceb19.\n\nBackendrotation am 04.10.2026 isoliert geprüft. Automatische Frontenderneuerung bleibt offen.\n\nErfasst am 04.10.2026. Ursprüngliche Erstellungsdaten bleiben erhalten. Historische Schätz-/Istzeit ist nicht überliefert. Die ursprüngliche Autorschaft ist aus den Belegcommits zu erklären; die heutige Statuskorrektur ist keine neue historische Solo-Leistung.\n\nAktueller lokaler Stand und Belege: docs/backlog.md, docs/architektur.md und docs/pruefungen.md. Der heutige Gesamtstand ist noch nicht vollständig eingecheckt; main enthält einen anderen Stand. Eine erfolgreiche Live-API-Demo wird nicht behauptet.",
+      "addition": "## Nachträglicher Bestandsabgleich – 04.10.2026\n\nTokenmodelle, Generierung und Persistenz in 8a91593; Refreshablauf in 23ceb19.\n\nBackendrotation am 04.10.2026 isoliert geprüft. Automatische Frontenderneuerung bleibt offen.\n\nErfasst am 04.10.2026. Ursprüngliche Erstellungsdaten bleiben erhalten. Historische Schätz-/Istzeit ist nicht überliefert. Die ursprüngliche Autorschaft ist aus den Belegcommits zu erklären; die heutige Statuskorrektur ist keine neue historische Solo-Leistung.\n\nAktueller lokaler Stand und Belege: docs/backlog.md, docs/architektur.md und docs/pruefungen.md. Der heutige Gesamtstand ist noch nicht vollständig eingecheckt; main enthält einen anderen Stand. Eine erfolgreiche Live-API-Demo wird nicht behauptet."
+    },
+    {
+      "issue_number": 28,
+      "url": "https://github.com/LotAnderson/TopImmo/issues/28",
+      "title": "Pages erstellen und in der routes.ts anmelden, um SPA darzustellen",
+      "proposed_issue_state": "closed",
+      "proposed_project_status": "Done",
+      "body": "\n\n---\n\n## Nachträglicher Bestandsabgleich – 04.10.2026\n\nHome, Registrierung, Login, Details und Routen spätestens in 23ceb19.\n\nGrundaufgabe bereits vor dem 17.07.2026 vorhanden.\n\nErfasst am 04.10.2026. Ursprüngliche Erstellungsdaten bleiben erhalten. Historische Schätz-/Istzeit ist nicht überliefert. Die ursprüngliche Autorschaft ist aus den Belegcommits zu erklären; die heutige Statuskorrektur ist keine neue historische Solo-Leistung.\n\nAktueller lokaler Stand und Belege: docs/backlog.md, docs/architektur.md und docs/pruefungen.md. Der heutige Gesamtstand ist noch nicht vollständig eingecheckt; main enthält einen anderen Stand. Eine erfolgreiche Live-API-Demo wird nicht behauptet.",
+      "addition": "## Nachträglicher Bestandsabgleich – 04.10.2026\n\nHome, Registrierung, Login, Details und Routen spätestens in 23ceb19.\n\nGrundaufgabe bereits vor dem 17.07.2026 vorhanden.\n\nErfasst am 04.10.2026. Ursprüngliche Erstellungsdaten bleiben erhalten. Historische Schätz-/Istzeit ist nicht überliefert. Die ursprüngliche Autorschaft ist aus den Belegcommits zu erklären; die heutige Statuskorrektur ist keine neue historische Solo-Leistung.\n\nAktueller lokaler Stand und Belege: docs/backlog.md, docs/architektur.md und docs/pruefungen.md. Der heutige Gesamtstand ist noch nicht vollständig eingecheckt; main enthält einen anderen Stand. Eine erfolgreiche Live-API-Demo wird nicht behauptet."
+    },
+    {
+      "issue_number": 30,
+      "url": "https://github.com/LotAnderson/TopImmo/issues/30",
+      "title": "Backend-EM: Benutzer anlegen ,  Login und Sessions",
+      "proposed_issue_state": "closed",
+      "proposed_project_status": "Done",
+      "body": "\n\n---\n\n## Nachträglicher Bestandsabgleich – 04.10.2026\n\nBenutzer-/Loginservices in 8a91593; JWT-/Refreshintegration in 23ceb19; anderer Backendansatz in fa3f828.\n\nGrundablauf geprüft; Backendvalidierung und Sitzungsauslauf bleiben offen.\n\nErfasst am 04.10.2026. Ursprüngliche Erstellungsdaten bleiben erhalten. Historische Schätz-/Istzeit ist nicht überliefert. Die ursprüngliche Autorschaft ist aus den Belegcommits zu erklären; die heutige Statuskorrektur ist keine neue historische Solo-Leistung.\n\nAktueller lokaler Stand und Belege: docs/backlog.md, docs/architektur.md und docs/pruefungen.md. Der heutige Gesamtstand ist noch nicht vollständig eingecheckt; main enthält einen anderen Stand. Eine erfolgreiche Live-API-Demo wird nicht behauptet.",
+      "addition": "## Nachträglicher Bestandsabgleich – 04.10.2026\n\nBenutzer-/Loginservices in 8a91593; JWT-/Refreshintegration in 23ceb19; anderer Backendansatz in fa3f828.\n\nGrundablauf geprüft; Backendvalidierung und Sitzungsauslauf bleiben offen.\n\nErfasst am 04.10.2026. Ursprüngliche Erstellungsdaten bleiben erhalten. Historische Schätz-/Istzeit ist nicht überliefert. Die ursprüngliche Autorschaft ist aus den Belegcommits zu erklären; die heutige Statuskorrektur ist keine neue historische Solo-Leistung.\n\nAktueller lokaler Stand und Belege: docs/backlog.md, docs/architektur.md und docs/pruefungen.md. Der heutige Gesamtstand ist noch nicht vollständig eingecheckt; main enthält einen anderen Stand. Eine erfolgreiche Live-API-Demo wird nicht behauptet."
+    },
+    {
+      "issue_number": 31,
+      "url": "https://github.com/LotAnderson/TopImmo/issues/31",
+      "title": "Backend EM: endpoint anlegen",
+      "proposed_issue_state": "closed",
+      "proposed_project_status": "Done",
+      "body": "\n\n---\n\n## Nachträglicher Bestandsabgleich – 04.10.2026\n\nController/Listenendpunkt in 8a91593 und 23ceb19; weitere Endpunkte im älteren Ansatz in fa3f828.\n\nGrundaufgabe vorhanden; neue lokale Such-/Detailendpunkte getrennt erfassen.\n\nErfasst am 04.10.2026. Ursprüngliche Erstellungsdaten bleiben erhalten. Historische Schätz-/Istzeit ist nicht überliefert. Die ursprüngliche Autorschaft ist aus den Belegcommits zu erklären; die heutige Statuskorrektur ist keine neue historische Solo-Leistung.\n\nAktueller lokaler Stand und Belege: docs/backlog.md, docs/architektur.md und docs/pruefungen.md. Der heutige Gesamtstand ist noch nicht vollständig eingecheckt; main enthält einen anderen Stand. Eine erfolgreiche Live-API-Demo wird nicht behauptet.",
+      "addition": "## Nachträglicher Bestandsabgleich – 04.10.2026\n\nController/Listenendpunkt in 8a91593 und 23ceb19; weitere Endpunkte im älteren Ansatz in fa3f828.\n\nGrundaufgabe vorhanden; neue lokale Such-/Detailendpunkte getrennt erfassen.\n\nErfasst am 04.10.2026. Ursprüngliche Erstellungsdaten bleiben erhalten. Historische Schätz-/Istzeit ist nicht überliefert. Die ursprüngliche Autorschaft ist aus den Belegcommits zu erklären; die heutige Statuskorrektur ist keine neue historische Solo-Leistung.\n\nAktueller lokaler Stand und Belege: docs/backlog.md, docs/architektur.md und docs/pruefungen.md. Der heutige Gesamtstand ist noch nicht vollständig eingecheckt; main enthält einen anderen Stand. Eine erfolgreiche Live-API-Demo wird nicht behauptet."
+    },
+    {
+      "issue_number": 32,
+      "url": "https://github.com/LotAnderson/TopImmo/issues/32",
+      "title": "UML-Diagramm ertsllen",
+      "proposed_issue_state": "closed",
+      "proposed_project_status": "Done",
+      "body": "\n\n---\n\n## Nachträglicher Bestandsabgleich – 04.10.2026\n\nAm 04.10.2026 wurden docs/architektur.md und docs/algorithmen.md erstellt und gegen den aktuellen Code geprüft.\n\nKomponentenbild, UML-Klassenbild, SQLite-ER-Modell und Pseudocode sind lokal vorhanden. Die Dateien sind noch nicht eingecheckt.\n\nErfasst am 04.10.2026. Ursprüngliche Erstellungsdaten bleiben erhalten. Historische Schätz-/Istzeit ist nicht überliefert. Die ursprüngliche Autorschaft ist aus den Belegcommits zu erklären; die heutige Statuskorrektur ist keine neue historische Solo-Leistung.\n\nAktueller lokaler Stand und Belege: docs/backlog.md, docs/architektur.md und docs/pruefungen.md. Der heutige Gesamtstand ist noch nicht vollständig eingecheckt; main enthält einen anderen Stand. Eine erfolgreiche Live-API-Demo wird nicht behauptet.",
+      "addition": "## Nachträglicher Bestandsabgleich – 04.10.2026\n\nAm 04.10.2026 wurden docs/architektur.md und docs/algorithmen.md erstellt und gegen den aktuellen Code geprüft.\n\nKomponentenbild, UML-Klassenbild, SQLite-ER-Modell und Pseudocode sind lokal vorhanden. Die Dateien sind noch nicht eingecheckt.\n\nErfasst am 04.10.2026. Ursprüngliche Erstellungsdaten bleiben erhalten. Historische Schätz-/Istzeit ist nicht überliefert. Die ursprüngliche Autorschaft ist aus den Belegcommits zu erklären; die heutige Statuskorrektur ist keine neue historische Solo-Leistung.\n\nAktueller lokaler Stand und Belege: docs/backlog.md, docs/architektur.md und docs/pruefungen.md. Der heutige Gesamtstand ist noch nicht vollständig eingecheckt; main enthält einen anderen Stand. Eine erfolgreiche Live-API-Demo wird nicht behauptet."
+    }
+  ],
+  "new_issue_drafts": [
+    {
+      "key": "H1",
+      "phase": "17.07.–02.10.2026",
+      "title": "[H1] Älteres Backend: HTTP-Endpunkte und Datenqualität weiterentwickelt",
+      "proposed_project_status": "Done",
+      "proposed_issue_state": "closed",
+      "assignee": "LotAnderson",
+      "body": "## Nachtrag am 04.10.2026\n\nZeitraum: 17.07.–02.10.2026. Dies ist ein nachträglich erfasster Abschnitt, kein damals protokollierter Sprint.\n\n### Inhalt\n\nIm älteren Backendansatz wurden HouseUrl-Verarbeitung, weitere Controller-/Loginabläufe und Duplikatbehandlung ergänzt. Diese Umsetzung ist historisch getrennt vom heutigen ASP.NET-/Angular-Ansatz darzustellen.\n\n### Nachweise und Grenzen\n\nd178848 (17.07.), fa3f828 (21.07.), ae9043e (28.09.2026). Commitautor: LotAnderson. Exakte Arbeitstage und Arbeitsdauer folgen daraus nicht.\n\n### Aufwand und Verantwortung\n\n- Historische Schätzzeit: nicht überliefert.\n- Tatsächlicher Aufwand: nicht protokolliert.\n- Verantwortlich für heutigen Nachtrag und Fortführung: LotAnderson. Dies ist keine rückwirkende Zuschreibung sämtlicher ursprünglicher Programmierarbeit.\n- Vorgesehener Boardstatus: Done. Done bezieht sich auf den beschriebenen lokalen Stand; Veröffentlichen/Einchecken und Live-Probe bleiben getrennte Aufgaben."
+    },
+    {
+      "key": "H2",
+      "phase": "17.07.–02.10.2026",
+      "title": "[H2] Projektstruktur und Frontendintegration geordnet",
+      "proposed_project_status": "Done",
+      "proposed_issue_state": "closed",
+      "assignee": "LotAnderson",
+      "body": "## Nachtrag am 04.10.2026\n\nZeitraum: 17.07.–02.10.2026. Dies ist ein nachträglich erfasster Abschnitt, kein damals protokollierter Sprint.\n\n### Inhalt\n\nRepositorystruktur, Merge und Verlagerung der bestehenden Backend-/Angular-Dateien bis zum Vergleichsstand vom 02.10.2026. Vorhandene Funktionen wurden dabei überwiegend verschoben, nicht neu implementiert.\n\n### Nachweise und Grenzen\n\n1a5a76a, a2686c5, 7a7d838, a6955bd (28.09.), 65d0d31 und 4af8130 (02.10.). Commitautor: LotAnderson.\n\n### Aufwand und Verantwortung\n\n- Historische Schätzzeit: nicht überliefert.\n- Tatsächlicher Aufwand: nicht protokolliert.\n- Verantwortlich für heutigen Nachtrag und Fortführung: LotAnderson. Dies ist keine rückwirkende Zuschreibung sämtlicher ursprünglicher Programmierarbeit.\n- Vorgesehener Boardstatus: Done. Done bezieht sich auf den beschriebenen lokalen Stand; Veröffentlichen/Einchecken und Live-Probe bleiben getrennte Aufgaben."
+    },
+    {
+      "key": "N1",
+      "phase": "nach dem Stand vom 02.10. bis 04.10.2026",
+      "title": "[N1] Backendverarbeitung und Such-/Detailvertrag weiterentwickelt",
+      "proposed_project_status": "Done",
+      "proposed_issue_state": "closed",
+      "assignee": "LotAnderson",
+      "body": "## Nachtrag am 04.10.2026\n\nZeitraum: nach dem Stand vom 02.10. bis 04.10.2026. Dies ist ein nachträglich erfasster Abschnitt, kein damals protokollierter Sprint.\n\n### Inhalt\n\nLokaler Stand: Mietfilter, Bezirksnormalisierung, Bezirkszahlen, Sortierung, fünf Minuten Cache; Suchantwort mit listings/districtCounts/mapDistricts; district-Parameter und Detailabruf mit 404.\n\n### Nachweise und Grenzen\n\nBackend/ImmscoutAPI/Service/DistrictDataService.cs; Controllers/RealEstateController.cs; Model/ListingSearchResult.cs. Noch uncommittete Unterschiede zu 4af8130; genauer Zeitpunkt/Einzelautor nicht durch Git belegt.\n\n### Aufwand und Verantwortung\n\n- Historische Schätzzeit: nicht überliefert.\n- Tatsächlicher Aufwand: nicht protokolliert.\n- Verantwortlich für heutigen Nachtrag und Fortführung: LotAnderson. Dies ist keine rückwirkende Zuschreibung sämtlicher ursprünglicher Programmierarbeit.\n- Vorgesehener Boardstatus: Done. Done bezieht sich auf den beschriebenen lokalen Stand; Veröffentlichen/Einchecken und Live-Probe bleiben getrennte Aufgaben."
+    },
+    {
+      "key": "N2",
+      "phase": "nach dem Stand vom 02.10. bis 04.10.2026",
+      "title": "[N2] Frontend an den aktuellen Backendvertrag angepasst",
+      "proposed_project_status": "Done",
+      "proposed_issue_state": "closed",
+      "assignee": "LotAnderson",
+      "body": "## Nachtrag am 04.10.2026\n\nZeitraum: nach dem Stand vom 02.10. bis 04.10.2026. Dies ist ein nachträglich erfasster Abschnitt, kein damals protokollierter Sprint.\n\n### Inhalt\n\nLokaler Stand: Bezirksabfrage beim Backend, Backendzahlen und SVG-Zuordnung für Karte, Detailabruf nach ID sowie Lade-, Leer- und Fehlerzustände.\n\n### Nachweise und Grenzen\n\nFrontend/TomInnoFrondEnd/src/app/services/realestate.ts, component/realestate.component und pages/listing-detail.component. Funktionalität mit Testantworten geprüft; Live-Gesamtablauf ungeprüft.\n\n### Aufwand und Verantwortung\n\n- Historische Schätzzeit: nicht überliefert.\n- Tatsächlicher Aufwand: nicht protokolliert.\n- Verantwortlich für heutigen Nachtrag und Fortführung: LotAnderson. Dies ist keine rückwirkende Zuschreibung sämtlicher ursprünglicher Programmierarbeit.\n- Vorgesehener Boardstatus: Done. Done bezieht sich auf den beschriebenen lokalen Stand; Veröffentlichen/Einchecken und Live-Probe bleiben getrennte Aufgaben."
+    },
+    {
+      "key": "N3",
+      "phase": "nach dem Stand vom 02.10. bis 04.10.2026",
+      "title": "[N3] Aktuellen Datenfluss mit Tests und Audit geprüft",
+      "proposed_project_status": "Done",
+      "proposed_issue_state": "closed",
+      "assignee": "LotAnderson",
+      "body": "## Nachtrag am 04.10.2026\n\nZeitraum: nach dem Stand vom 02.10. bis 04.10.2026. Dies ist ein nachträglich erfasster Abschnitt, kein damals protokollierter Sprint.\n\n### Inhalt\n\nVorhandene Backend-Fixture-/HTTP-Checks und acht Frontendtests bestanden. Backendbuild erfolgreich mit 28 Warnungen; Entwicklungsbuild erfolgreich. Zusätzlicher isolierter Auth-/SQLite-Audit funktioniert. Kein erfolgreicher Produktionsbuild oder Live-API-Nachweis.\n\n### Nachweise und Grenzen\n\nBackend/ImmscoutAPI.Checks/Program.cs; Frontend/TomInnoFrondEnd/src/app/listing-flow.spec.ts; docs/pruefungen.md. Auditprüfung und Vorbereitung erfolgten am 04.10.2026 mit Assistenzunterstützung; daraus keine alleinige Programmierautorschaft ableiten.\n\n### Aufwand und Verantwortung\n\n- Historische Schätzzeit: nicht überliefert.\n- Tatsächlicher Aufwand: nicht protokolliert.\n- Verantwortlich für heutigen Nachtrag und Fortführung: LotAnderson. Dies ist keine rückwirkende Zuschreibung sämtlicher ursprünglicher Programmierarbeit.\n- Vorgesehener Boardstatus: Done. Done bezieht sich auf den beschriebenen lokalen Stand; Veröffentlichen/Einchecken und Live-Probe bleiben getrennte Aufgaben."
+    },
+    {
+      "key": "N4",
+      "phase": "nach dem Stand vom 02.10. bis 04.10.2026",
+      "title": "[N4] Backlog, Retrospektive, Architektur und Algorithmen vorbereitet",
+      "proposed_project_status": "Done",
+      "proposed_issue_state": "closed",
+      "assignee": "LotAnderson",
+      "body": "## Nachtrag am 04.10.2026\n\nZeitraum: nach dem Stand vom 02.10. bis 04.10.2026. Dies ist ein nachträglich erfasster Abschnitt, kein damals protokollierter Sprint.\n\n### Inhalt\n\nBeide Rekonstruktionszeiträume dokumentiert; historische Beiträge erhalten; genehmigte Solo-Fortführung und unveränderter Umfang erläutert. Komponenten-/UML-/ER-Darstellung sowie Pseudocode sind lokal vorbereitet.\n\n### Nachweise und Grenzen\n\ndocs/backlog.md, docs/retrospektive.md, docs/architektur.md, docs/algorithmen.md, docs/pruefungen.md. Erstellt am 04.10.2026 mit Assistenzunterstützung; noch nicht eingecheckt.\n\n### Aufwand und Verantwortung\n\n- Historische Schätzzeit: nicht überliefert.\n- Tatsächlicher Aufwand: nicht protokolliert.\n- Verantwortlich für heutigen Nachtrag und Fortführung: LotAnderson. Dies ist keine rückwirkende Zuschreibung sämtlicher ursprünglicher Programmierarbeit.\n- Vorgesehener Boardstatus: Done. Done bezieht sich auf den beschriebenen lokalen Stand; Veröffentlichen/Einchecken und Live-Probe bleiben getrennte Aufgaben."
+    },
+    {
+      "key": "N5",
+      "phase": "nach dem Stand vom 02.10. bis 04.10.2026",
+      "title": "[N5] Präsentation für den 05.10.2026 vorbereitet",
+      "proposed_project_status": "Done",
+      "proposed_issue_state": "closed",
+      "assignee": "LotAnderson",
+      "body": "## Nachtrag am 04.10.2026\n\nZeitraum: nach dem Stand vom 02.10. bis 04.10.2026. Dies ist ein nachträglich erfasster Abschnitt, kein damals protokollierter Sprint.\n\n### Inhalt\n\nLokale Folien und Sprechnotizen mit Produktablauf, Architektur, Verarbeitung, Testergebnissen, eigener Leistung und offenem Stand. Live-Demo und API-Ausweichablauf beschrieben; Vorbereitung ist noch keine gehaltene Präsentation.\n\n### Nachweise und Grenzen\n\ndocs/praesentation.md und docs/praesentation.html. Lokal vorbereitet am 04.10.2026 mit Assistenzunterstützung. Vortrag morgen; Browser-Live-Demo separat offen.\n\n### Aufwand und Verantwortung\n\n- Historische Schätzzeit: nicht überliefert.\n- Tatsächlicher Aufwand: nicht protokolliert.\n- Verantwortlich für heutigen Nachtrag und Fortführung: LotAnderson. Dies ist keine rückwirkende Zuschreibung sämtlicher ursprünglicher Programmierarbeit.\n- Vorgesehener Boardstatus: Done. Done bezieht sich auf den beschriebenen lokalen Stand; Veröffentlichen/Einchecken und Live-Probe bleiben getrennte Aufgaben."
+    },
+    {
+      "key": "N6",
+      "phase": "nach dem Stand vom 02.10. bis 04.10.2026",
+      "title": "[N6] Live-Demo mit echter API proben und Präsentationsstand sichern",
+      "proposed_project_status": "Backlog",
+      "proposed_issue_state": "open",
+      "assignee": "LotAnderson",
+      "body": "## Nachtrag am 04.10.2026\n\nZeitraum: nach dem Stand vom 02.10. bis 04.10.2026. Dies ist ein nachträglich erfasster Abschnitt, kein damals protokollierter Sprint.\n\n### Inhalt\n\nVor der Präsentation frisch anmelden, Übersicht laden, Bezirk auswählen, Details/Bilder ansehen und Rückkehr prüfen. Erfolg oder Ausfall dokumentieren. Bei Erfolg Screenshots/kurze Aufnahme sichern; aktuellen vorgeführten Stand eindeutig benennen.\n\n### Nachweise und Grenzen\n\nNoch offen. Vorhandene Fixture-/Komponententests ersetzen diese Browser-/Live-Probe nicht.\n\n### Aufwand und Verantwortung\n\n- Historische Schätzzeit: nicht überliefert.\n- Tatsächlicher Aufwand: nicht protokolliert.\n- Verantwortlich für heutigen Nachtrag und Fortführung: LotAnderson. Dies ist keine rückwirkende Zuschreibung sämtlicher ursprünglicher Programmierarbeit.\n- Vorgesehener Boardstatus: Backlog. Done bezieht sich auf den beschriebenen lokalen Stand; Veröffentlichen/Einchecken und Live-Probe bleiben getrennte Aufgaben."
+    }
+  ],
+  "keep_open": [
+    {
+      "issue_number": 19,
+      "reason": "Vollständiger Postman-/Live-Endpunktnachweis fehlt."
+    },
+    {
+      "issue_number": 29,
+      "reason": "Preis-Persistenz ist eine optionale Umfangsentscheidung, nicht implementiert."
+    }
+  ]
+}

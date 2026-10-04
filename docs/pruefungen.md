@@ -1,0 +1,58 @@
+# Prüfungsnachweis – Stand 04.10.2026
+
+Die Prüfungen beziehen sich auf die aktuelle lokale Arbeitskopie einschließlich noch nicht eingecheckter Dateien. Seit diesen Prüfungen wurden für die Präsentationsvorbereitung Dokumente ergänzt; die Implementierung wurde dabei nicht geändert. Die Originaldatenbank wurde durch die zusätzlichen isolierten Authprüfungen nicht verändert. Die anschließende echte Demoprobe legte zwei synthetische Demokonten in der Produktdatenbank an; vorher und nachher wurde der Stand gesichert.
+
+| Prüfung | Ergebnis | Reichweite |
+|---|---|---|
+| Vollständiger Backend-Build | 0 Fehler, 28 CS8618-Nullability-Warnungen | Kompilierung, keine vollständige Laufzeitprüfung. |
+| Vorhandene Backendchecks | Bestanden | Verarbeitung, Cache, Konkurrenz, Suche, Details/404, Leerfälle, Fehlererholung sowie HTTP-Routing/JSON. Fixture-API und eigener Testauth-Handler. |
+| Zusätzlicher isolierter Auth-HTTP-Test | Reguläre Registrierung, Login und Refreshrotation erfolgreich | Eigenständige temporäre SQLite und ContentRoot; kein Live-Immobilienabruf. Der Test ist eine zusätzliche Auditprüfung, kein eingecheckter Auth-Regressionstest. |
+| Frontendtests | 8/8 in zwei Testdateien bestanden | Komponenten-/HTTP-Tests mit Mockantworten; produktiver Auth-Interceptor und vollständiger Browserablauf nicht abgedeckt. |
+| Frontend-Entwicklungsbuild | Erfolgreich | Lokale Kompilierbarkeit im Entwicklungsmodus. |
+| Standard-Produktionsbuild | Fehlgeschlagen | Initiales Bundle ca. 1,71 MB überschreitet das Fehlerbudget von 1 MB. |
+| Echte API-/Desktop-Browserprobe, 16:23–16:24 Uhr | Bestanden | Registrierung, frischer Login, 28 Angebote, Bad Cannstatt, Details/Bildwechsel, Rückkehr, Logout/Guard. Keine Mocks; RapidAPI HTTP 200. [Nachweis und Screenshots](demoprobe.md). |
+
+## Reproduzierbare Befehle
+
+Im Repositoryhauptordner:
+
+```sh
+dotnet build Backend/ImmscoutAPI/ImmscoutAPI.csproj --no-restore --no-incremental
+dotnet run --project Backend/ImmscoutAPI.Checks/ImmscoutAPI.Checks.csproj --no-restore
+```
+
+Im Ordner `Frontend/TomInnoFrondEnd`:
+
+```sh
+npm test -- --watch=false
+npm run build -- --configuration development
+npm run build
+```
+
+`--no-restore` setzt bereits wiederhergestellte .NET-Pakete voraus. Bei einem frischen Checkout die Backendpakete zunächst mit `dotnet restore Backend/ImmscoutAPI.Checks/ImmscoutAPI.Checks.csproj` wiederherstellen. npm benötigt die installierten Frontendabhängigkeiten. Ohne neue Implementierungsänderung müssen die bereits erfolgreichen Prüfungen für die Dokumentation nicht wiederholt werden.
+
+## Ergebnisse der zusätzlichen Authprüfung
+
+| Fall | HTTP-Ergebnis |
+|---|---:|
+| Immobilienanfrage ohne Token | 401 |
+| Reguläre Registrierung | 200 |
+| Doppelte Registrierung | 409 |
+| Falsches Passwort | 401 |
+| Regulärer Login mit Tokenausgabe | 200 |
+| Refresh mit neuem RefreshToken | 200 |
+| Wiederverwendung des widerrufenen RefreshTokens | 401 |
+| Registrierung mit leerer E-Mail und leerem Passwort | 200, fehlerhafte Eingaben gespeichert |
+| Ungültige E-Mail mit Ein-Zeichen-Passwort | 200, fehlerhafte Eingaben gespeichert |
+
+In dieser isolierten Authprüfung wurde der gültige JWT nicht gegen einen Immobilienabruf mit echter externer API geprüft. Die spätere Browserprobe prüfte hingegen einen frischen produktiven Login und geschützte Immobilienanfragen erfolgreich. Die ungültigen Registrierungen zeigen eine konkrete fehlende Servervalidierung; die Frontendvalidierung allein verhindert direkte ungültige API-Aufrufe nicht.
+
+## Offene Arbeit für Demo und Qualität
+
+- Live-/Browserprobe abgeschlossen; vor dem Vortrag API-Verfügbarkeit erneut kurz kontrollieren. Gesicherte Screenshots als Ausweichmaterial bereitlegen.
+- Ungültige Registrierungen serverseitig abweisen und passende Fehlerantworten liefern.
+- Abgelaufene Anmeldung im Frontend durch Refresh oder erneute Anmeldung behandeln.
+- Bundlegröße, Filterreset, mobile Darstellung, Aktualisierung des Frontendcaches und begrenzten Datenumfang verbessern.
+- Auth- und vollständige Browserintegration bei späterer Implementierungsarbeit als Regression absichern.
+
+Diese Dokumentation behauptet keine erfolgreiche vollständige Postman-Prüfung. Die echte Browser-/API-Demoprobe ist separat dokumentiert und deckt einen konkreten Desktopablauf ab; sie ersetzt keine umfassende Regression oder mobile Prüfung.
