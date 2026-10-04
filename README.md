@@ -109,22 +109,12 @@ anschließende Konfigurationspflege ist ein eigener Nachtrag. Die Lehrkraft hat 
 akzeptiert; der geforderte Umfang bleibt unverändert.
 
 - [Scrumboard](https://github.com/users/LotAnderson/projects/2)
-- [Kontextübergabe für einen neuen Chat](docs/KONTEXT-UEBERGABE.md)
-- [Backlog und Verlauf: 17.07.–02.10. sowie aktueller Stand](docs/backlog.md)
-- [Vorbereitete Scrum-Nachträge und Statuskorrekturen](docs/scrum-nachtraege.md)
-- [Retrospektive und Beitragsnachweise](docs/retrospektive.md)
-- [Architektur, UML und SQLite-Datenmodell](docs/architektur.md)
-- [Pseudocode wichtiger Algorithmen](docs/algorithmen.md)
-- [Prüfungsergebnisse und ihre Grenzen](docs/pruefungen.md)
-- [Konfigurationsbereinigung und Prüfung des frischen Stands](docs/konfigurationsbereinigung.md)
-- [Echte Demoprobe und Sicherung (#37)](docs/demoprobe.md)
-- [Offline-Screenshotansicht der erfolgreichen Probe](docs/demo/index.html)
-- [Vollständiger Bezirks-/Stadtteilabgleich und Kartenprüfung](docs/stadtbezirke-pruefung.md)
-- [Lerntext für NotebookLM / Audioübersicht](docs/notebooklm-projekttext.md)
-- [Schlüssel abschließen und Anwendung Schritt für Schritt testen](docs/schluessel-und-anwendung-testen.md)
-- [Vortrag und Demo-Ablauf](docs/praesentation.md)
-- [Lokale Präsentationsfolien](docs/praesentation.html)
-- [Präsentations-PDF](docs/praesentation-2026-10-05.pdf)
+
+Die Projektunterlagen liegen lokal im Ordner `docs/`. Dieser Ordner ist bewusst
+von Git ausgeschlossen und wird nicht mit einem neuen Checkout heruntergeladen.
+Er enthält die Kontextübergabe, Präsentationsfolien/PDF, Demo-Prüfungen sowie
+`notebooklm-projekttext.md` und die Anleitung zum Testen der Anwendung.
+Die Unterlagen müssen bei Bedarf separat weitergegeben oder gesichert werden.
 
 Die HTML-Folien direkt im Browser öffnen; sie benötigen keine externen Assets.
 Die Live-Demo benötigt das gestartete Produkt und funktionierenden API-Zugriff.

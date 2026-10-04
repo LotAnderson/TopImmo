@@ -17,3 +17,6 @@
 # Local editor/system files
 .DS_Store
 **/.vs/
+
+# Local presentation and project documentation
+/docs/
