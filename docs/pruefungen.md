@@ -60,3 +60,7 @@ Diese Dokumentation behauptet keine erfolgreiche vollständige Postman-Prüfung.
 ## Nachtrag: Konfigurationsbereinigung nach Commit 2d447a7
 
 Der neue Stand wurde aus einem frischen, bereinigten Gitindex-Snapshot geprüft: Backendrestore/-build (0 Fehler, 28 Warnungen), Backendchecks einschließlich konfiguriertem API-Header/fehlendem Schlüssel, reguläre Registrierung/Login/Refreshrotation mit temporärer SQLite und `npm ci`/Frontend-Entwicklungsbuild bestanden. Setup erzeugt lokale Konfiguration und erhält vorhandene Werte. Umgebungsvariablen übersteuern die lokale Datei. Kein neuer Live-API-Abruf; RapidAPI-Rotation erfolgt durch den Nutzer. Details: [Konfigurationsbereinigung](konfigurationsbereinigung.md).
+
+## Nachtrag: echte Probe mit neuer lokaler API-Konfiguration
+
+Am 04.10.2026 wurde ein vom Nutzer bereitgestellter, vom veröffentlichten Wert abweichender RapidAPI-Schlüssel ausschließlich lokal eingetragen. Nach Backendneustart bestand die echte Desktop-Browserprobe: frischer Login, RapidAPI HTTP 200, 28 Angebote, Bezirk Ost (1), Detail `171201192`, Bildwechsel, Rückkehr und Logout/Guard. Die Kartenmarkierung verschwindet weiterhin beim Rückweg. [Prüfspur](demo/demoprobe-neue-konfiguration.json). Der Widerruf des alten Schlüssels bei RapidAPI wurde nicht bestätigt.

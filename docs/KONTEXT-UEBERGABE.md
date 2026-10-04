@@ -22,6 +22,12 @@ Der lokale JWT-Schlüssel wurde ersetzt; bisherige lokale Refresh-Tokens wurden 
 
 Die #37-Probe und ihre private Sicherung bleiben Nachweise für den damaligen Stand. Die Konfigurationspflege ist ein eigener Nachtrag. Neue Nachweise bestanden: frischer Snapshot aus dem bereinigten Gitindex ohne private Dateien, Restore/Build (0 Fehler, 28 Warnungen), Backendchecks einschließlich konfiguriertem API-Header/fehlendem Schlüssel, reguläre JWT-Authentifizierung mit temporärer SQLite, `npm ci` und Entwicklungsbuild. Umgebungsvariablenvorrang, Setup-Wiederholung, Registrierung/Login/Refreshrotation und 401 bei falscher Signatur wurden geprüft. Kein neuer Live-API-Test nach der Konfigurationsänderung. [Prüfnachtrag](konfigurationsbereinigung.md). HTML-Folien/PDF wurden im Hinblick auf die erledigte Konfigurationsauslagerung aktualisiert.
 
+## Spätere Liveprobe mit neuer lokaler API-Konfiguration
+
+Am 04.10.2026 wurde ein vom Nutzer bereitgestellter Schlüssel geprüft: Er unterscheidet sich vom öffentlich eingecheckten Wert und ist ausschließlich in der ignorierten lokalen Konfiguration gespeichert. Nach Backendneustart bestand die echte Browserprobe mit frischem Login, RapidAPI HTTP 200, 28 Angeboten, Bezirk Ost (1), Detail `171201192`, Bildwechsel, Rückkehr und Logout/Guard. [Prüfspur](demo/demoprobe-neue-konfiguration.json). Der Widerruf des alten Provider-Schlüssels ist weiterhin nicht bestätigt. Die Aussagen im vorherigen Konfigurationsnachtrag ohne Liveabruf beschreiben dessen damaligen Prüfzeitpunkt.
+
+Der bereinigte lokale Commit ist `bd61d77`; Hochladen scheiterte an fehlenden lokalen GitHub-Zugangsdaten und HTTP 403 der verbundenen Integration. Keine PR-Erstellung oder Aktualisierung von main behaupten. Der Nutzer kann den vorbereiteten Stand über GitHub Desktop hochladen. Private Sicherung nach Schlüsselaktualisierung: `TopImmo-Sicherungen/2026-10-04-neuer-schluessel-geprueft`.
+
 ## 1. Anliegen, Rahmen und vereinbarter Ablauf
 
 Der Nutzer entwickelt das Schulprojekt TopImmo. Es wurde zu zweit begonnen und wird inzwischen allein weitergeführt. Laut Nutzer hat die Lehrkraft diese Alleinarbeit akzeptiert: Der frühere Partner ist Frühauslerner und darf nicht verzögert werden. **Die Anforderungen bleiben unverändert.** Der Nutzer erwartet, dass die Lehrkraft die zusätzliche Belastung berücksichtigt; eine angepasste Punkteverteilung oder ein Bewertungsbonus ist nicht bestätigt.
