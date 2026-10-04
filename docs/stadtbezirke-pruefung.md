@@ -77,6 +77,12 @@ Der Build zeigt bereits vorhandene Nullable-Warnungen in den API-Datenmodellen. 
 
 Der amtliche Abgleich betrifft alle Namen, Nummern und Elternbezirke; die automatischen Backendprüfungen verwenden deterministische künstliche API-Antworten. **Diese Prüfung hat keine Live-RapidAPI-Anfrage ausgelöst.** Sie beweist nicht, dass die externe API aktuell in jedem Bezirk Angebote liefert oder dass jede externe Schreibvariante bekannt ist. Geometrische Grenzen der SVG-Karte wurden nicht anhand amtlicher GIS-Polygone vermessen. Die vollständige Browserprüfung ist oben separat dokumentiert.
 
+## Farbnachtrag: Birkach-Süd
+
+Bei der anschließenden manuellen Prüfung meldete der Nutzer eine irreführende Grundfarbe von Birkach-Süd. Die Zuordnung war korrekt, aber `a262_Birkach-Süd_3_` verwendete den grünen Plieningen-Ton `#8FFF7B`. Die Fläche ist jetzt türkis (`#A9FFF9`), wie Birkach-Nord. Geometrie, Stadtteil-ID und Bezirksmapping bleiben erhalten.
+
+Die ursprüngliche Vollprüfung oben deckte Zuordnung und Bedienung ab; sie war kein Nachweis einer vollständig geprüften ursprünglichen Farbpalette. Die gezielte neue Chrome-/WebKit-Probe bestätigt Grundfarbe, Pointer und reale Bezirksklicks: Birkach-Süd wählt alle drei Birkach-Flächen, Plieningen weiterhin seine fünf Flächen. [Farbprüfspur](demo/birkach-sued-farbpruefung.json), [Kartenausschnitt](demo/birkach-sued-farbe.png).
+
 ## Vollständige Referenzliste
 
 Die folgenden 152 Zuordnungen wurden vollständig geprüft; die Ziffer vor jedem Stadtteil ist seine amtliche Nummer. Fachliche Grundlage sind die beiden oben verlinkten Quellen des Statistischen Amts.

@@ -6,6 +6,17 @@
 
 **Letzter vollständig dokumentierter Boardstand:** 04.10.2026, ca. 16:08 Uhr, Europe/Berlin. Die später geprüfte Veröffentlichung des Arbeitsbranchs ist im folgenden Nachtrag beschrieben; spätere Boardänderungen müssen neu geprüft werden.
 
+## Nachtrag: Birkach-Süd farblich richtig darstellen
+
+Stand: 04.10.2026 20:05 CEST. Nutzer meldet Birkach-Süd als visuell zu Plieningen gehörig, obwohl der Klick Birkach aktiviert.
+
+1. **Fehler bestätigt:** sichtbare SVG-Fläche `a262_Birkach-Süd_3_` hat `fill="#8FFF7B"`, identisch mit Plieningens Chausseefeld. Birkach-Nord ist türkis (`#A9FFF9`), Schönberg ebenfalls türkis (`#CFFFFA`). Bezirkszuordnung für Stadtteil 262 ist bereits korrekt Birkach. Die vorige Vollprüfung deckte Namen, Zuordnung, Pointer/Klick und Markierung ab; sie belegt keine vollständige Prüfung der ursprünglichen Bezirksfarbpalette.
+2. **Farbe korrigiert:** Grundfarbe von `a262_Birkach-Süd_3_` auf `#A9FFF9` gesetzt, gleich Birkach-Nord. Geometrie/ID/Mapping unverändert.
+
+3. **Echte Browserprüfung bestanden:** Chrome und WebKit bestätigen normale Grundfarbe `#A9FFF9`, dieselbe berechnete Farbe wie Birkach-Nord und eine andere als Plieningens Chausseefeld. Reale Mausbewegung/Klick auf Birkach-Süd: Pointer, Hover und Bezirksanfrage Birkach mit HTTP 200, genau alle 3 Birkach-Flächen markiert. Kontrollklick auf Plieningen: korrekt Plieningen, genau 5 Flächen markiert. [Farbprüfspur](demo/birkach-sued-farbpruefung.json), [visueller Kartenausschnitt](demo/birkach-sued-farbe.png). Screenshot angesehen; korrigierte Fläche ist türkis. `git diff --check` bestanden. Keine neuen Tests für die einzelne reversible Farbkorrektur nötig; die vorhandene Klicklogik bleibt unverändert.
+
+4. **Lokaler Nachtrag abgeschlossen:** Farbkorrektur und Prüfspuren werden gemeinsam versioniert. Ergänzende private Sicherung des Nachtrags: `TopImmo-Sicherungen/2026-10-04-birkach-sued-farbkorrektur`; ihr Manifest dokumentiert Archiv-/SQLite-/Gitprüfung und Wiederherstellung. Die Anwendung übernimmt die einzelne SVG-Farbänderung über den laufenden Angular-Server; Safari mit Cmd + R neu laden.
+
 ## Aktiver Auftrag: vollständige Kartenprüfung und NotebookLM-Lerntext
 
 Stand: 04.10.2026 19:01 CEST. Nutzerauftrag: nach jedem Arbeitsschritt diese Kontextdatei aktualisieren; alle Stadtbezirke und Stadtteile prüfen, fehlenden Pointer/Cursor/Klick beheben und einen hörbaren Projekttext für NotebookLM erstellen. Zusätzlich GitHub-Veröffentlichung fortsetzen, soweit Zugriff vorhanden; den alten Provider-Schlüssel kann die Assistenz ohne RapidAPI-Kontozugriff nicht widerrufen.

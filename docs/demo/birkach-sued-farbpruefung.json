@@ -1,0 +1,103 @@
+{
+  "testedAtBerlin": "2026-10-04T20:04:13.599659+02:00",
+  "change": "Grundfarbe von Birkach-Süd an Birkach-Nord angeglichen; Geometrie und Mapping unverändert.",
+  "browsers": [
+    {
+      "engine": "Google Chrome",
+      "normalColors": {
+        "a261_Birkach-Nord_3_": {
+          "fill": "#A9FFF9",
+          "computedFill": "rgb(169, 255, 249)"
+        },
+        "a262_Birkach-Süd_3_": {
+          "fill": "#A9FFF9",
+          "computedFill": "rgb(169, 255, 249)"
+        },
+        "a271_Schönberg_3_": {
+          "fill": "#CFFFFA",
+          "computedFill": "rgb(207, 255, 250)"
+        },
+        "a552_Chausseefeld_3_": {
+          "fill": "#8FFF7B",
+          "computedFill": "rgb(143, 255, 123)"
+        }
+      },
+      "clicks": [
+        {
+          "id": "a262_Birkach-Süd_3_",
+          "district": "Birkach",
+          "httpStatus": 200,
+          "selectedPathIds": [
+            "a261_Birkach-Nord_3_",
+            "a262_Birkach-Süd_3_",
+            "a271_Schönberg_3_"
+          ],
+          "passed": true
+        },
+        {
+          "id": "a551_Plieningen_3_",
+          "district": "Plieningen",
+          "httpStatus": 200,
+          "selectedPathIds": [
+            "a551_Plieningen_3_",
+            "a552_Chausseefeld_3_",
+            "a561_Steckfeld_3_",
+            "a571_Asemwald_3_",
+            "a581_Hohenheim_3_"
+          ],
+          "passed": true
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "engine": "WebKit (Safari-Engine)",
+      "normalColors": {
+        "a261_Birkach-Nord_3_": {
+          "fill": "#A9FFF9",
+          "computedFill": "rgb(169, 255, 249)"
+        },
+        "a262_Birkach-Süd_3_": {
+          "fill": "#A9FFF9",
+          "computedFill": "rgb(169, 255, 249)"
+        },
+        "a271_Schönberg_3_": {
+          "fill": "#CFFFFA",
+          "computedFill": "rgb(207, 255, 250)"
+        },
+        "a552_Chausseefeld_3_": {
+          "fill": "#8FFF7B",
+          "computedFill": "rgb(143, 255, 123)"
+        }
+      },
+      "clicks": [
+        {
+          "id": "a262_Birkach-Süd_3_",
+          "district": "Birkach",
+          "httpStatus": 200,
+          "selectedPathIds": [
+            "a261_Birkach-Nord_3_",
+            "a262_Birkach-Süd_3_",
+            "a271_Schönberg_3_"
+          ],
+          "passed": true
+        },
+        {
+          "id": "a551_Plieningen_3_",
+          "district": "Plieningen",
+          "httpStatus": 200,
+          "selectedPathIds": [
+            "a551_Plieningen_3_",
+            "a552_Chausseefeld_3_",
+            "a561_Steckfeld_3_",
+            "a571_Asemwald_3_",
+            "a581_Hohenheim_3_"
+          ],
+          "passed": true
+        }
+      ],
+      "status": "passed"
+    }
+  ],
+  "status": "passed"
+}
