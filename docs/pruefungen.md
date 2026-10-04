@@ -56,3 +56,7 @@ In dieser isolierten Authprüfung wurde der gültige JWT nicht gegen einen Immob
 - Auth- und vollständige Browserintegration bei späterer Implementierungsarbeit als Regression absichern.
 
 Diese Dokumentation behauptet keine erfolgreiche vollständige Postman-Prüfung. Die echte Browser-/API-Demoprobe ist separat dokumentiert und deckt einen konkreten Desktopablauf ab; sie ersetzt keine umfassende Regression oder mobile Prüfung.
+
+## Nachtrag: Konfigurationsbereinigung nach Commit 2d447a7
+
+Der neue Stand wurde aus einem frischen, bereinigten Gitindex-Snapshot geprüft: Backendrestore/-build (0 Fehler, 28 Warnungen), Backendchecks einschließlich konfiguriertem API-Header/fehlendem Schlüssel, reguläre Registrierung/Login/Refreshrotation mit temporärer SQLite und `npm ci`/Frontend-Entwicklungsbuild bestanden. Setup erzeugt lokale Konfiguration und erhält vorhandene Werte. Umgebungsvariablen übersteuern die lokale Datei. Kein neuer Live-API-Abruf; RapidAPI-Rotation erfolgt durch den Nutzer. Details: [Konfigurationsbereinigung](konfigurationsbereinigung.md).

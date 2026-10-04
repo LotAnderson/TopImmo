@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Hosting;
 using System.Security.Claims;
 using System.Text.Encodings.Web;
@@ -18,9 +19,22 @@ var backendPath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "../..
 var environment = WebApplication.CreateBuilder(new WebApplicationOptions { ContentRootPath = backendPath }).Environment;
 using var cache = new MemoryCache(new MemoryCacheOptions());
 var handler = new FixtureHandler();
-var service = new DistrictDataService(new ImmoScoutAPIService(new HttpClient(handler)), cache, environment);
+var upstreamConfiguration = new ConfigurationBuilder().AddInMemoryCollection(
+    new Dictionary<string, string> { ["RapidApi:ApiKey"] = "fixture-api-key" }).Build();
+var apiService = new ImmoScoutAPIService(new HttpClient(handler), upstreamConfiguration);
+var service = new DistrictDataService(apiService, cache, environment);
 var searches = await Task.WhenAll(service.SearchAsync(null), service.SearchAsync("mitte"));
 var all = searches[0];
+Assert(handler.LastApiKey == "fixture-api-key", "Configured API key is sent to upstream");
+var callsBeforeMissingKey = handler.Calls;
+try
+{
+    await new ImmoScoutAPIService(new HttpClient(handler), new ConfigurationBuilder().Build())
+        .GetStuttgartApartmentsAsync();
+    throw new Exception("Missing API key should be rejected before HTTP");
+}
+catch (InvalidOperationException) { }
+Assert(handler.Calls == callsBeforeMissingKey, "Missing API key does not call upstream");
 Assert(all.Listings.Count == 3, "Only rental apartments are returned");
 Assert(searches[1].Listings.Count == 2, "District filtering normalizes Stuttgart prefix and casing");
 Assert(all.DistrictCounts.First().District == "Mitte" && all.DistrictCounts.First().Count == 2, "Counts are sorted and aggregate rentals");
@@ -99,10 +113,12 @@ static void Assert(bool condition, string message)
 sealed class FixtureHandler : HttpMessageHandler
 {
     public int Calls;
+    public string LastApiKey = string.Empty;
     public bool FailNext;
     public string Body;
     protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
     {
+        LastApiKey = request.Headers.GetValues("x-rapidapi-key").Single();
         Interlocked.Increment(ref Calls);
         await Task.Delay(20, cancellationToken);
         if (FailNext)

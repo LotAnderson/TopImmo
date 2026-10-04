@@ -8,6 +8,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Configuration
+    .AddJsonFile("appsettings.Local.json", optional: true, reloadOnChange: true)
+    .AddEnvironmentVariables();
+builder.Configuration.AddCommandLine(args);
 
 // Add services to the container.
 
@@ -23,6 +27,14 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("Jwt"));
 
 var jwtSettings = builder.Configuration.GetSection("Jwt").Get<JwtSettings>()!;
+if (jwtSettings is null || string.IsNullOrWhiteSpace(jwtSettings.Key) ||
+    Encoding.UTF8.GetByteCount(jwtSettings.Key) < 32 ||
+    string.IsNullOrWhiteSpace(jwtSettings.Issuer) || jwtSettings.ExpireMinutes <= 0)
+{
+    throw new InvalidOperationException(
+        "Configure Jwt:Key (at least 32 UTF-8 bytes), Jwt:Issuer and Jwt:ExpireMinutes. " +
+        "Run node scripts/setup-local-config.mjs from the repository root, or set Jwt__Key in the environment.");
+}
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>

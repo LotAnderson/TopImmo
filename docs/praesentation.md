@@ -6,6 +6,8 @@
 
 **Begleitunterlagen:** [Architektur](architektur.md), [Algorithmen](algorithmen.md), [Backlog](backlog.md), [Retrospektive](retrospektive.md), [Prüfungen](pruefungen.md) und [Scrum-Nachträge / Boardabgleich](scrum-nachtraege.md). Der Produktstand vom 02.10.2026 und spätere Änderungen werden getrennt beschrieben. Das Datum ist kein bestätigter Beginn der Alleinarbeit.
 
+**Nachtrag zur Konfiguration:** Nach der #37-Probe wurde der Präsentationsstand als `2d447a7` auf dem öffentlichen Arbeitsbranch nachgewiesen. Die anschließende Konfigurationspflege lagert API-/JWT-Schlüssel in lokale Konfiguration aus und nimmt lokale Datenbank-/Builddateien aus der Versionierung. Der lokale JWT-Schlüssel wurde ersetzt; die RapidAPI-Rotation beim Provider ist noch offen. Die frühere Probe bleibt für den damaligen Stand gültig; Ergebnisse für die neue Konfiguration werden erst nach tatsächlicher Prüfung ergänzt. HTML-Folien und PDF bewahren den früheren Präsentationsstand.
+
 ## Ablauf und Zeitbudget
 
 | Folie | Inhalt | Zeit | Bis |
@@ -105,7 +107,7 @@ liefere { listings: Auswahl, districtCounts: Trefferzahlen, mapDistricts }
 
 ## Folie 5 – Live-Demo und verlässlicher Ausweichablauf
 
-**Probe am 04.10.2026 bestanden:** Registrierung → Login → 28 Mietangebote → Bad Cannstatt (1) → Detail `144472924` mit Bildwechsel → Rückkehr → Logout. [Nachweis und Sicherung](demoprobe.md); [Offline-Screenshotansicht](demo/index.html). Die Daten können sich bis zum Vortrag ändern.
+**Probe am 04.10.2026 bestanden, vor der Konfigurationspflege:** Registrierung → Login → 28 Mietangebote → Bad Cannstatt (1) → Detail `144472924` mit Bildwechsel → Rückkehr → Logout. [Nachweis und Sicherung](demoprobe.md); [Offline-Screenshotansicht](demo/index.html). Die Daten können sich bis zum Vortrag ändern; eine Prüfung der neuen Konfiguration ist ein eigener Nachweis.
 
 **Auf der Folie:** 1. Konto/Login; 2. Übersicht/Karte; 3. Bezirk; 4. Detail/Bilder; 5. Abmelden. Kennzeichnung: lokale Entwicklungsdemo; Internet/API erforderlich für aktuelle Angebote.
 
@@ -197,27 +199,35 @@ Vertiefung: [Backlog](backlog.md), [Retrospektive](retrospektive.md), [heutiger 
 
 **Sprechnotiz, ungefähr 45 Sekunden:**
 
-> „Der zentrale Produktweg und die technischen Pflichtbestandteile sind vorhanden. Für die Abgabe sind ein konsistenter aktueller Codebestand, Startanleitung, Scrumunterlagen und die nachvollziehbare eigene Leistung entscheidend. Die nächsten technischen Schritte sind das Produktionsbundle, serverseitige Eingabevalidierung, Sitzungsauslauf im Browser und robuste externe API-Konfiguration beziehungsweise Fehlerbehandlung. Danach folgen mobile Darstellung und Filterbedienung. Die heutigen Nachweise zeigen den funktionierenden Stand und seine Grenzen; offene Arbeiten werden transparent geführt.“
+> „Der zentrale Produktweg und die technischen Pflichtbestandteile sind vorhanden. Für die Abgabe sind ein konsistenter aktueller Codebestand, Startanleitung, Scrumunterlagen und die nachvollziehbare eigene Leistung entscheidend. API- und JWT-Schlüssel werden inzwischen außerhalb des Quellcodes konfiguriert. Die nächsten technischen Schritte sind das Produktionsbundle, serverseitige Eingabevalidierung, Sitzungsauslauf im Browser und kontrollierte Fehlerantworten bei Problemen mit der externen API. Danach folgen mobile Darstellung und Filterbedienung. Die Nachweise zeigen den jeweils geprüften Stand und seine Grenzen; offene Arbeiten werden transparent geführt.“
 
 **Prioritäten, keine Behauptung bereits erledigter Fixes:**
 
 1. Aktuellen lauffähigen Stand und Dokumente vollständig abgeben; Board, Architektur/Algorithmus und individuellen Beitrag nachvollziehbar halten.
-2. Produktionsbundle reduzieren; Backendvalidierung ergänzen; 401-/Refresh-Verhalten im Frontend umsetzen; API-Zugang außerhalb des Quellcodes konfigurieren und API-Fehler kontrolliert behandeln.
+2. Den veröffentlichten alten RapidAPI-Schlüssel beim Provider ersetzen; danach Produktionsbundle reduzieren, Backendvalidierung ergänzen, 401-/Refresh-Verhalten im Frontend umsetzen und API-Fehler kontrolliert behandeln.
 3. Optionaler Produktfeinschliff: mobile Ansicht, „alle Bezirke“-Reset, Kartenhervorhebung beim Rückweg, Bildfallback und Tastaturbedienung.
 
 ## Vorbereitung heute / vor dem Vortrag
 
 - Eigenbeitragstabelle wahrheitsgemäß konkretisieren und einmal laut erklären. Keine vollständige Solo-Autorenschaft aus der heutigen Alleinarbeit ableiten.
 - Zwei Terminals und Browserfenster vorab öffnen; Startup/Tests nicht erst während der Präsentation installieren.
-- Aktuelle Branch-/Arbeitsversion, Docs und Board auf Konsistenz prüfen. Der ursprüngliche Auditstand hatte untracked Backend-/README-/Testdateien; lokale Existenz allein beweist keine Abgabe auf main.
+- Aktuelle Branch-/Arbeitsversion, Docs und Board auf Konsistenz prüfen. `2d447a7` wurde auf dem öffentlichen Arbeitsbranch nachgewiesen; die folgende Konfigurationspflege und die Abgabe auf `main` benötigen eigene Nachweise.
 - Produkt im Entwicklungsmodus starten; Standardproduktionsbuild ist im geprüften Stand fehlerhaft.
-- Echte Probe am 04.10. abgeschlossen. Vor dem Vortrag nochmals kurz API-/Internetstatus und ein Angebot prüfen; gespeicherte Ansichten als Ausweichmaterial geöffnet halten.
-- Browserzoom für gut lesbare Demo einstellen; alternativ die Folien als PDF vorbereiten. Demopasswort, vollständige Tokens, Konfigurationsschlüssel und unredigierte API-Service-Datei nicht projizieren. Bei API-Codefrage stattdessen Aufruf/Verarbeitung in DistrictDataService zeigen.
+- Echte Probe am 04.10. für den damaligen Stand abgeschlossen. Nach der Konfigurationspflege frisch einloggen und vor dem Vortrag nochmals kurz API-/Internetstatus und ein Angebot prüfen; gespeicherte Ansichten als Ausweichmaterial geöffnet halten.
+- Browserzoom für gut lesbare Demo einstellen; alternativ die Folien als PDF vorbereiten. Demopasswort, vollständige Tokens, lokale Konfigurationsdatei und Umgebungsvariablen mit Schlüsselwerten nicht projizieren. Für API-Codefragen sind der bereinigte ImmoScoutAPIService und die Verarbeitung in DistrictDataService geeignet.
 - Offline erreichbare Testausgaben bereitlegen und den Ausweichablauf einmal üben. Acht Folien einmal mit Zeitmessung durchgehen.
 
 ## Lokaler Produktstart
 
-Voraussetzungen laut Projekt: Node.js 24/npm und .NET 9 SDK; notwendige Pakete bereits installiert/restore durchgeführt. Die Produktdemo liest/schreibt die konfigurierte SQLite; für die Vorführung ein vorbereitetes Demokonto verwenden.
+Voraussetzungen laut Projekt: Node.js 24/npm und .NET 9 SDK; notwendige Pakete bereits installiert/restore durchgeführt. Bei einem frischen Checkout zunächst gemäß [README](../README.md) im Repositoryhauptordner konfigurieren:
+
+```bash
+node scripts/setup-local-config.mjs
+```
+
+Der Befehl erzeugt fehlende lokale Konfiguration und einen zufälligen JWT-Schlüssel ohne Wertausgabe; bestehende Werte bleiben erhalten. Anschließend den eigenen gültigen RapidAPI-Schlüssel in `Backend/ImmscoutAPI/appsettings.Local.json` im Editor eintragen. Die versionierte `appsettings.Local.example.json` enthält nur eine sichere Vorlage. `Jwt__Key` und `RapidApi__ApiKey` als Umgebungsvariablen haben Vorrang vor der lokalen Datei. Startup verlangt einen JWT-Schlüssel mit mindestens 32 UTF-8-Bytes, einen nichtleeren Issuer und positive `Jwt.ExpireMinutes`; der RapidAPI-Schlüssel wird erst beim externen Abruf benötigt.
+
+Die Produktdemo liest/schreibt die lokale SQLite; für die Vorführung ein vorbereitetes Demokonto verwenden oder auf dem frischen Stand neu registrieren. Das Backend erstellt die Datenbank bei Bedarf per Migration. Lokale Konfiguration, Datenbank und Builddateien bleiben auf dem Rechner und sind in Git ignoriert. Nach Ersatz des lokalen JWT-Schlüssels frisch anmelden. Der Kontoinhaber muss den veröffentlichten RapidAPI-Schlüssel separat beim Provider ersetzen und den alten widerrufen; der bisherige öffentliche Commit bleibt im Verlauf.
 
 ```bash
 # Terminal 1 ab Repo-Wurzel

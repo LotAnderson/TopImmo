@@ -4,13 +4,23 @@
 
 **Arbeitsverzeichnis:** `/Users/edhar_myronchuk/Documents/GitHub/TopImmo`
 
-**Letzter geprüfter GitHub-Stand:** 04.10.2026, ca. 16:08 Uhr, Europe/Berlin. Spätere Änderungen müssen neu geprüft werden. Der Übergabetext wurde aus diesem Stand und den vorhandenen lokalen Unterlagen erstellt; dafür wurde kein neuer Liveabruf durchgeführt.
+**Letzter vollständig dokumentierter Boardstand:** 04.10.2026, ca. 16:08 Uhr, Europe/Berlin. Die später geprüfte Veröffentlichung des Arbeitsbranchs ist im folgenden Nachtrag beschrieben; spätere Boardänderungen müssen neu geprüft werden.
 
 ## Fortsetzung: #37 am 04.10.2026
 
 Die echte Desktop-Browserprobe um 16:23–16:24 Uhr bestand: neue Registrierung, frischer Login, 28 Mietangebote aus echter RapidAPI (HTTP 200), Bad Cannstatt (1), Detail/Bildwechsel, Rückkehr und Logout/Guard. Keine HTTP-Mocks. Rückkehr bestätigt den Verlust der Kartenmarkierung bei erhaltenem Filter. Zwei synthetische Demokonten wurden in der lokalen SQLite angelegt. Produktcode unverändert. [Nachweis](demoprobe.md), [Offline-Demoansichten](demo/index.html) und achtseitige [PDF](praesentation-2026-10-05.pdf) ergänzen die Unterlagen.
 
-Arbeitskopie, `.git`/Git-Bundle und konsistente SQLite sind privat außerhalb des Repositorys unter `/Users/edhar_myronchuk/Documents/TopImmo-Sicherungen/` gesichert. Endstand: `2026-10-04-praesentationsstand`. Kein Commit/Push/Merge. Die Veröffentlichung auf `main` bleibt offen. GitHub-Issue #37 wurde neu gelesen und war offen. Der anschließende Versuch, Ergebnisbeschreibung/Assignee einzutragen und das Issue als completed zu schließen, scheiterte mit HTTP 403 `Resource not accessible by integration`. Issue und Board wurden daher nicht verändert; [fertiger Abschlusstext](issue-37-abschluss.md) liegt lokal bereit. Die alten Boardgruppensummen sind weiterhin der belegte Schnappschuss von 16:08 Uhr.
+Arbeitskopie, `.git`/Git-Bundle und konsistente SQLite sind privat außerhalb des Repositorys unter `/Users/edhar_myronchuk/Documents/TopImmo-Sicherungen/` gesichert. Endstand der #37-Sicherung: `2026-10-04-praesentationsstand`. Während dieser Probe erfolgte kein Commit/Push/Merge. Die Veröffentlichung auf `main` bleibt offen. GitHub-Issue #37 wurde damals neu gelesen und war offen. Der anschließende Versuch, Ergebnisbeschreibung/Assignee einzutragen und das Issue als completed zu schließen, scheiterte mit HTTP 403 `Resource not accessible by integration`. Issue und Board wurden daher durch den damaligen Agenten nicht verändert; [fertiger Abschlusstext](issue-37-abschluss.md) liegt lokal bereit. Die alten Boardgruppensummen sind weiterhin der belegte Schnappschuss von 16:08 Uhr.
+
+## Nachtrag: Konfiguration und Repository vor der Abgabe
+
+Der Nutzer hat den aktuellen Projektstand anschließend als **`2d447a7`** eingecheckt. Dieser Commit wurde auf dem öffentlichen Remote-Arbeitsbranch nachgewiesen. Er enthält die damaligen API-/JWT-Schlüssel sowie lokale Datenbank- und Builddateien. Der Nutzer hat die Bereinigung vor einem Pull Request nach `main` beauftragt.
+
+Der neue Stand lädt eine optionale, ignorierte `Backend/ImmscoutAPI/appsettings.Local.json`. `Jwt.Key` und `RapidApi.ApiKey` bleiben in der versionierten `appsettings.json` leer; `appsettings.Local.example.json` dient als sichere Vorlage. `node scripts/setup-local-config.mjs` erzeugt im Repositoryhauptordner fehlende lokale Konfiguration und einen zufälligen JWT-Schlüssel ohne Wertausgabe; vorhandene Werte bleiben erhalten. Den eigenen RapidAPI-Schlüssel anschließend im Editor in die lokale Datei eintragen. Umgebungsvariablen `Jwt__Key` und `RapidApi__ApiKey` haben Vorrang. Der Start verlangt mindestens 32 UTF-8-Bytes für `Jwt.Key`, einen nichtleeren Issuer und positive `Jwt.ExpireMinutes`. Der API-Schlüssel wird erst beim externen Abruf benötigt.
+
+Der lokale JWT-Schlüssel wurde ersetzt; bisherige lokale Refresh-Tokens wurden außerdem widerrufen, da sie in der veröffentlichten Datenbank standen. Benutzer und Passwort-Hashes wurden erhalten. Vorhandene Sitzungen erfordern einen neuen Login. Der RapidAPI-Schlüssel wurde ausgelagert und noch nicht beim Provider ersetzt. **Der Kontoinhaber muss bei RapidAPI einen neuen Schlüssel einrichten und den veröffentlichten alten Schlüssel widerrufen.** Der öffentliche alte Commit bleibt Teil des Verlaufs; die Auslagerung bereinigt ihn nicht rückwirkend. Lokale Konfiguration, Datenbank und Builddateien bleiben auf dem Rechner, werden aber nicht weiter versioniert und sind ignoriert.
+
+Die #37-Probe und ihre private Sicherung bleiben Nachweise für den damaligen Stand. Die Konfigurationspflege ist ein eigener Nachtrag. Neue Nachweise bestanden: frischer Snapshot aus dem bereinigten Gitindex ohne private Dateien, Restore/Build (0 Fehler, 28 Warnungen), Backendchecks einschließlich konfiguriertem API-Header/fehlendem Schlüssel, reguläre JWT-Authentifizierung mit temporärer SQLite, `npm ci` und Entwicklungsbuild. Umgebungsvariablenvorrang, Setup-Wiederholung, Registrierung/Login/Refreshrotation und 401 bei falscher Signatur wurden geprüft. Kein neuer Live-API-Test nach der Konfigurationsänderung. [Prüfnachtrag](konfigurationsbereinigung.md). HTML-Folien/PDF wurden im Hinblick auf die erledigte Konfigurationsauslagerung aktualisiert.
 
 ## 1. Anliegen, Rahmen und vereinbarter Ablauf
 
@@ -26,7 +36,7 @@ Vereinbarte Reihenfolge:
 
 Boardkorrekturen und Unterlagen sind inzwischen weitgehend vorhanden. Die echte Demoprobe und private Sicherung des vorgeführten Arbeitsstands wurden in dieser Fortsetzung erledigt. Die beiden Zeitfenster sind eine nachträgliche Gliederung, keine bewiesenen historischen Sprints und kein bestätigter Beginn der Alleinarbeit.
 
-Der ursprüngliche Auftrag dieser Übergabe war nur ihre Erstellung. Der neue Auftrag setzte anschließend die Präsentationsvorbereitung mit #37 fort; Produktquellen wurden dabei nicht geändert.
+Der ursprüngliche Auftrag dieser Übergabe war nur ihre Erstellung. Danach wurde #37 ohne Produktänderungen erledigt. Der anschließende Auftrag umfasst die Konfigurationspflege, den Ausschluss lokaler Datenbank-/Builddateien, die Prüfung eines frischen Stands und die Vorbereitung eines Pull Requests.
 
 ## 2. Quellen und tatsächliche Anforderungen
 
@@ -73,11 +83,11 @@ Endpunkte:
 - Geschützt: `GET /api/realestate/stuttgart-listings?district=Mitte`
 - Geschützt: `GET /api/realestate/listings/{id}`; unbekannte ID führt zu 404.
 
-API- und JWT-Geheimnisse sind derzeit in Konfigurations-/Servicedateien hinterlegt. Ihre Werte nicht in Übergaben, Ausgaben oder Präsentationsfolien kopieren. Bei Codevorführungen geeignete andere Dateien öffnen. Der tatsächliche Livezugang wurde in der ursprünglichen Analyse nicht ausprobiert; die anschließende Probe unter #37 war erfolgreich.
+API- und JWT-Geheimnisse werden nun über die ignorierte lokale Konfiguration oder Umgebungsvariablen geladen. Ihre Werte nicht in Übergaben, Ausgaben oder Präsentationsfolien kopieren. Die veröffentlichten historischen Werte bleiben im Git-Verlauf; die RapidAPI-Rotation ist noch offen. Der tatsächliche Livezugang wurde in der ursprünglichen Analyse nicht ausprobiert; die anschließende Probe unter #37 war für den damaligen Stand erfolgreich.
 
 ## 4. Bereits geprüfte Ergebnisse und konkrete Grenzen
 
-Prüfungen vom 04.10.2026 gelten für die lokale Arbeitskopie einschließlich uncommitteter Änderungen. Details: [pruefungen.md](pruefungen.md).
+Die folgenden Prüfungen vom 04.10.2026 gelten für den ursprünglichen Präsentationsstand, später in `2d447a7` eingecheckt. Sie ersetzen keine Prüfung der anschließenden Konfigurationsänderung. Details: [pruefungen.md](pruefungen.md).
 
 | Prüfung | Ergebnis | Aussagegrenze |
 |---|---|---|
@@ -139,18 +149,18 @@ Die verbundenen GitHub-Werkzeuge konnten Profil/Issues lesen. Der erste Versuch,
 
 ## 6. Lokaler Gitstand und Beitragshistorie
 
-Aktiver Branch: **`LotAnderson-patch-1`**. Letzter lokaler Commit: **`4af8130`**, Merge vom 02.10.2026. Es wurden in der bisherigen Assistenzarbeit **keine Commits, Pushes oder Merges** vorgenommen.
+Aktiver Branch: **`LotAnderson-patch-1`**. Letzter geprüfter Commit vor der Konfigurationspflege: **`2d447a7`**, vom Nutzer erstellt und auf dem öffentlichen Remote-Arbeitsbranch nachgewiesen. **`4af8130`** vom 02.10.2026 bleibt die historische Vergleichsbasis für die davor vorbereiteten Änderungen. Der endgültige Bereinigungscommit und seine Veröffentlichung sind erst nach erfolgreicher Ausführung als erledigt zu melden.
 
-Arbeitskopie enthält wesentliche uncommittete Änderungen: neues/unversioniertes `Backend/ImmscoutAPI/`, `Backend/ImmscoutAPI.Checks/`, Root-README, `docs/`, Frontendänderungen und Tests. Die alten Backendpfade unter `Frontend/ImmscoutAPI/` werden als gelöscht angezeigt; das passt zur lokalen Umordnung. **Nicht durch Reset, Checkout oder pauschales Aufräumen verwerfen.**
+Die wesentlichen Backend-/Frontend-/Dokumentationsänderungen und die Umordnung nach `Backend/ImmscoutAPI` sind in `2d447a7` enthalten. Die anschließende Konfigurationspflege ändert den aktuellen Stand erneut. Private Dateien müssen auf dem Rechner erhalten bleiben, während sie aus der Versionierung genommen werden. **Nicht durch Reset, Checkout oder pauschales Aufräumen verwerfen.**
 
-Der lokal sichtbare `main` enthält den älteren .NET-8-Ansatz unter `Backend/ImmoScoutRapidApi`, nicht das aktuelle Gesamtprodukt. `main` und Arbeitsbranch weichen voneinander ab. Ein aktueller Remote-Hauptbranch oder ein erfolgreicher frischer Checkout wurde nicht nachgewiesen. Aktuellen Präsentationsstand zuerst sichern; Branchintegration muss den vorhandenen Verlauf und die Arbeitskopie erhalten.
+Der bisher geprüfte `main` enthält den älteren .NET-8-Ansatz unter `Backend/ImmoScoutRapidApi`, nicht das aktuelle Gesamtprodukt. `main` und Arbeitsbranch weichen voneinander ab. Ein erfolgreicher frischer Stand mit der neuen Konfiguration und die Integration nach `main` müssen noch nachgewiesen werden. Branchintegration muss den vorhandenen Verlauf und die Arbeitskopie erhalten.
 
 Beitragsnachweise aus Git:
 
 - ASP.NET-/Angular-Grundlagen waren bereits im Juli vorhanden (`8a91593`, `d59e6b3`); JWT/Login/Refresh/Guard/Routen in `23ceb19`. Diese Commits tragen die Autoridentität **Dr. Aly**. Funktionen nicht als erst heute vom Nutzer neu implementiert darstellen; aus Autoridentität allein keine gesicherte Personenidentität des früheren Partners ableiten.
 - LotAnderson: `d178848` vom 17.07. (HouseUrl-/Insertkorrektur im älteren Ansatz), `fa3f828` vom 21.07. (älterer Web-/Loginansatz), `ae9043e` vom 28.09. (ListingIds/Deduplizierung, HouseUrl-Auswertung, DB-Pfad und HTTP-Anfrage).
 - `65d0d31` vom 02.10. verschiebt viele bestehende Backend-/Angular-Dateien weitgehend unverändert; das ist Strukturarbeit und kein Nachweis neu programmierter Alt-Funktionen. `4af8130` ist die lokale Vergleichsbasis.
-- Heutige Backendverarbeitung, Such-/Detailvertrag, Frontendanpassung und Checks sind als lokaler Unterschied belegbar, aber noch nicht durch neue Commits datiert. Exklusive Autorschaft, Ausführungstage und Arbeitsstunden lassen sich nicht aus dem Diff ableiten.
+- Die später vorbereitete Backendverarbeitung, der Such-/Detailvertrag, Frontendanpassung und Checks sind inzwischen in `2d447a7` enthalten. Das Commitdatum belegt ihre Aufnahme in Git, nicht exklusive Autorschaft, tatsächliche Ausführungstage oder Arbeitsstunden.
 - Assistenz hat Analyse, zusätzliche Prüfungen und Dokumentations-/Präsentationsaufbereitung unterstützt. Diese Unterstützung nicht als eigenständig programmierte Schülerleistung umetikettieren.
 
 ## 7. Vorhandene Dateien und überholte Angaben
@@ -182,7 +192,14 @@ Temporäre Prüfspuren liegen unter `/tmp/topimmo-review/`, insbesondere `curren
 
 ## 8. Start und Prüfung bei Bedarf
 
-Voraussetzungen laut README: Node.js 24 einschließlich npm sowie .NET-9-SDK. Zwei Terminals verwenden:
+Voraussetzungen laut README: Node.js 24 einschließlich npm sowie .NET-9-SDK. Einmal im Repositoryhauptordner lokale Konfiguration vorbereiten:
+
+```sh
+cd /Users/edhar_myronchuk/Documents/GitHub/TopImmo
+node scripts/setup-local-config.mjs
+```
+
+Anschließend `RapidApi.ApiKey` in `Backend/ImmscoutAPI/appsettings.Local.json` mit dem eigenen gültigen Schlüssel belegen. Für die öffentliche Bereinigung den bei RapidAPI neu erzeugten Schlüssel verwenden und den alten beim Provider widerrufen. Lokale Datei und Werte nicht veröffentlichen. Bei Umgebungsvariablen die Vorrangregel beachten. Zwei Terminals verwenden:
 
 ```sh
 cd /Users/edhar_myronchuk/Documents/GitHub/TopImmo/Backend/ImmscoutAPI
@@ -194,16 +211,19 @@ cd /Users/edhar_myronchuk/Documents/GitHub/TopImmo/Frontend/TomInnoFrondEnd
 npm start
 ```
 
-Frontend: `http://localhost:4200`, Registrierung `/register`. Backend: `http://localhost:5197`. Bei frischer Installation Abhängigkeiten entsprechend README wiederherstellen. Die echte Angebotsdemo benötigt Internet und funktionierenden RapidAPI-Zugang.
+Frontend: `http://localhost:4200`, Registrierung `/register`. Backend: `http://localhost:5197`. Bei frischer Installation .NET-Pakete mit Restore und Frontendabhängigkeiten mit `npm ci` entsprechend README wiederherstellen. Das Backend erstellt eine fehlende SQLite-Datenbank beim Start per Migration. Die echte Angebotsdemo benötigt Internet und funktionierenden RapidAPI-Zugang.
 
-Bereits erfolgreiche Prüfungen nicht ohne neue Codeänderung oder neuen Fehler wiederholen. Wenn erforderlich:
+Für die neue Konfigurationspflege ist eine erneute Prüfung im frischen Snapshot erforderlich, ohne Übernahme der privaten Konfiguration oder Kontodatenbank. Ein neuer JWT-Schlüssel lässt sich dort mit dem Setupbefehl erzeugen; Fixtures und reguläre Authprüfungen benötigen keinen Live-API-Schlüssel. Reguläre Registrierung/Login/Refresh mit der produktiven JWT-Authentifizierung gegen eine separate temporäre SQLite prüfen. Build-/Checkbefehle:
 
 ```sh
 # Aus dem Repositoryhauptordner:
+dotnet restore Backend/ImmscoutAPI/ImmscoutAPI.csproj
+dotnet restore Backend/ImmscoutAPI.Checks/ImmscoutAPI.Checks.csproj
 dotnet build Backend/ImmscoutAPI/ImmscoutAPI.csproj --no-restore --no-incremental
 dotnet run --project Backend/ImmscoutAPI.Checks/ImmscoutAPI.Checks.csproj --no-restore
 
 # Aus Frontend/TomInnoFrondEnd:
+npm ci
 npm test -- --watch=false
 npm run build -- --configuration development
 ```
@@ -216,8 +236,8 @@ npm run build -- --configuration development
 2. **#37 lokal erledigt:** Vor der Präsentation nur API-Verfügbarkeit nochmals kurz prüfen und Screenshotansicht geöffnet bereitlegen. Die Wiederherstellung der privaten Sicherung ist geprüft. Online-Abschluss ist wegen HTTP 403 noch ausstehend; fertigen Text manuell übernehmen, ohne neue Issues anzulegen.
 3. Board vor weiteren Änderungen neu lesen. Nur verbleibende Metadaten/Nachträge und Zustandsinkonsistenzen bearbeiten; #34–#41 bereits vorhanden, die 17 Statuskorrekturen bereits erledigt.
 4. Vortrag mit vorhandenem Foliensatz proben und eigene Beiträge anhand von Code/Commits erklären. Technische Grenzen offen benennen. Kein großer SVG-Umbau oder ungesicherter Branchmerge unmittelbar vor der Präsentation.
-5. Den konkret vorgeführten Stand und gegebenenfalls die Veröffentlichung ins Repository sauber sichern. Die Anforderung an einen aktuellen Hauptbranch bleibt offen, solange sie nicht tatsächlich erledigt und geprüft ist.
+5. Konfigurationspflege und frischen Stand prüfen, RapidAPI-Schlüssel beim Provider ersetzen, dann den geprüften Bereinigungsstand veröffentlichen und den Pull Request vorbereiten. Der öffentliche Altcommit bleibt im Verlauf. Die Anforderung an einen aktuellen Hauptbranch bleibt offen, solange sie nicht tatsächlich erledigt und geprüft ist.
 
 ## Kopiertext für den neuen Chat
 
-> Bitte lies zuerst `/Users/edhar_myronchuk/Documents/GitHub/TopImmo/docs/KONTEXT-UEBERGABE.md` und setze meine TopImmo-Projektvorbereitung für die Präsentation am 05.10.2026 fort. Das Projekt wurde zu zweit begonnen; meine Alleinarbeit ist von der Lehrkraft akzeptiert, die Anforderungen bleiben gleich. Board, Dokumentation und Folien sind weitgehend vorbereitet. Beginne beim dokumentierten letzten Stand: #37 ist lokal durch echte API-/Browser-Demoprobe und geprüfte Sicherung erledigt; Online-Abschluss scheiterte mit HTTP 403. Priorisiere nun Vortragsprobe, konkrete Eigenbeiträge, verbleibende Boardpflege und nachvollziehbare Veröffentlichung des gesicherten Stands. Prüfe GitHub vor weiteren Änderungen neu, erzeuge keine doppelten Nachträge und erhalte meine uncommitteten Dateien. Ältere Boardberichte enthalten überholte Statusangaben. Bitte arbeite auf Deutsch weiter.
+> Bitte lies zuerst `/Users/edhar_myronchuk/Documents/GitHub/TopImmo/docs/KONTEXT-UEBERGABE.md` und setze meine TopImmo-Projektvorbereitung für die Präsentation am 05.10.2026 fort. Das Projekt wurde zu zweit begonnen; meine Alleinarbeit ist von der Lehrkraft akzeptiert, die Anforderungen bleiben gleich. #37 ist durch echte API-/Browser-Demoprobe und private Sicherung für den damaligen Stand lokal erledigt; Online-Abschluss wurde danach nicht bestätigt. Der Präsentationsstand `2d447a7` wurde auf dem öffentlichen Arbeitsbranch nachgewiesen und enthielt Geheimnisse sowie Datenbank-/Builddateien. Die beauftragte Konfigurationspflege ist ein eigener Nachtrag; prüfe ihren tatsächlichen Abschluss und einen frischen Stand, ohne private Dateien zu veröffentlichen. Der RapidAPI-Schlüssel muss beim Provider ersetzt werden; der Altcommit bleibt im Verlauf. Danach Veröffentlichung/Pull Request, Vortragsprobe, Eigenbeiträge und verbleibende Boardpflege fortsetzen. Prüfe GitHub vor weiteren Änderungen neu, erzeuge keine doppelten Nachträge und erhalte lokale Dateien. Bitte arbeite auf Deutsch weiter.

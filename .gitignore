@@ -1,0 +1,19 @@
+# .NET build output across all projects
+**/[Bb]in/
+**/[Oo]bj/
+
+# Local account data and SQLite journal files
+*.db
+*.db-wal
+*.db-shm
+*.db-journal
+
+# Private backend configuration
+**/appsettings.Local.json
+.env
+.env.*
+!.env.example
+
+# Local editor/system files
+.DS_Store
+**/.vs/
