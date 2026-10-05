@@ -1,6 +1,343 @@
 # Systemarchitektur von TopImmo
 
-Stand: 04.10.2026. Dieses Dokument beschreibt den aktuellen lokalen Quellcode. TopImmo unterstützt die Suche nach Mietwohnungen in Stuttgart und die Auswahl eines Bezirks über eine Karte.
+Stand: 05.10.2026. Dieses Dokument beschreibt den aktuellen lokalen Quellcode. TopImmo unterstützt die Suche nach Mietwohnungen in Stuttgart und die Auswahl eines Bezirks über eine Karte.
+
+## Projektstruktur als UML-Klassendiagramme
+
+Die vier Ansichten zeigen die zentralen Klassen, Interfaces, Mitglieder und Beziehungen des aktuellen Codes. Die SVG-Bilder sind ohne zusätzliche Markdown-Erweiterung sichtbar; der Mermaid-Quelltext steht jeweils darunter. Die bearbeitbare [PlantUML-Datei](architektur.puml) enthält dieselben vier Ansichten.
+
+**Legende:** `+` öffentlich, `-` privat; gestrichelter Pfeil = Abhängigkeit, gestrichelter Pfeil mit Dreieck = Interface-Implementierung, durchgezogener Pfeil mit Dreieck = Vererbung, ausgefüllte Raute = Template-Komposition. `1` und `0..*` kennzeichnen Kardinalitäten. Framework-Typen und Funktionsknoten sind ausdrücklich markiert. Gezeigt sind zentrale Mitglieder, keine vollständige Auflistung jeder Hilfsmethode.
+
+Die Dateinamen `AuthService .cs` und `TokenService .cs` enthalten im Projekt ein Leerzeichen; die Klassennamen im Diagramm lauten trotzdem `AuthService` und `TokenService`.
+
+### 1. Angular-Frontend
+
+Komponenten verwenden drei gemeinsame Services. Die beiden Controller rechts stehen für die HTTP-Schnittstelle zum C#-Backend. Guard und Interceptor sind Funktionsknoten; Routen und `appConfig` sind Konfiguration, keine eigenen Klassen. `App` zeigt die Seiten über `RouterOutlet` an.
+
+![Klassendiagramm: Angular-Frontend](diagramme/architektur-frontend.svg)
+
+<details>
+<summary>Mermaid-Quelltext anzeigen</summary>
+
+```mermaid
+classDiagram
+    direction TB
+    class App {
+        +onLogout() void
+    }
+    class HomeComponent {
+    }
+    class StutgartsmapComponent {
+        +onMapClick(event : MouseEvent) void
+        +onLegendClick(district : string) void
+    }
+    class RealEstateComponent {
+        +Signal~Listing[]~ filteredListings
+        +ngOnInit() void
+    }
+    class ListingDetailComponent {
+        +ngOnInit() void
+        +selectImage(index : number) void
+    }
+    class LoginComponent {
+        +onSubmit() void
+    }
+    class RegisterComponent {
+        +onSubmit() void
+    }
+    class AngularAuthService["AuthService"]
+    class AngularAuthService {
+        +Signal~boolean~ isLoggedIn
+        +login(credentials : AuthCredentials) Observable~AuthResponse~
+        +register(credentials : AuthCredentials) Observable~RegisterResponse~
+        +refresh() Observable~AuthResponse~
+        +logout() void
+        +getAccessToken() string | null
+    }
+    class RealEstateService {
+        +getStuttgartListings(district : string | null) Observable~ListingSearchResult~
+        +getListing(id : string) Observable~Listing~
+    }
+    class DistrictFilterService {
+        +Observable~string | null~ selectedDistrict$
+        +setSelectedDistrict(district : string | null) void
+        +getCurrentDistrict() string | null
+    }
+    class authGuard {
+        <<function>>
+        +CanActivateFn Signatur
+    }
+    class authInterceptor {
+        <<function>>
+        +HttpInterceptorFn Signatur
+    }
+    class AuthController {
+        <<HTTP-Backend>>
+    }
+    class RealEstateController {
+        <<HTTP-Backend>>
+    }
+    HomeComponent "1" *-- "1" StutgartsmapComponent : Template
+    HomeComponent "1" *-- "1" RealEstateComponent : Template
+    App ..> AngularAuthService : verwendet
+    LoginComponent ..> AngularAuthService : Login
+    RegisterComponent ..> AngularAuthService : Registrierung
+    authGuard ..> AngularAuthService : Token vorhanden?
+    authInterceptor ..> AngularAuthService : Bearer-Header
+    StutgartsmapComponent ..> DistrictFilterService : setzt Auswahl
+    RealEstateComponent ..> DistrictFilterService : beobachtet Auswahl
+    StutgartsmapComponent ..> RealEstateService : Kartenzuordnung
+    RealEstateComponent ..> RealEstateService : Angebote
+    ListingDetailComponent ..> RealEstateService : Detail
+    AngularAuthService ..> AuthController : HTTP / JSON /api/auth
+    RealEstateService ..> RealEstateController : HTTP / JSON + Bearer
+```
+
+</details>
+
+Belege: [Komponenten und Routen](../Frontend/TomInnoFrondEnd/src/app/app.routes.ts), [AuthService](../Frontend/TomInnoFrondEnd/src/app/services/auth.ts), [RealEstateService](../Frontend/TomInnoFrondEnd/src/app/services/realestate.ts), [DistrictFilterService](../Frontend/TomInnoFrondEnd/src/app/services/district-filter.ts), [Guard](../Frontend/TomInnoFrondEnd/src/app/guards/auth.guard.ts), [Interceptor](../Frontend/TomInnoFrondEnd/src/app/interceptors/auth.interceptor.ts).
+
+### 2. Backend: Authentifizierung und SQLite
+
+`AuthController` verwendet `IAuthService`. Die Implementierung prüft Passwörter und speichert über EF Core; `TokenService` erzeugt JWTs und Refresh-Tokens. Nur die zwei dargestellten Entitäten werden in SQLite gespeichert.
+
+![Klassendiagramm: Backend: Authentifizierung und SQLite](diagramme/architektur-authentifizierung.svg)
+
+<details>
+<summary>Mermaid-Quelltext anzeigen</summary>
+
+```mermaid
+classDiagram
+    direction TB
+    class AuthController {
+        +Register(request : RegisterRequest) Task~IActionResult~
+        +Login(request : LoginRequest) Task~IActionResult~
+        +Refresh(request : RefreshRequest) Task~IActionResult~
+    }
+    class IAuthService {
+        <<interface>>
+        +RegisterAsync(request : RegisterRequest) Task~AuthResult~
+        +LoginAsync(request : LoginRequest) Task~LoginResult~
+        +RefreshAsync(request : RefreshRequest) Task~LoginResult~
+    }
+    class BackendAuthService["AuthService"]
+    class BackendAuthService {
+        +RegisterAsync(request : RegisterRequest) Task~AuthResult~
+        +LoginAsync(request : LoginRequest) Task~LoginResult~
+        +RefreshAsync(request : RefreshRequest) Task~LoginResult~
+    }
+    class ITokenService {
+        <<interface>>
+        +GenerateAccessToken(user : User) string
+        +GenerateRefreshToken() string
+    }
+    class TokenService {
+        +GenerateAccessToken(user : User) string
+        +GenerateRefreshToken() string
+    }
+    class JwtSettings {
+        +string Key
+        +string Issuer
+        +int ExpireMinutes
+    }
+    class AppDbContext {
+        +DbSet~User~ Users
+        +DbSet~RefreshToken~ RefreshTokens
+    }
+    class DbContext {
+        <<framework>>
+    }
+    class User {
+        <<entity>>
+        +int Id
+        +string Email
+        +string PasswordHash
+        +List~RefreshToken~ RefreshTokens
+    }
+    class RefreshToken {
+        <<entity>>
+        +int Id
+        +string Token
+        +DateTime ExpiresAt
+        +bool IsRevoked
+        +int UserId
+        +User User
+    }
+    AuthController ..> IAuthService : injiziert
+    BackendAuthService ..|> IAuthService : implementiert
+    BackendAuthService ..> AppDbContext : Konten und Rotation
+    BackendAuthService ..> ITokenService : injiziert
+    TokenService ..|> ITokenService : implementiert
+    TokenService ..> JwtSettings : IOptions
+    TokenService ..> User : Claims aus Konto
+    AppDbContext --|> DbContext : erbt
+    AppDbContext --> User : Users
+    AppDbContext --> RefreshToken : RefreshTokens
+    User "1" -- "0..*" RefreshToken : UserId / Navigation
+```
+
+</details>
+
+Belege: [AuthController](../Backend/ImmscoutAPI/Controllers/AuthController.cs), [AuthService](../Backend/ImmscoutAPI/Service/AuthService%20.cs), [TokenService](../Backend/ImmscoutAPI/Service/TokenService%20.cs), [AppDbContext](../Backend/ImmscoutAPI/DataBase/AppDbContext.cs), [User](../Backend/ImmscoutAPI/Model/Authorization/User.cs), [RefreshToken](../Backend/ImmscoutAPI/Model/Authorization/RefreshToken.cs).
+
+### 3. Backend: Immobiliensuche, Cache und Synchronisierung
+
+`DistrictDataService` bereitet das externe JSON auf, bildet Stadtteile auf Bezirke ab und liefert die API-Antwort. `IMemoryCache` hält die aufbereiteten Angebote fünf Minuten pro Prozess; die statische Semaphore serialisiert das Nachladen.
+
+![Klassendiagramm: Backend: Immobiliensuche, Cache und Synchronisierung](diagramme/architektur-immobiliensuche.svg)
+
+<details>
+<summary>Mermaid-Quelltext anzeigen</summary>
+
+```mermaid
+classDiagram
+    direction TB
+    class RealEstateController {
+        +GetStuttgartListings(district : string?) Task~ActionResult~ListingSearchResult~~
+        +GetListing(id : string) Task~ActionResult~Listing~~
+    }
+    class DistrictDataService {
+        -SemaphoreSlim LoadLock$
+        -IReadOnlyDictionary _mapDistricts
+        -IReadOnlyDictionary _addressDistricts
+        +GetProcessedListingsAsync() Task~List~Listing~~
+        +SearchAsync(district : string?) Task~ListingSearchResult~
+    }
+    class ImmoScoutAPIService {
+        +GetStuttgartApartmentsAsync() Task~string~
+    }
+    class HttpClient {
+        <<framework>>
+    }
+    class IMemoryCache {
+        <<interface>>
+    }
+    class SemaphoreSlim {
+        <<framework>>
+    }
+    class CitySubdistrict {
+        <<private_record>>
+        +int Number
+        +string Name
+        +string District
+    }
+    RealEstateController ..> DistrictDataService : injiziert
+    DistrictDataService ..> ImmoScoutAPIService : Cache-Miss
+    DistrictDataService ..> IMemoryCache : Listing-Liste fuer 5 Minuten
+    DistrictDataService ..> SemaphoreSlim : WaitAsync / finally Release
+    DistrictDataService ..> CitySubdistrict : liest JSON-Referenz
+    ImmoScoutAPIService ..> HttpClient : HTTPS / RapidAPI
+```
+
+</details>
+
+Belege: [RealEstateController](../Backend/ImmscoutAPI/Controllers/RealEstateController.cs), [DistrictDataService](../Backend/ImmscoutAPI/Service/DistrictDataService.cs), [ImmoScoutAPIService](../Backend/ImmscoutAPI/Service/ImmoScoutAPIService.cs), [Dienstregistrierung](../Backend/ImmscoutAPI/Program.cs).
+
+### 4. Immobilien- und JSON-Datenmodelle
+
+`ImmoScoutResponse` bildet die externe Antwort ab. Das Backend filtert daraus Mietangebote und erzeugt `ListingSearchResult` für Angular. Die weiteren Projekt-/Paginierungsfelder werden mit deserialisiert; die aktive Mietangebotssuche verwendet sie nicht.
+
+![Klassendiagramm: Immobilien- und JSON-Datenmodelle](diagramme/architektur-datenmodelle.svg)
+
+<details>
+<summary>Mermaid-Quelltext anzeigen</summary>
+
+```mermaid
+classDiagram
+    direction TB
+    class ImmoScoutResponse {
+        +LocationInfo Location
+        +PaginationInfo Pagination
+        +List~Listing~ Listings
+        +List~Project~ Projects
+    }
+    class Listing {
+        +string Id
+        +string Title
+        +decimal Price
+        +double LivingSpace
+        +double Rooms
+        +string RealEstateType
+        +string MappedDistrict
+        +Address Address
+        +List~string~ PictureUrls
+        +List~AttributeItem~ Attributes
+    }
+    class Address {
+        +string Line
+        +double? Lat
+        +double? Lon
+    }
+    class AttributeItem {
+        +string Label
+        +string Value
+    }
+    class ListingSearchResult {
+        <<record>>
+        +List~Listing~ Listings
+        +List~DistrictCount~ DistrictCounts
+        +IReadOnlyDictionary MapDistricts
+    }
+    class DistrictCount {
+        <<record>>
+        +string District
+        +int Count
+    }
+    class LocationInfo {
+        +string Path
+        +string DisplayName
+        +string Url
+    }
+    class PaginationInfo {
+        +int Page
+        +int PageSize
+        +int TotalPages
+        +int TotalResults
+    }
+    class Project {
+        +string Id
+        +string Name
+        +Address Address
+        +List~string~ PictureUrls
+        +List~AttributeItem~ Attributes
+        +List~Unit~ Units
+    }
+    class Unit {
+        +string Id
+        +string Url
+        +string Title
+        +string PictureUrl
+    }
+    ImmoScoutResponse --> "0..*" Listing : Listings
+    ImmoScoutResponse --> "0..*" Project : Projects
+    ImmoScoutResponse --> "0..1" LocationInfo : Location
+    ImmoScoutResponse --> "0..1" PaginationInfo : Pagination
+    Listing --> "0..1" Address : Address
+    Listing --> "0..*" AttributeItem : Attributes
+    Project --> "0..1" Address : Address
+    Project --> "0..*" AttributeItem : Attributes
+    Project --> "0..*" Unit : Units
+    ListingSearchResult --> "0..*" Listing : Listings
+    ListingSearchResult --> "0..*" DistrictCount : DistrictCounts
+```
+
+</details>
+
+Belege: [Externe Antwort](../Backend/ImmscoutAPI/Model/ImmoScoutResponse.cs), [Listing](../Backend/ImmscoutAPI/Model/Listing.cs), [ListingSearchResult und DistrictCount](../Backend/ImmscoutAPI/Model/ListingSearchResult.cs), [Project](../Backend/ImmscoutAPI/Model/Project.cs).
+
+`MapDistricts` und die beiden Bezirksreferenzen haben den C#-Typ `IReadOnlyDictionary<string, string>`; im Mermaid-Bild ist dessen Schreibweise aus Darstellungsgründen gekürzt. In der PlantUML-Datei steht der vollständige Typ. Für externe Adresse/Location/Pagination bedeutet `0..1`, dass das JSON das Feld weglassen kann; eine nichtnullable C#-Deklaration erzwingt kein vorhandenes JSON-Feld.
+
+DTOs für Authentifizierung: `RegisterRequest` und `LoginRequest` besitzen `Email` und `Password`; `RefreshRequest` besitzt `RefreshToken`. `AuthResult` und `LoginResult` sind voneinander unabhängige Ergebnisklassen. `WeatherForecast` und das Frontend-Interface `ImmoResponse` werden im aktuellen Produktablauf nicht verwendet und deshalb nicht als aktive Klassen eingezeichnet. EF-Migrationen, Testprogramme und Konfigurationskonstanten sind ebenfalls keine zusätzlichen fachlichen Dienste.
+
+### UML-Datei öffnen oder exportieren
+
+Öffne [architektur.puml](architektur.puml) beispielsweise mit einer PlantUML-Vorschau in VS Code. Die Datei enthält vier benannte `@startuml`-Blöcke. Ein lokaler PlantUML-Renderer kann daraus vier SVGs exportieren:
+
+```sh
+java -jar /pfad/zu/plantuml.jar -tsvg docs/architektur.puml
+```
+
+Die Datei verwendet Smetana als Layoutverfahren. Die hier eingebundenen SVG-Vorschauen sind bereits erstellt; zum Ansehen wird kein Java benötigt. Syntaxreferenzen: [Mermaid-Klassendiagramme](https://mermaid.js.org/syntax/classDiagram.html) und [PlantUML-Klassendiagramme](https://plantuml.com/class-diagram).
 
 ## Komponenten und Datenfluss
 
@@ -108,6 +445,6 @@ Am 04.10.2026 war der vollständig neu kompilierte Backend-Build erfolgreich, mi
 
 Zusätzlich wurde der echte Backend-Auth-Flow mit einer eigenen temporären SQLite-Datenbank geprüft: Registrierung, Duplikatprüfung, Passwortprüfung, Ausgabe von Tokens und Refresh-Rotation funktionierten. Ein bereits rotierter RefreshToken wurde abgewiesen. Dabei wurde auch nachgewiesen, dass leere oder ungültige Registrierungsdaten akzeptiert werden. Dieser zusätzliche Prüflauf ist bisher kein automatisierter Test im Repository.
 
-Die externe RapidAPI wurde bei diesen isolierten Prüfungen nicht aufgerufen. Spätere echte Desktopproben bestätigten Login, API HTTP 200, Angebote, Bezirksfilter, Details/Bildwechsel und Logout. Die jüngste Kartenprüfung deckt zusätzlich alle 152 sichtbaren Stadtteilflächen und 23 Bezirkslegenden mit echten Mausklicks in Chrome und WebKit ab; die Detailrückkehr erhält jetzt die Markierung. Das sind konkrete lokale Liveprüfungen, keine Zusicherung vollständiger Markt- oder Mobilabdeckung. [Vollprüfung und Quellen](stadtbezirke-pruefung.md).
+Die externe RapidAPI wurde bei diesen isolierten Prüfungen nicht aufgerufen. Spätere echte Desktopproben bestätigten Login, API HTTP 200, Angebote, Bezirksfilter, Details/Bildwechsel und Logout. Die jüngste Kartenprüfung deckt zusätzlich alle 152 sichtbaren Stadtteilflächen und 23 Bezirkslegenden mit echten Mausklicks in Chrome und WebKit ab; die Detailrückkehr erhält jetzt die Markierung. Das sind konkrete lokale Liveprüfungen, keine Zusicherung vollständiger Markt- oder Mobilabdeckung. [Vollprüfspur und Quellen](demo/karten-vollpruefung.json).
 
 Weiterlesen: [Pseudocode der wichtigsten Algorithmen](algorithmen.md).

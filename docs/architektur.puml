@@ -1,0 +1,406 @@
+' TopImmo: UML-Klassenansichten, Stand 05.10.2026
+' Vier benannte Diagramme; nur zentrale Mitglieder der aktuellen Implementierung.
+' Keine Zugangsdaten oder Konfigurationswerte enthalten.
+
+@startuml topimmo_frontend
+!pragma layout smetana
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 13
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam roundcorner 8
+skinparam ArrowColor #42566B
+skinparam class {
+  BackgroundColor #EDF5FF
+  BorderColor #1F5185
+  HeaderBackgroundColor #D9E9FB
+}
+skinparam package {
+  BackgroundColor #FAFCFF
+  BorderColor #A4B5C6
+}
+hide empty members
+title
+TopImmo – Angular-Frontend
+Stand: 05.10.2026
+end title
+top to bottom direction
+package "Komponenten" {
+  class "App" as App {
+    +onLogout() : void
+  }
+  class "HomeComponent" as HomeComponent {
+  }
+  class "StutgartsmapComponent" as StutgartsmapComponent {
+    +onMapClick(event : MouseEvent) : void
+    +onLegendClick(district : string) : void
+  }
+  class "RealEstateComponent" as RealEstateComponent {
+    +filteredListings : Signal<Listing[]>
+    +ngOnInit() : void
+  }
+  class "ListingDetailComponent" as ListingDetailComponent {
+    +ngOnInit() : void
+    +selectImage(index : number) : void
+  }
+  class "LoginComponent" as LoginComponent {
+    +onSubmit() : void
+  }
+  class "RegisterComponent" as RegisterComponent {
+    +onSubmit() : void
+  }
+}
+package "Angular-Services" {
+  class "AuthService" as AngularAuthService {
+    +isLoggedIn : Signal<boolean>
+    +login(credentials : AuthCredentials) : Observable<AuthResponse>
+    +register(credentials : AuthCredentials) : Observable<RegisterResponse>
+    +refresh() : Observable<AuthResponse>
+    +logout() : void
+    +getAccessToken() : string | null
+  }
+  class "RealEstateService" as RealEstateService {
+    +getStuttgartListings(district : string | null) : Observable<ListingSearchResult>
+    +getListing(id : string) : Observable<Listing>
+  }
+  class "DistrictFilterService" as DistrictFilterService {
+    +selectedDistrict$ : Observable<string | null>
+    +setSelectedDistrict(district : string | null) : void
+    +getCurrentDistrict() : string | null
+  }
+}
+package "Navigation und HTTP" {
+  class "authGuard" as authGuard <<function>> {
+    +Signatur : CanActivateFn
+  }
+  class "authInterceptor" as authInterceptor <<function>> {
+    +Signatur : HttpInterceptorFn
+  }
+}
+package "C#-Backend" {
+  class "AuthController" as AuthController <<HTTP-Backend>> {
+  }
+  class "RealEstateController" as RealEstateController <<HTTP-Backend>> {
+  }
+}
+HomeComponent "1" *-- "1" StutgartsmapComponent : Template
+HomeComponent "1" *-- "1" RealEstateComponent : Template
+App ..> AngularAuthService : verwendet
+LoginComponent ..> AngularAuthService : Login
+RegisterComponent ..> AngularAuthService : Registrierung
+authGuard ..> AngularAuthService : Token vorhanden?
+authInterceptor ..> AngularAuthService : Bearer-Header
+StutgartsmapComponent ..> DistrictFilterService : setzt Auswahl
+RealEstateComponent ..> DistrictFilterService : beobachtet Auswahl
+StutgartsmapComponent ..> RealEstateService : Kartenzuordnung
+RealEstateComponent ..> RealEstateService : Angebote
+ListingDetailComponent ..> RealEstateService : Detail
+AngularAuthService ..> AuthController : HTTP / JSON /api/auth
+RealEstateService ..> RealEstateController : HTTP / JSON + Bearer
+legend bottom left
+  Öffentlich (+); privat (-); statisch ({static}).
+  Gestrichelter Pfeil: verwendet.
+  Hohles Dreieck: implementiert (gestrichelt) oder erbt (durchgezogen).
+  Gefüllte Raute: Template-Komposition; Pfeil: Objektbeziehung.
+  AuthService speichert Access-/Refresh-Token im localStorage.
+  Die HTTP-Pfeile sind Netzwerkaufrufe, keine TypeScript-Referenzen auf C#-Klassen.
+  Frontend-Verträge: AuthCredentials, AuthResponse, RegisterResponse, ListingSearchResult und Listing sind TypeScript-Interfaces.
+endlegend
+@enduml
+
+@startuml topimmo_authentifizierung
+!pragma layout smetana
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 13
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam roundcorner 8
+skinparam ArrowColor #42566B
+skinparam class {
+  BackgroundColor #EDF5FF
+  BorderColor #1F5185
+  HeaderBackgroundColor #D9E9FB
+}
+skinparam package {
+  BackgroundColor #FAFCFF
+  BorderColor #A4B5C6
+}
+hide empty members
+title
+TopImmo – Backend: Authentifizierung und SQLite
+Stand: 05.10.2026
+end title
+top to bottom direction
+package "Controller" {
+  class "AuthController" as AuthController {
+    +Register(request : RegisterRequest) : Task<IActionResult>
+    +Login(request : LoginRequest) : Task<IActionResult>
+    +Refresh(request : RefreshRequest) : Task<IActionResult>
+  }
+}
+package "Dienste" {
+  interface "IAuthService" as IAuthService {
+    +RegisterAsync(request : RegisterRequest) : Task<AuthResult>
+    +LoginAsync(request : LoginRequest) : Task<LoginResult>
+    +RefreshAsync(request : RefreshRequest) : Task<LoginResult>
+  }
+  class "AuthService" as BackendAuthService {
+    +RegisterAsync(request : RegisterRequest) : Task<AuthResult>
+    +LoginAsync(request : LoginRequest) : Task<LoginResult>
+    +RefreshAsync(request : RefreshRequest) : Task<LoginResult>
+  }
+  interface "ITokenService" as ITokenService {
+    +GenerateAccessToken(user : User) : string
+    +GenerateRefreshToken() : string
+  }
+  class "TokenService" as TokenService {
+    +GenerateAccessToken(user : User) : string
+    +GenerateRefreshToken() : string
+  }
+}
+package "Konfiguration" {
+  class "JwtSettings" as JwtSettings {
+    +Key : string
+    +Issuer : string
+    +ExpireMinutes : int
+  }
+}
+package "SQLite / EF Core" {
+  class "AppDbContext" as AppDbContext {
+    +Users : DbSet<User>
+    +RefreshTokens : DbSet<RefreshToken>
+  }
+  class "DbContext" as DbContext <<framework>> {
+  }
+  class "User" as User <<entity>> {
+    +Id : int
+    +Email : string
+    +PasswordHash : string
+    +RefreshTokens : List<RefreshToken>
+  }
+  class "RefreshToken" as RefreshToken <<entity>> {
+    +Id : int
+    +Token : string
+    +ExpiresAt : DateTime
+    +IsRevoked : bool
+    +UserId : int
+    +User : User
+  }
+}
+AuthController ..> IAuthService : injiziert
+BackendAuthService ..|> IAuthService : implementiert
+BackendAuthService ..> AppDbContext : Konten und Rotation
+BackendAuthService ..> ITokenService : injiziert
+TokenService ..|> ITokenService : implementiert
+TokenService ..> JwtSettings : IOptions
+TokenService ..> User : Claims aus Konto
+AppDbContext --|> DbContext : erbt
+AppDbContext --> User : Users
+AppDbContext --> RefreshToken : RefreshTokens
+User "1" -- "0..*" RefreshToken : UserId / Navigation
+legend bottom left
+  Öffentlich (+); privat (-); statisch ({static}).
+  Gestrichelter Pfeil: verwendet.
+  Hohles Dreieck: implementiert (gestrichelt) oder erbt (durchgezogen).
+  Gefüllte Raute: Template-Komposition; Pfeil: Objektbeziehung.
+  Program.cs registriert IAuthService -> AuthService und ITokenService -> TokenService.
+  BCrypt: Passwort-Hash; HS256: JWT-Signatur; zufälliger Refresh-Token: 7 Tage.
+  JwtBearer validiert Signatur, Issuer und Ablauf vor dem Zugriff auf [Authorize]-Endpunkte.
+  DTOs: RegisterRequest / LoginRequest (Email, Password), RefreshRequest (RefreshToken).
+  Ergebnisse: AuthResult und LoginResult sind unabhängige Klassen; keine Vererbung.
+endlegend
+@enduml
+
+@startuml topimmo_immobiliensuche
+!pragma layout smetana
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 13
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam roundcorner 8
+skinparam ArrowColor #42566B
+skinparam class {
+  BackgroundColor #EDF5FF
+  BorderColor #1F5185
+  HeaderBackgroundColor #D9E9FB
+}
+skinparam package {
+  BackgroundColor #FAFCFF
+  BorderColor #A4B5C6
+}
+hide empty members
+title
+TopImmo – Backend: Immobiliensuche, Cache und Synchronisierung
+Stand: 05.10.2026
+end title
+top to bottom direction
+package "Controller" {
+  class "RealEstateController" as RealEstateController {
+    +GetStuttgartListings(district : string?) : Task<ActionResult<ListingSearchResult>>
+    +GetListing(id : string) : Task<ActionResult<Listing>>
+  }
+}
+package "Datenverarbeitung" {
+  class "DistrictDataService" as DistrictDataService {
+    {static} -LoadLock : SemaphoreSlim
+    -_mapDistricts : IReadOnlyDictionary<string, string>
+    -_addressDistricts : IReadOnlyDictionary<string, string>
+    +GetProcessedListingsAsync() : Task<List<Listing>>
+    +SearchAsync(district : string?) : Task<ListingSearchResult>
+  }
+  class "CitySubdistrict" as CitySubdistrict <<private record>> {
+    +Number : int
+    +Name : string
+    +District : string
+  }
+}
+package "Externer Abruf" {
+  class "ImmoScoutAPIService" as ImmoScoutAPIService {
+    +GetStuttgartApartmentsAsync() : Task<string>
+  }
+  class "HttpClient" as HttpClient <<framework>> {
+  }
+}
+package "Laufzeit" {
+  interface "IMemoryCache" as IMemoryCache {
+  }
+  class "SemaphoreSlim" as SemaphoreSlim <<framework>> {
+  }
+}
+RealEstateController ..> DistrictDataService : injiziert
+DistrictDataService ..> ImmoScoutAPIService : Cache-Miss
+DistrictDataService ..> IMemoryCache : Listing-Liste fuer 5 Minuten
+DistrictDataService ..> SemaphoreSlim : WaitAsync / finally Release
+DistrictDataService ..> CitySubdistrict : liest JSON-Referenz
+ImmoScoutAPIService ..> HttpClient : HTTPS / RapidAPI
+legend bottom left
+  Öffentlich (+); privat (-); statisch ({static}).
+  Gestrichelter Pfeil: verwendet.
+  Hohles Dreieck: implementiert (gestrichelt) oder erbt (durchgezogen).
+  Gefüllte Raute: Template-Komposition; Pfeil: Objektbeziehung.
+  RealEstateController ist mit [Authorize] geschützt.
+  API: page=1, pageSize=30; Rückgabe des API-Service ist Roh-JSON.
+  CitySubdistrict ist ein privater verschachtelter Record in DistrictDataService.
+  Referenzen: map-districts.json und stuttgart-subdistricts.json (23 Bezirke / 152 Stadtteile).
+  Cacheprüfung vor und nach WaitAsync; Freigabe im finally. Kein Listing-DbSet in SQLite.
+endlegend
+@enduml
+
+@startuml topimmo_datenmodelle
+!pragma layout smetana
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 13
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam roundcorner 8
+skinparam ArrowColor #42566B
+skinparam class {
+  BackgroundColor #EDF5FF
+  BorderColor #1F5185
+  HeaderBackgroundColor #D9E9FB
+}
+skinparam package {
+  BackgroundColor #FAFCFF
+  BorderColor #A4B5C6
+}
+hide empty members
+title
+TopImmo – Immobilien- und JSON-Datenmodelle
+Stand: 05.10.2026
+end title
+top to bottom direction
+package "Externe Antwort" {
+  class "ImmoScoutResponse" as ImmoScoutResponse {
+    +Location : LocationInfo
+    +Pagination : PaginationInfo
+    +Listings : List<Listing>
+    +Projects : List<Project>
+  }
+}
+package "Angebote" {
+  class "Listing" as Listing {
+    +Id : string
+    +Title : string
+    +Price : decimal
+    +LivingSpace : double
+    +Rooms : double
+    +RealEstateType : string
+    +MappedDistrict : string
+    +Address : Address
+    +PictureUrls : List<string>
+    +Attributes : List<AttributeItem>
+  }
+  class "Address" as Address {
+    +Line : string
+    +Lat : double?
+    +Lon : double?
+  }
+  class "AttributeItem" as AttributeItem {
+    +Label : string
+    +Value : string
+  }
+}
+package "Eigene API-Antwort" {
+  class "ListingSearchResult" as ListingSearchResult <<record>> {
+    +Listings : List<Listing>
+    +DistrictCounts : List<DistrictCount>
+    +MapDistricts : IReadOnlyDictionary<string, string>
+  }
+  class "DistrictCount" as DistrictCount <<record>> {
+    +District : string
+    +Count : int
+  }
+}
+package "Weitere API-Felder" {
+  class "LocationInfo" as LocationInfo {
+    +Path : string
+    +DisplayName : string
+    +Url : string
+  }
+  class "PaginationInfo" as PaginationInfo {
+    +Page : int
+    +PageSize : int
+    +TotalPages : int
+    +TotalResults : int
+  }
+  class "Project" as Project {
+    +Id : string
+    +Name : string
+    +Address : Address
+    +PictureUrls : List<string>
+    +Attributes : List<AttributeItem>
+    +Units : List<Unit>
+  }
+  class "Unit" as Unit {
+    +Id : string
+    +Url : string
+    +Title : string
+    +PictureUrl : string
+  }
+}
+ImmoScoutResponse --> "0..*" Listing : Listings
+ImmoScoutResponse --> "0..*" Project : Projects
+ImmoScoutResponse --> "0..1" LocationInfo : Location
+ImmoScoutResponse --> "0..1" PaginationInfo : Pagination
+Listing --> "0..1" Address : Address
+Listing --> "0..*" AttributeItem : Attributes
+Project --> "0..1" Address : Address
+Project --> "0..*" AttributeItem : Attributes
+Project --> "0..*" Unit : Units
+ListingSearchResult --> "0..*" Listing : Listings
+ListingSearchResult --> "0..*" DistrictCount : DistrictCounts
+legend bottom left
+  Öffentlich (+); privat (-); statisch ({static}).
+  Gestrichelter Pfeil: verwendet.
+  Hohles Dreieck: implementiert (gestrichelt) oder erbt (durchgezogen).
+  Gefüllte Raute: Template-Komposition; Pfeil: Objektbeziehung.
+  Gezeigt sind die zentralen Eigenschaften; weitere Angebotsfelder bleiben im Quellcode.
+  0..1 bei externen Feldern bedeutet: JSON kann sie weglassen, trotz nichtnullable C#-Deklaration.
+  ListingSearchResult / DistrictCount sind C#-Records; Angular besitzt separate TypeScript-Verträge.
+  Immobiliendaten sind RAM-Objekte, keine SQLite-Entitäten.
+endlegend
+@enduml
