@@ -1,0 +1,13 @@
+{
+  "engine": "CoreGraphics/CoreText",
+  "overflow": [],
+  "pages": 3,
+  "pdf": "TopImmo-Praesentation-Technik.pdf",
+  "totalPages": 11,
+  "first8PageContentsIdentical": true,
+  "requestedDemoCaptionPreserved": true,
+  "textChecks": "passed",
+  "sha256": "7171ffebdb15b86d7ccd0f1c6ac56b7120b8e7a96776084d1a5a5bd069f313ea",
+  "pptxChanged": false,
+  "nativeKeynoteImport": "user reports invalid; not claimed fixed"
+}

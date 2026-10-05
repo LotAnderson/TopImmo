@@ -1,0 +1,188 @@
+{
+  "date": "2026-10-04",
+  "browser": "Google Chrome headless, echtes Angular/ASP.NET, keine Request-Mocks",
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "steps": [
+    {
+      "step": "Frischer Login und Suchabruf",
+      "search_status": 200
+    },
+    {
+      "step": "Übersicht",
+      "heading": "28 Immobilien gefunden.",
+      "cards": 28,
+      "district_counts": [
+        {
+          "district": "Unknown",
+          "count": 12
+        },
+        {
+          "district": "Feuerbach",
+          "count": 3
+        },
+        {
+          "district": "West",
+          "count": 3
+        },
+        {
+          "district": "Mitte",
+          "count": 2
+        },
+        {
+          "district": "Nord",
+          "count": 2
+        },
+        {
+          "district": "Bad Cannstatt",
+          "count": 1
+        },
+        {
+          "district": "Möhringen",
+          "count": 1
+        },
+        {
+          "district": "Münster",
+          "count": 1
+        },
+        {
+          "district": "Ost",
+          "count": 1
+        },
+        {
+          "district": "Plieningen",
+          "count": 1
+        },
+        {
+          "district": "Untertürkheim",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "step": "Bezirksauswahl",
+      "district": "Ost",
+      "status": 200,
+      "cards": 1,
+      "active_legend": [
+        "Ost"
+      ],
+      "selected_map_paths": 8
+    },
+    {
+      "step": "Detailansicht",
+      "id": "171201192",
+      "status": 200,
+      "title": "Kompaktes Wohlfühldomizil - Wohnungen in ruhiger Lage in Stuttgart-Ost, zwischen 690 und 730 Euro",
+      "price": "875 €",
+      "meta": "28 m², 1 Zimmer",
+      "district": "Stadtbezirk: Ost",
+      "images": 11,
+      "image_loaded": true
+    },
+    {
+      "step": "Bildwechsel",
+      "second_image_loaded": true
+    },
+    {
+      "step": "Rückkehr zur Übersicht",
+      "cards": 1,
+      "active_legend": [
+        "Ost"
+      ],
+      "selected_map_paths": 8
+    },
+    {
+      "step": "Abmeldeknopf vorhanden",
+      "count": 1,
+      "token_keys": [
+        "accessToken",
+        "refreshToken"
+      ]
+    },
+    {
+      "step": "Abmelden und Guard",
+      "url": "http://localhost:4200/login",
+      "localStorageKeys": []
+    }
+  ],
+  "http": [
+    {
+      "method": "POST",
+      "url": "http://localhost:5197/api/auth/login",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5197/api/realestate/stuttgart-listings",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5197/api/realestate/stuttgart-listings?district=Ost",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5197/api/realestate/listings/171201192",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5197/api/realestate/stuttgart-listings?district=Ost",
+      "status": 200
+    }
+  ],
+  "browser_errors": [],
+  "listing_count": 28,
+  "district_counts": [
+    {
+      "district": "Unknown",
+      "count": 12
+    },
+    {
+      "district": "Feuerbach",
+      "count": 3
+    },
+    {
+      "district": "West",
+      "count": 3
+    },
+    {
+      "district": "Mitte",
+      "count": 2
+    },
+    {
+      "district": "Nord",
+      "count": 2
+    },
+    {
+      "district": "Bad Cannstatt",
+      "count": 1
+    },
+    {
+      "district": "Möhringen",
+      "count": 1
+    },
+    {
+      "district": "Münster",
+      "count": 1
+    },
+    {
+      "district": "Ost",
+      "count": 1
+    },
+    {
+      "district": "Plieningen",
+      "count": 1
+    },
+    {
+      "district": "Untertürkheim",
+      "count": 1
+    }
+  ],
+  "result": "passed",
+  "ended_local": "2026-10-04T18:55:40.705023"
+}

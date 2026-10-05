@@ -1,0 +1,2625 @@
+[
+  {
+    "title": "",
+    "duration": "0:30",
+    "dark": true,
+    "items": [
+      {
+        "type": "rect",
+        "x": 0,
+        "y": 0,
+        "w": 1280,
+        "h": 720,
+        "color": "112B45",
+        "line": null,
+        "radius": 0
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 44,
+        "w": 32,
+        "h": 5,
+        "color": "D8AA50",
+        "line": null,
+        "radius": 0
+      },
+      {
+        "type": "text",
+        "x": 110,
+        "y": 30,
+        "w": 1090,
+        "h": 32,
+        "value": "SOFTWAREPROJEKT · STUTTGART",
+        "size": 16,
+        "color": "D8AA50",
+        "bold": true
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 665,
+        "w": 1152,
+        "h": 1,
+        "color": "35506B",
+        "line": null,
+        "radius": 0
+      },
+      {
+        "type": "text",
+        "x": 64,
+        "y": 681,
+        "w": 1020,
+        "h": 22,
+        "value": "TOPIMMO  /  PROJEKTPRÄSENTATION",
+        "size": 13,
+        "color": "C9D8E5",
+        "bold": false
+      },
+      {
+        "type": "text",
+        "x": 1140,
+        "y": 681,
+        "w": 76,
+        "h": 22,
+        "value": "01 / 11",
+        "size": 13,
+        "color": "C9D8E5",
+        "bold": false
+      },
+      {
+        "type": "text",
+        "x": 64,
+        "y": 120,
+        "w": 650,
+        "h": 112,
+        "value": "TopImmo",
+        "size": 91,
+        "color": "FFFFFF",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 67,
+        "y": 245,
+        "w": 640,
+        "h": 155,
+        "value": "Mietwohnungen finden.\nNach Stadtbezirk auswählen.",
+        "size": 43,
+        "color": "FFFFFF",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 69,
+        "y": 423,
+        "w": 590,
+        "h": 90,
+        "value": "Angular · C# / ASP.NET Core · SQLite\nImmobiliendaten über RapidAPI",
+        "size": 24,
+        "color": "C9D8E5",
+        "bold": false
+      },
+      {
+        "type": "image",
+        "x": 733,
+        "y": 125,
+        "w": 480,
+        "h": 480,
+        "path": "/Users/edhar_myronchuk/Documents/GitHub/TopImmo/docs/demo/praesentation-mac/karte.png"
+      }
+    ],
+    "notes": "TopImmo ist ein Schulprojekt für Softwareentwicklung. Die Anwendung hilft dabei, geladene Mietwohnungsangebote in Stuttgart nach Stadtbezirk zu durchsuchen. Ich zeige den Nutzerweg, die technische Architektur, die Prüfungen und die nächsten Schritte. Das Projekt wurde gemeinsam begonnen und wird inzwischen von mir weitergeführt. Die Daten sind eine begrenzte Auswahl, keine vollständige Marktübersicht."
+  },
+  {
+    "title": "Eine Karte führt zum passenden Angebot.",
+    "duration": "0:35",
+    "dark": false,
+    "items": [
+      {
+        "type": "rect",
+        "x": 0,
+        "y": 0,
+        "w": 1280,
+        "h": 720,
+        "color": "F7F6F2",
+        "line": null,
+        "radius": 0
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 44,
+        "w": 32,
+        "h": 5,
+        "color": "007B76",
+        "line": null,
+        "radius": 0
+      },
+      {
+        "type": "text",
+        "x": 110,
+        "y": 30,
+        "w": 1090,
+        "h": 32,
+        "value": "01 · PRODUKTIDEE",
+        "size": 16,
+        "color": "007B76",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 64,
+        "y": 90,
+        "w": 1160,
+        "h": 115,
+        "value": "Eine Karte führt zum passenden Angebot.",
+        "size": 46,
+        "color": "112B45",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 64,
+        "y": 192,
+        "w": 1150,
+        "h": 54,
+        "value": "Ort auswählen, geladene Angebote eingrenzen, Details ansehen.",
+        "size": 23,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 665,
+        "w": 1152,
+        "h": 1,
+        "color": "DCE4E8",
+        "line": null,
+        "radius": 0
+      },
+      {
+        "type": "text",
+        "x": 64,
+        "y": 681,
+        "w": 1020,
+        "h": 22,
+        "value": "TOPIMMO  /  PROJEKTPRÄSENTATION",
+        "size": 13,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "text",
+        "x": 1140,
+        "y": 681,
+        "w": 76,
+        "h": 22,
+        "value": "02 / 11",
+        "size": 13,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "text",
+        "x": 64,
+        "y": 275,
+        "w": 45,
+        "h": 45,
+        "value": "01",
+        "size": 28,
+        "color": "007B76",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 125,
+        "y": 275,
+        "w": 290,
+        "h": 38,
+        "value": "Anmelden",
+        "size": 28,
+        "color": "112B45",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 125,
+        "y": 318,
+        "w": 300,
+        "h": 44,
+        "value": "Zugang zur Übersicht",
+        "size": 21,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "text",
+        "x": 64,
+        "y": 380,
+        "w": 45,
+        "h": 45,
+        "value": "02",
+        "size": 28,
+        "color": "007B76",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 125,
+        "y": 380,
+        "w": 290,
+        "h": 38,
+        "value": "Bezirk wählen",
+        "size": 28,
+        "color": "112B45",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 125,
+        "y": 423,
+        "w": 300,
+        "h": 44,
+        "value": "Karte oder Legende",
+        "size": 21,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "text",
+        "x": 64,
+        "y": 485,
+        "w": 45,
+        "h": 45,
+        "value": "03",
+        "size": 28,
+        "color": "007B76",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 125,
+        "y": 485,
+        "w": 290,
+        "h": 38,
+        "value": "Angebot öffnen",
+        "size": 28,
+        "color": "112B45",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 125,
+        "y": 528,
+        "w": 300,
+        "h": 44,
+        "value": "Preis, Fläche und Bilder",
+        "size": 21,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "image",
+        "x": 580,
+        "y": 271,
+        "w": 633,
+        "h": 355,
+        "path": "/Users/edhar_myronchuk/Documents/GitHub/TopImmo/docs/demo/praesentation-mac/uebersicht-ausschnitt.png"
+      },
+      {
+        "type": "text",
+        "x": 580,
+        "y": 635,
+        "w": 630,
+        "h": 22,
+        "value": "Aktuelle Demoaufnahme · 04.10.2026",
+        "size": 14,
+        "color": "52677C",
+        "bold": false
+      }
+    ],
+    "notes": "Der Ablauf beginnt mit Registrierung beziehungsweise Login. Danach erscheinen die Karte und die Wohnungsliste. Ein Klick auf einen Stadtteil wählt dessen gesamten Stadtbezirk; alternativ ist die Legende über Buttons bedienbar. Zu einem Angebot zeigt die Detailansicht Preis, Fläche, Adresse und Bilder. Beim Rückweg bleiben Filter und Kartenmarkierung erhalten. Screenshot vom 04.10.2026; die konkreten Angebote können sich ändern."
+  },
+  {
+    "title": "Vier technische Pflichtbestandteile.",
+    "duration": "0:40",
+    "dark": false,
+    "items": [
+      {
+        "type": "rect",
+        "x": 0,
+        "y": 0,
+        "w": 1280,
+        "h": 720,
+        "color": "F7F6F2",
+        "line": null,
+        "radius": 0
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 44,
+        "w": 32,
+        "h": 5,
+        "color": "007B76",
+        "line": null,
+        "radius": 0
+      },
+      {
+        "type": "text",
+        "x": 110,
+        "y": 30,
+        "w": 1090,
+        "h": 32,
+        "value": "02 · UMFANG",
+        "size": 16,
+        "color": "007B76",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 64,
+        "y": 90,
+        "w": 1160,
+        "h": 115,
+        "value": "Vier technische Pflichtbestandteile.",
+        "size": 46,
+        "color": "112B45",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 64,
+        "y": 192,
+        "w": 1150,
+        "h": 54,
+        "value": "Frontend, Backend, externe Datenquelle und Datenbank bilden den Produktweg.",
+        "size": 23,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 665,
+        "w": 1152,
+        "h": 1,
+        "color": "DCE4E8",
+        "line": null,
+        "radius": 0
+      },
+      {
+        "type": "text",
+        "x": 64,
+        "y": 681,
+        "w": 1020,
+        "h": 22,
+        "value": "TOPIMMO  /  PROJEKTPRÄSENTATION",
+        "size": 13,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "text",
+        "x": 1140,
+        "y": 681,
+        "w": 76,
+        "h": 22,
+        "value": "03 / 11",
+        "size": 13,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 266,
+        "w": 551,
+        "h": 163,
+        "color": "EAF2FA",
+        "line": null,
+        "radius": 10
+      },
+      {
+        "type": "rect",
+        "x": 86,
+        "y": 286,
+        "w": 30,
+        "h": 4,
+        "color": "007B76",
+        "line": null,
+        "radius": 0
+      },
+      {
+        "type": "text",
+        "x": 86,
+        "y": 304,
+        "w": 507,
+        "h": 43,
+        "value": "Angular-Frontend",
+        "size": 30,
+        "color": "112B45",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 86,
+        "y": 365,
+        "w": 507,
+        "h": 55,
+        "value": "Formulare und Navigation\nKarte, Angebotsliste und Details",
+        "size": 21,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 665,
+        "y": 266,
+        "w": 551,
+        "h": 163,
+        "color": "FFFFFF",
+        "line": null,
+        "radius": 10
+      },
+      {
+        "type": "rect",
+        "x": 687,
+        "y": 286,
+        "w": 30,
+        "h": 4,
+        "color": "007B76",
+        "line": null,
+        "radius": 0
+      },
+      {
+        "type": "text",
+        "x": 687,
+        "y": 304,
+        "w": 507,
+        "h": 43,
+        "value": "C#-Backend",
+        "size": 30,
+        "color": "112B45",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 687,
+        "y": 365,
+        "w": 507,
+        "h": 55,
+        "value": "ASP.NET Core / .NET 9\nHTTP-Endpunkte, Verarbeitung und Zugriffsschutz",
+        "size": 21,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 455,
+        "w": 551,
+        "h": 163,
+        "color": "FFFFFF",
+        "line": null,
+        "radius": 10
+      },
+      {
+        "type": "rect",
+        "x": 86,
+        "y": 475,
+        "w": 30,
+        "h": 4,
+        "color": "007B76",
+        "line": null,
+        "radius": 0
+      },
+      {
+        "type": "text",
+        "x": 86,
+        "y": 493,
+        "w": 507,
+        "h": 43,
+        "value": "Externe API",
+        "size": 30,
+        "color": "112B45",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 86,
+        "y": 554,
+        "w": 507,
+        "h": 55,
+        "value": "Immobiliensuche über RapidAPI\nJSON als Datenaustausch",
+        "size": 21,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 665,
+        "y": 455,
+        "w": 551,
+        "h": 163,
+        "color": "EAF5F1",
+        "line": null,
+        "radius": 10
+      },
+      {
+        "type": "rect",
+        "x": 687,
+        "y": 475,
+        "w": 30,
+        "h": 4,
+        "color": "007B76",
+        "line": null,
+        "radius": 0
+      },
+      {
+        "type": "text",
+        "x": 687,
+        "y": 493,
+        "w": 507,
+        "h": 43,
+        "value": "SQLite",
+        "size": 30,
+        "color": "112B45",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 687,
+        "y": 554,
+        "w": 507,
+        "h": 55,
+        "value": "Benutzer und Refresh-Tokens\nSpeicherung über Entity Framework Core",
+        "size": 21,
+        "color": "52677C",
+        "bold": false
+      }
+    ],
+    "notes": "Die vier technischen Pflichtbestandteile im Produktweg sind Frontend, C#-Backend, externe API und SQLite. Hier wird die Oberfläche mit Angular umgesetzt: Sie übernimmt Formulare, Navigation, Karte und Angebotsdetails. Das C#-Backend stellt HTTP-Endpunkte bereit, verarbeitet die Daten und prüft die Zugriffstokens. RapidAPI liefert Immobilienangebote als JSON. SQLite speichert Benutzer mit Passwort-Hashes und Refresh-Tokens über Entity Framework Core. Immobilienangebote werden aktuell im RAM-Cache verarbeitet, nicht in SQLite gespeichert. Die Wahl Angular konkretisiert den Frontendteil dieses Projekts; zusätzliche Funktionen wie Favoriten sind nicht als umgesetzt dargestellt."
+  },
+  {
+    "title": "Zwei Datenwege im selben Backend.",
+    "duration": "1:00",
+    "dark": false,
+    "items": [
+      {
+        "type": "rect",
+        "x": 0,
+        "y": 0,
+        "w": 1280,
+        "h": 720,
+        "color": "F7F6F2",
+        "line": null,
+        "radius": 0
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 44,
+        "w": 32,
+        "h": 5,
+        "color": "007B76",
+        "line": null,
+        "radius": 0
+      },
+      {
+        "type": "text",
+        "x": 110,
+        "y": 30,
+        "w": 1090,
+        "h": 32,
+        "value": "03 · ARCHITEKTUR",
+        "size": 16,
+        "color": "007B76",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 64,
+        "y": 90,
+        "w": 1160,
+        "h": 115,
+        "value": "Zwei Datenwege im selben Backend.",
+        "size": 46,
+        "color": "112B45",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 64,
+        "y": 192,
+        "w": 1150,
+        "h": 54,
+        "value": "Die Oberfläche nutzt das eigene Backend über HTTP und JSON.",
+        "size": 23,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 665,
+        "w": 1152,
+        "h": 1,
+        "color": "DCE4E8",
+        "line": null,
+        "radius": 0
+      },
+      {
+        "type": "text",
+        "x": 64,
+        "y": 681,
+        "w": 1020,
+        "h": 22,
+        "value": "TOPIMMO  /  PROJEKTPRÄSENTATION",
+        "size": 13,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "text",
+        "x": 1140,
+        "y": 681,
+        "w": 76,
+        "h": 22,
+        "value": "04 / 11",
+        "size": 13,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 248,
+        "y": 264,
+        "w": 784,
+        "h": 73,
+        "color": "EAF2FA",
+        "line": null,
+        "radius": 10
+      },
+      {
+        "type": "text",
+        "x": 275,
+        "y": 281,
+        "w": 730,
+        "h": 44,
+        "value": "Angular  ·  Formulare, Karte, Liste, Details",
+        "size": 28,
+        "color": "155EAB",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 512,
+        "y": 344,
+        "w": 400,
+        "h": 35,
+        "value": "↓  HTTP / JSON + Bearer-Token",
+        "size": 21,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 248,
+        "y": 389,
+        "w": 784,
+        "h": 75,
+        "color": "112B45",
+        "line": null,
+        "radius": 10
+      },
+      {
+        "type": "text",
+        "x": 275,
+        "y": 408,
+        "w": 730,
+        "h": 42,
+        "value": "ASP.NET Core  ·  Controller und Services",
+        "size": 28,
+        "color": "FFFFFF",
+        "bold": true
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 493,
+        "w": 551,
+        "h": 146,
+        "color": "EAF5F1",
+        "line": null,
+        "radius": 10
+      },
+      {
+        "type": "text",
+        "x": 88,
+        "y": 510,
+        "w": 503,
+        "h": 40,
+        "value": "Authentifizierung",
+        "size": 27,
+        "color": "112B45",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 88,
+        "y": 558,
+        "w": 503,
+        "h": 66,
+        "value": "↓  EF Core → SQLite\nBenutzer + Refresh-Tokens",
+        "size": 22,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 665,
+        "y": 493,
+        "w": 551,
+        "h": 146,
+        "color": "EAF2FA",
+        "line": null,
+        "radius": 10
+      },
+      {
+        "type": "text",
+        "x": 689,
+        "y": 510,
+        "w": 503,
+        "h": 40,
+        "value": "Immobilien",
+        "size": 27,
+        "color": "112B45",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 689,
+        "y": 558,
+        "w": 503,
+        "h": 66,
+        "value": "↓  RapidAPI → Verarbeitung\nMietangebote + 5-Minuten-RAM-Cache",
+        "size": 22,
+        "color": "52677C",
+        "bold": false
+      }
+    ],
+    "notes": "Angular übernimmt Darstellung und Eingaben. Seine HTTP-Services senden JSON-Anfragen an ASP.NET Core. Im Backend gibt es zwei wichtige Wege: Die Authentifizierung nutzt EF Core und SQLite; der Immobilienweg lädt externe Daten über RapidAPI und verarbeitet sie im DistrictDataService. Die Angebote werden fünf Minuten im Arbeitsspeicher gecacht. Es gibt keine Immobilientabelle in SQLite. Der RealEstateController ist serverseitig mit Authorize geschützt. Der Frontend-Guard unterstützt die Navigation, ersetzt diese Prüfung aber nicht."
+  },
+  {
+    "title": "Aus JSON werden Bezirksdaten.",
+    "duration": "0:50",
+    "dark": false,
+    "items": [
+      {
+        "type": "rect",
+        "x": 0,
+        "y": 0,
+        "w": 1280,
+        "h": 720,
+        "color": "F7F6F2",
+        "line": null,
+        "radius": 0
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 44,
+        "w": 32,
+        "h": 5,
+        "color": "007B76",
+        "line": null,
+        "radius": 0
+      },
+      {
+        "type": "text",
+        "x": 110,
+        "y": 30,
+        "w": 1090,
+        "h": 32,
+        "value": "04 · ALGORITHMUS",
+        "size": 16,
+        "color": "007B76",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 64,
+        "y": 90,
+        "w": 1160,
+        "h": 115,
+        "value": "Aus JSON werden Bezirksdaten.",
+        "size": 46,
+        "color": "112B45",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 64,
+        "y": 192,
+        "w": 1150,
+        "h": 54,
+        "value": "Die Trefferzahlen beschreiben nur die geladenen Mietangebote.",
+        "size": 23,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 665,
+        "w": 1152,
+        "h": 1,
+        "color": "DCE4E8",
+        "line": null,
+        "radius": 0
+      },
+      {
+        "type": "text",
+        "x": 64,
+        "y": 681,
+        "w": 1020,
+        "h": 22,
+        "value": "TOPIMMO  /  PROJEKTPRÄSENTATION",
+        "size": 13,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "text",
+        "x": 1140,
+        "y": 681,
+        "w": 76,
+        "h": 22,
+        "value": "05 / 11",
+        "size": 13,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 270,
+        "w": 726,
+        "h": 60,
+        "color": "FFFFFF",
+        "line": null,
+        "radius": 7
+      },
+      {
+        "type": "text",
+        "x": 84,
+        "y": 283,
+        "w": 45,
+        "h": 40,
+        "value": "1",
+        "size": 27,
+        "color": "007B76",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 140,
+        "y": 283,
+        "w": 177,
+        "h": 40,
+        "value": "Laden",
+        "size": 26,
+        "color": "112B45",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 305,
+        "y": 285,
+        "w": 460,
+        "h": 38,
+        "value": "Cache nutzen oder externe API abfragen",
+        "size": 21,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 340,
+        "w": 726,
+        "h": 60,
+        "color": "FFFFFF",
+        "line": null,
+        "radius": 7
+      },
+      {
+        "type": "text",
+        "x": 84,
+        "y": 353,
+        "w": 45,
+        "h": 40,
+        "value": "2",
+        "size": 27,
+        "color": "007B76",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 140,
+        "y": 353,
+        "w": 177,
+        "h": 40,
+        "value": "Filtern",
+        "size": 26,
+        "color": "112B45",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 305,
+        "y": 355,
+        "w": 460,
+        "h": 38,
+        "value": "Nur Mietwohnungen: apartmentrent",
+        "size": 21,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 410,
+        "w": 726,
+        "h": 60,
+        "color": "FFFFFF",
+        "line": null,
+        "radius": 7
+      },
+      {
+        "type": "text",
+        "x": 84,
+        "y": 423,
+        "w": 45,
+        "h": 40,
+        "value": "3",
+        "size": 27,
+        "color": "007B76",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 140,
+        "y": 423,
+        "w": 177,
+        "h": 40,
+        "value": "Zuordnen",
+        "size": 26,
+        "color": "112B45",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 305,
+        "y": 425,
+        "w": 460,
+        "h": 38,
+        "value": "Ortsnamen → Stadtteil → Stadtbezirk",
+        "size": 21,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 480,
+        "w": 726,
+        "h": 60,
+        "color": "FFFFFF",
+        "line": null,
+        "radius": 7
+      },
+      {
+        "type": "text",
+        "x": 84,
+        "y": 493,
+        "w": 45,
+        "h": 40,
+        "value": "4",
+        "size": 27,
+        "color": "007B76",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 140,
+        "y": 493,
+        "w": 177,
+        "h": 40,
+        "value": "Zählen",
+        "size": 26,
+        "color": "112B45",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 305,
+        "y": 495,
+        "w": 460,
+        "h": 38,
+        "value": "Treffer je Bezirk gruppieren und sortieren",
+        "size": 21,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 550,
+        "w": 726,
+        "h": 60,
+        "color": "FFFFFF",
+        "line": null,
+        "radius": 7
+      },
+      {
+        "type": "text",
+        "x": 84,
+        "y": 563,
+        "w": 45,
+        "h": 40,
+        "value": "5",
+        "size": 27,
+        "color": "007B76",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 140,
+        "y": 563,
+        "w": 177,
+        "h": 40,
+        "value": "Auswählen",
+        "size": 26,
+        "color": "112B45",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 305,
+        "y": 565,
+        "w": 460,
+        "h": 38,
+        "value": "Angebotsliste für den gewählten Bezirk liefern",
+        "size": 21,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 837,
+        "y": 270,
+        "w": 377,
+        "h": 343,
+        "color": "112B45",
+        "line": null,
+        "radius": 12
+      },
+      {
+        "type": "text",
+        "x": 863,
+        "y": 296,
+        "w": 325,
+        "h": 74,
+        "value": "5 Minuten",
+        "size": 45,
+        "color": "FFFFFF",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 863,
+        "y": 377,
+        "w": 325,
+        "h": 92,
+        "value": "RAM-Cache\nLadesperre gegen parallele\nDoppelabrufe",
+        "size": 23,
+        "color": "C9D8E5",
+        "bold": false
+      },
+      {
+        "type": "text",
+        "x": 863,
+        "y": 503,
+        "w": 325,
+        "h": 104,
+        "value": "API: Seite 1, maximal 30 Treffer.\nKeine vollständige\nMarktstatistik.",
+        "size": 22,
+        "color": "C9D8E5",
+        "bold": false
+      }
+    ],
+    "notes": "DistrictDataService prüft zunächst den Cache. Fehlt der Eintrag, wartet die Anfrage auf eine Ladesperre und prüft den Cache erneut. Das verhindert unnötige gleichzeitige Abrufe. Danach wird JSON gelesen und auf apartmentrent gefiltert. Ortsnamen werden normalisiert und vollständige Stadtteilnamen ihrem Stadtbezirk zugeordnet. Die Referenz umfasst 23 Bezirke und 152 Stadtteile. Fehlende oder widersprüchliche Ortsangaben bleiben Unknown, in der Oberfläche Ohne Bezirksangabe. Aus allen geladenen Mietangeboten entstehen die Trefferzahlen; nur die zurückgegebene Liste wird nach dem ausgewählten Bezirk gefiltert. Die Anfrage nutzt fest Seite 1 mit maximal 30 Treffern."
+  },
+  {
+    "title": "SQLite speichert Konten und Sitzungsdaten.",
+    "duration": "0:45",
+    "dark": false,
+    "items": [
+      {
+        "type": "rect",
+        "x": 0,
+        "y": 0,
+        "w": 1280,
+        "h": 720,
+        "color": "F7F6F2",
+        "line": null,
+        "radius": 0
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 44,
+        "w": 32,
+        "h": 5,
+        "color": "007B76",
+        "line": null,
+        "radius": 0
+      },
+      {
+        "type": "text",
+        "x": 110,
+        "y": 30,
+        "w": 1090,
+        "h": 32,
+        "value": "05 · DATENBANK",
+        "size": 16,
+        "color": "007B76",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 64,
+        "y": 90,
+        "w": 1160,
+        "h": 115,
+        "value": "SQLite speichert Konten und Sitzungsdaten.",
+        "size": 46,
+        "color": "112B45",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 64,
+        "y": 192,
+        "w": 1150,
+        "h": 54,
+        "value": "Ein Benutzer kann mehrere Refresh-Tokens besitzen.",
+        "size": 23,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 665,
+        "w": 1152,
+        "h": 1,
+        "color": "DCE4E8",
+        "line": null,
+        "radius": 0
+      },
+      {
+        "type": "text",
+        "x": 64,
+        "y": 681,
+        "w": 1020,
+        "h": 22,
+        "value": "TOPIMMO  /  PROJEKTPRÄSENTATION",
+        "size": 13,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "text",
+        "x": 1140,
+        "y": 681,
+        "w": 76,
+        "h": 22,
+        "value": "06 / 11",
+        "size": 13,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 280,
+        "w": 478,
+        "h": 265,
+        "color": "FFFFFF",
+        "line": null,
+        "radius": 12
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 280,
+        "w": 478,
+        "h": 65,
+        "color": "112B45",
+        "line": null,
+        "radius": 0
+      },
+      {
+        "type": "text",
+        "x": 89,
+        "y": 296,
+        "w": 428,
+        "h": 40,
+        "value": "Users",
+        "size": 30,
+        "color": "FFFFFF",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 89,
+        "y": 374,
+        "w": 428,
+        "h": 143,
+        "value": "Id  ·  Primärschlüssel\nEmail\nPasswordHash  ·  BCrypt",
+        "size": 25,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 738,
+        "y": 280,
+        "w": 478,
+        "h": 265,
+        "color": "FFFFFF",
+        "line": null,
+        "radius": 12
+      },
+      {
+        "type": "rect",
+        "x": 738,
+        "y": 280,
+        "w": 478,
+        "h": 65,
+        "color": "112B45",
+        "line": null,
+        "radius": 0
+      },
+      {
+        "type": "text",
+        "x": 763,
+        "y": 296,
+        "w": 428,
+        "h": 40,
+        "value": "RefreshTokens",
+        "size": 30,
+        "color": "FFFFFF",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 763,
+        "y": 374,
+        "w": 428,
+        "h": 143,
+        "value": "Id  ·  Primärschlüssel\nToken · ExpiresAt · IsRevoked\nUserId  ·  Fremdschlüssel",
+        "size": 25,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "text",
+        "x": 570,
+        "y": 393,
+        "w": 150,
+        "h": 50,
+        "value": "1  →  n",
+        "size": 31,
+        "color": "007B76",
+        "bold": true
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 582,
+        "w": 1152,
+        "h": 54,
+        "color": "EAF5F1",
+        "line": null,
+        "radius": 8
+      },
+      {
+        "type": "text",
+        "x": 84,
+        "y": 595,
+        "w": 1105,
+        "h": 35,
+        "value": "Immobilienangebote liegen im RAM-Cache; sie werden derzeit nicht in SQLite gespeichert.",
+        "size": 23,
+        "color": "007B76",
+        "bold": false
+      }
+    ],
+    "notes": "Das Datenmodell besteht aus Users und RefreshTokens. Bei Benutzern wird ein BCrypt-Hash des Passworts gespeichert. Jeder RefreshToken gehört über UserId genau einem Benutzer; ein Benutzer kann mehrere Tokens haben. ExpiresAt und IsRevoked unterstützen Ablauf und Rotation. Die Datenbank erhält Daten über Neustarts hinweg. Der Immobiliencache ist dagegen flüchtig. Bei Rückfragen: Die E-Mail-Dublettenprüfung liegt derzeit im Service; ein UNIQUE-Constraint ist in der bestehenden Migration nicht vorhanden. Refresh-Tokens werden aktuell als Tokenwerte gespeichert, nicht als Hash."
+  },
+  {
+    "title": "JSON, SQLite und der 5-Minuten-Cache.",
+    "duration": "1:20",
+    "dark": false,
+    "items": [
+      {
+        "type": "rect",
+        "x": 0,
+        "y": 0,
+        "w": 1280,
+        "h": 720,
+        "color": "F7F6F2",
+        "line": null,
+        "radius": 0
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 44,
+        "w": 32,
+        "h": 5,
+        "color": "007B76",
+        "line": null,
+        "radius": 0
+      },
+      {
+        "type": "text",
+        "x": 110,
+        "y": 30,
+        "w": 1090,
+        "h": 32,
+        "value": "06 · DATENFLUSS UND STABILITÄT",
+        "size": 16,
+        "color": "007B76",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 64,
+        "y": 90,
+        "w": 1160,
+        "h": 115,
+        "value": "JSON, SQLite und der 5-Minuten-Cache.",
+        "size": 46,
+        "color": "112B45",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 64,
+        "y": 192,
+        "w": 1150,
+        "h": 54,
+        "value": "C# verarbeitet die Daten; RAM-Cache und SQLite haben unterschiedliche Aufgaben.",
+        "size": 23,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 665,
+        "w": 1152,
+        "h": 1,
+        "color": "DCE4E8",
+        "line": null,
+        "radius": 0
+      },
+      {
+        "type": "text",
+        "x": 64,
+        "y": 681,
+        "w": 1020,
+        "h": 22,
+        "value": "TOPIMMO  /  PROJEKTPRÄSENTATION",
+        "size": 13,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "text",
+        "x": 1140,
+        "y": 681,
+        "w": 76,
+        "h": 22,
+        "value": "07 / 11",
+        "size": 13,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 260,
+        "w": 551,
+        "h": 196,
+        "color": "EAF2FA",
+        "line": null,
+        "radius": 10
+      },
+      {
+        "type": "text",
+        "x": 86,
+        "y": 280,
+        "w": 507,
+        "h": 41,
+        "value": "Immobiliendaten: JSON → RAM",
+        "size": 27,
+        "color": "112B45",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 86,
+        "y": 343,
+        "w": 507,
+        "h": 89,
+        "value": "HttpClient → JSON → ImmoScoutResponse\nList<Listing> → Mietfilter → Bezirkszuordnung\nIMemoryCache → JSON-Antwort an Angular",
+        "size": 21,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 665,
+        "y": 260,
+        "w": 551,
+        "h": 196,
+        "color": "FFFFFF",
+        "line": null,
+        "radius": 10
+      },
+      {
+        "type": "text",
+        "x": 687,
+        "y": 280,
+        "w": 507,
+        "h": 41,
+        "value": "Anmeldedaten: JSON → SQLite",
+        "size": 27,
+        "color": "112B45",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 687,
+        "y": 343,
+        "w": 507,
+        "h": 89,
+        "value": "RegisterRequest → BCrypt-Hash → User\nAppDbContext → SaveChangesAsync()\nSQLite-Tabellen: Users und RefreshTokens",
+        "size": 21,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 482,
+        "w": 1152,
+        "h": 161,
+        "color": "EAF5F1",
+        "line": null,
+        "radius": 10
+      },
+      {
+        "type": "text",
+        "x": 86,
+        "y": 497,
+        "w": 1108,
+        "h": 40,
+        "value": "5 Minuten IMemoryCache + SemaphoreSlim(1,1)",
+        "size": 27,
+        "color": "007B76",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 86,
+        "y": 550,
+        "w": 534,
+        "h": 80,
+        "value": "Absoluter Ablauf ab Speichern; Lesen verlängert nicht.\nErst die nächste Anfrage nach Ablauf lädt neue Daten.\nCache gilt pro Prozess; Neustart leert den RAM.",
+        "size": 19,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "text",
+        "x": 670,
+        "y": 550,
+        "w": 523,
+        "h": 80,
+        "value": "Cache prüfen → WaitAsync() → nochmals prüfen.\nEine Anfrage lädt; die anderen nutzen danach den Cache.\nfinally: Release() gibt die Sperre auch bei Fehler frei.",
+        "size": 19,
+        "color": "52677C",
+        "bold": false
+      }
+    ],
+    "notes": "Es gibt zwei getrennte technische Wege. Für Immobilien ruft HttpClient RapidAPI auf. System.Text.Json deserialisiert das JSON in ImmoScoutResponse und dessen List<Listing>; JsonPropertyName ordnet JSON-Feldnamen wie livingSpace den C#-Eigenschaften zu. LINQ behält apartmentrent-Angebote. DistrictDataService normalisiert Ortsnamen und setzt MappedDistrict. Die fertige Liste wird über IMemoryCache gemeinsam für alle Nutzer und Bezirksfilter desselben Prozesses gespeichert. Eine absolute Ablaufzeit von fünf Minuten beginnt beim Speichern, Zugriffe verlängern sie nicht. Die nächste Anfrage nach Ablauf lädt erneut; es gibt keinen Hintergrundtimer und keinen dauerhaften Offlinebestand. Eine statische SemaphoreSlim(1,1) lässt nur einen Nachladevorgang gleichzeitig zu. Nach WaitAsync wird der Cache nochmals geprüft, weil eine andere Anfrage ihn bereits gefüllt haben kann. try/finally stellt Release auch bei Ausnahmen sicher. Das reduziert Doppelabrufe und Last innerhalb dieses Prozesses; externe API-Ausfälle oder andere Backendprozesse werden dadurch nicht abgesichert. Erst nach erfolgreicher Verarbeitung wird gecacht. Anders ist Registrierung: Auth-JSON wird in ein DTO gebunden, das Passwort mit BCrypt gehasht und ein User über EF Core und SaveChangesAsync in SQLite gespeichert. Login und Refresh speichern außerdem RefreshTokens; Migrationen werden beim Backendstart angewendet. Eine Speicherung der Immobilien in SQLite ist derzeit nicht implementiert."
+  },
+  {
+    "title": "Der Server entscheidet über den Zugriff.",
+    "duration": "0:50",
+    "dark": false,
+    "items": [
+      {
+        "type": "rect",
+        "x": 0,
+        "y": 0,
+        "w": 1280,
+        "h": 720,
+        "color": "F7F6F2",
+        "line": null,
+        "radius": 0
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 44,
+        "w": 32,
+        "h": 5,
+        "color": "007B76",
+        "line": null,
+        "radius": 0
+      },
+      {
+        "type": "text",
+        "x": 110,
+        "y": 30,
+        "w": 1090,
+        "h": 32,
+        "value": "07 · AUTHENTIFIZIERUNG",
+        "size": 16,
+        "color": "007B76",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 64,
+        "y": 90,
+        "w": 1160,
+        "h": 115,
+        "value": "Der Server entscheidet über den Zugriff.",
+        "size": 46,
+        "color": "112B45",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 64,
+        "y": 192,
+        "w": 1150,
+        "h": 54,
+        "value": "Frontend und Backend haben unterschiedliche Aufgaben.",
+        "size": 23,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 665,
+        "w": 1152,
+        "h": 1,
+        "color": "DCE4E8",
+        "line": null,
+        "radius": 0
+      },
+      {
+        "type": "text",
+        "x": 64,
+        "y": 681,
+        "w": 1020,
+        "h": 22,
+        "value": "TOPIMMO  /  PROJEKTPRÄSENTATION",
+        "size": 13,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "text",
+        "x": 1140,
+        "y": 681,
+        "w": 76,
+        "h": 22,
+        "value": "08 / 11",
+        "size": 13,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 276,
+        "w": 363,
+        "h": 286,
+        "color": "FFFFFF",
+        "line": null,
+        "radius": 12
+      },
+      {
+        "type": "rect",
+        "x": 88,
+        "y": 302,
+        "w": 30,
+        "h": 4,
+        "color": "007B76",
+        "line": null,
+        "radius": 0
+      },
+      {
+        "type": "text",
+        "x": 88,
+        "y": 327,
+        "w": 315,
+        "h": 75,
+        "value": "Passwort prüfen",
+        "size": 31,
+        "color": "112B45",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 88,
+        "y": 415,
+        "w": 315,
+        "h": 129,
+        "value": "BCrypt-Hash\nRegistrierung und Login\nüber Auth-Endpunkte",
+        "size": 24,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 459,
+        "y": 276,
+        "w": 363,
+        "h": 286,
+        "color": "FFFFFF",
+        "line": null,
+        "radius": 12
+      },
+      {
+        "type": "rect",
+        "x": 483,
+        "y": 302,
+        "w": 30,
+        "h": 4,
+        "color": "007B76",
+        "line": null,
+        "radius": 0
+      },
+      {
+        "type": "text",
+        "x": 483,
+        "y": 327,
+        "w": 315,
+        "h": 75,
+        "value": "JWT verwenden",
+        "size": 31,
+        "color": "112B45",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 483,
+        "y": 415,
+        "w": 315,
+        "h": 129,
+        "value": "Bearer-Token in Anfragen\nBackend prüft Gültigkeit\n[Authorize] schützt Angebote",
+        "size": 24,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 854,
+        "y": 276,
+        "w": 363,
+        "h": 286,
+        "color": "FFFFFF",
+        "line": null,
+        "radius": 12
+      },
+      {
+        "type": "rect",
+        "x": 878,
+        "y": 302,
+        "w": 30,
+        "h": 4,
+        "color": "007B76",
+        "line": null,
+        "radius": 0
+      },
+      {
+        "type": "text",
+        "x": 878,
+        "y": 327,
+        "w": 315,
+        "h": 75,
+        "value": "Token erneuern",
+        "size": 31,
+        "color": "112B45",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 878,
+        "y": 415,
+        "w": 315,
+        "h": 129,
+        "value": "Refresh-Endpunkt\nrotiert Refresh-Tokens\nBereits genutzte werden abgewiesen",
+        "size": 24,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 593,
+        "w": 1152,
+        "h": 53,
+        "color": "FFF0D9",
+        "line": null,
+        "radius": 8
+      },
+      {
+        "type": "text",
+        "x": 84,
+        "y": 607,
+        "w": 1110,
+        "h": 33,
+        "value": "Nächster Schritt: automatischen Refresh und Sitzungsauslauf im Browser zuverlässig behandeln.",
+        "size": 22,
+        "color": "735119",
+        "bold": false
+      }
+    ],
+    "notes": "Bei Login wird das Passwort gegen den BCrypt-Hash geprüft. Ein erfolgreicher Login liefert Access- und Refresh-Token. Der Interceptor sendet den Access-Token im Authorization-Header. Die Immobilienendpunkte prüfen ihn serverseitig. Der Guard im Browser prüft bisher vor allem die Tokenpräsenz und ist keine eigene Sicherheitsgrenze. Das Backend kann Refresh-Tokens rotieren und weist alte Tokens danach ab. Der vollständige automatische Refreshablauf im Browser ist noch offen. Die Frontendvalidierung ersetzt außerdem keine serverseitige Prüfung von E-Mail und Passwort. API- und JWT-Schlüssel werden lokal konfiguriert und dürfen nicht in der Präsentation geöffnet werden."
+  },
+  {
+    "title": "Frontend sendet Tokens; das Backend prüft sie.",
+    "duration": "1:40",
+    "dark": false,
+    "items": [
+      {
+        "type": "rect",
+        "x": 0,
+        "y": 0,
+        "w": 1280,
+        "h": 720,
+        "color": "F7F6F2",
+        "line": null,
+        "radius": 0
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 44,
+        "w": 32,
+        "h": 5,
+        "color": "007B76",
+        "line": null,
+        "radius": 0
+      },
+      {
+        "type": "text",
+        "x": 110,
+        "y": 30,
+        "w": 1090,
+        "h": 32,
+        "value": "08 · JWT UND ZUGRIFFSSCHUTZ",
+        "size": 16,
+        "color": "007B76",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 64,
+        "y": 90,
+        "w": 1160,
+        "h": 115,
+        "value": "Frontend sendet Tokens; das Backend prüft sie.",
+        "size": 46,
+        "color": "112B45",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 64,
+        "y": 192,
+        "w": 1150,
+        "h": 54,
+        "value": "Login liefert einen signierten Access-Token und einen zufälligen Refresh-Token.",
+        "size": 23,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 665,
+        "w": 1152,
+        "h": 1,
+        "color": "DCE4E8",
+        "line": null,
+        "radius": 0
+      },
+      {
+        "type": "text",
+        "x": 64,
+        "y": 681,
+        "w": 1020,
+        "h": 22,
+        "value": "TOPIMMO  /  PROJEKTPRÄSENTATION",
+        "size": 13,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "text",
+        "x": 1140,
+        "y": 681,
+        "w": 76,
+        "h": 22,
+        "value": "09 / 11",
+        "size": 13,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 258,
+        "w": 1152,
+        "h": 71,
+        "color": "112B45",
+        "line": null,
+        "radius": 10
+      },
+      {
+        "type": "text",
+        "x": 85,
+        "y": 268,
+        "w": 1110,
+        "h": 30,
+        "value": "JWT = Header . Payload . Signatur   |   HMAC-SHA256 (HS256)",
+        "size": 25,
+        "color": "FFFFFF",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 85,
+        "y": 305,
+        "w": 1110,
+        "h": 25,
+        "value": "Payload: Benutzer-ID, E-Mail, iss, exp. Inhalt ist lesbar; die Signatur schützt vor unbemerkten Änderungen.",
+        "size": 19,
+        "color": "C9D8E5",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 355,
+        "w": 360,
+        "h": 231,
+        "color": "EAF2FA",
+        "line": null,
+        "radius": 10
+      },
+      {
+        "type": "text",
+        "x": 84,
+        "y": 374,
+        "w": 320,
+        "h": 42,
+        "value": "Angular / Browser",
+        "size": 25,
+        "color": "112B45",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 84,
+        "y": 439,
+        "w": 320,
+        "h": 132,
+        "value": "localStorage: Access + Refresh\nGuard prüft: Token vorhanden?\nInterceptor setzt Bearer <JWT>.\nDie Gültigkeit prüft der Server.",
+        "size": 20,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 460,
+        "y": 355,
+        "w": 360,
+        "h": 231,
+        "color": "FFFFFF",
+        "line": null,
+        "radius": 10
+      },
+      {
+        "type": "text",
+        "x": 480,
+        "y": 374,
+        "w": 320,
+        "h": 42,
+        "value": "ASP.NET Core / Server",
+        "size": 25,
+        "color": "112B45",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 480,
+        "y": 439,
+        "w": 320,
+        "h": 132,
+        "value": "Prüft Signatur, Aussteller und Ablauf.\n[Authorize] schützt Immobilien-API.\nUser-ID: NameIdentifier; kein sid.\nAudience-Prüfung derzeit aus.",
+        "size": 20,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 856,
+        "y": 355,
+        "w": 360,
+        "h": 231,
+        "color": "EAF5F1",
+        "line": null,
+        "radius": 10
+      },
+      {
+        "type": "text",
+        "x": 876,
+        "y": 374,
+        "w": 320,
+        "h": 42,
+        "value": "Refresh / SQLite",
+        "size": 25,
+        "color": "112B45",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 876,
+        "y": 439,
+        "w": 320,
+        "h": 132,
+        "value": "64 Zufallsbytes → Base64; 7 Tage\nToken + UserId + Ablauf + Widerruf\nRefresh: alten Token widerrufen,\nneuen Refresh + Access ausgeben.\nAccess: Standard 60 Minuten",
+        "size": 20,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 610,
+        "w": 1152,
+        "h": 35,
+        "color": "FFF0D9",
+        "line": null,
+        "radius": 8
+      },
+      {
+        "type": "text",
+        "x": 82,
+        "y": 618,
+        "w": 1120,
+        "h": 24,
+        "value": "Noch offen: automatischer Refresh / 401-Behandlung. Logout löscht Tokens im Browser, ohne Serverwiderruf.",
+        "size": 18,
+        "color": "735119",
+        "bold": false
+      }
+    ],
+    "notes": "Bei Login sucht AuthService den Benutzer in SQLite und prüft das Passwort mit BCrypt.Verify. TokenService erzeugt ein JWT aus drei Base64url-Teilen: Header, Payload und Signatur. Der Header beschreibt HS256. Die Payload enthält ClaimTypes.NameIdentifier für die Benutzer-ID und den E-Mail-Claim sowie Aussteller iss und Ablaufzeit exp. Im Code gibt es keinen sid-Claim und keine separate serverseitige Sitzungstabelle. Die ID identifiziert den Benutzer, nicht eine individuelle Sitzung. HMAC-SHA256 signiert Header und Payload mit einem geheimen symmetrischen Backend-Schlüssel. Bei einer Veränderung der Daten passt die Signatur nicht mehr. Das ist Integrität, keine Verschlüsselung; Claims können gelesen werden. Der Server verlangt mindestens 32 UTF-8-Bytes für den Schlüssel. Die Access-Laufzeit ist konfigurierbar; die versionierte Standardkonfiguration ist 60 Minuten. Angular speichert Access und Refresh in localStorage. Der Guard prüft nur Tokenvorhandensein; der Interceptor setzt bei Nicht-Auth-Anfragen Authorization: Bearer. JwtBearer prüft im Backend die Signatur, den Aussteller und den Ablauf; ValidateAudience ist aus. Authorize schützt die Immobilienendpunkte auch bei direkten Aufrufen außerhalb der Oberfläche. Die Middleware hat ihren üblichen zeitlichen Toleranzbereich, weil ClockSkew nicht überschrieben ist. Der Refresh-Token ist kein JWT, sondern Base64 aus 64 kryptografischen Zufallsbytes. SQLite speichert Tokenwert, Benutzerbezug, sieben Tage Ablauf und IsRevoked. Refresh prüft diesen Datensatz, widerruft den alten Token und speichert einen neuen; der Browser muss das neue Paar übernehmen. Dieser Endpunkt und refresh() im Angular-Service existieren, aber der automatische Ablauf bei HTTP 401 fehlt. Logout entfernt derzeit nur Browser-Tokens und widerruft keine Datenbanktokens. HTTPS schützt Tokens während der Übertragung; für den Vortrag läuft das HTTP-Entwicklungsprofil lokal. localStorage erfordert Schutz vor eingeschleustem JavaScript, weil Tokens dort lesbar sind."
+  },
+  {
+    "title": "Vom Login bis zur Detailansicht.",
+    "duration": "2:00",
+    "dark": false,
+    "items": [
+      {
+        "type": "rect",
+        "x": 0,
+        "y": 0,
+        "w": 1280,
+        "h": 720,
+        "color": "F7F6F2",
+        "line": null,
+        "radius": 0
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 44,
+        "w": 32,
+        "h": 5,
+        "color": "007B76",
+        "line": null,
+        "radius": 0
+      },
+      {
+        "type": "text",
+        "x": 110,
+        "y": 30,
+        "w": 1090,
+        "h": 32,
+        "value": "09 · LIVE-DEMO",
+        "size": 16,
+        "color": "007B76",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 64,
+        "y": 90,
+        "w": 1160,
+        "h": 115,
+        "value": "Vom Login bis zur Detailansicht.",
+        "size": 46,
+        "color": "112B45",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 64,
+        "y": 192,
+        "w": 1150,
+        "h": 54,
+        "value": "Zwei Minuten: einen verständlichen Ablauf zeigen.",
+        "size": 23,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 665,
+        "w": 1152,
+        "h": 1,
+        "color": "DCE4E8",
+        "line": null,
+        "radius": 0
+      },
+      {
+        "type": "text",
+        "x": 64,
+        "y": 681,
+        "w": 1020,
+        "h": 22,
+        "value": "TOPIMMO  /  PROJEKTPRÄSENTATION",
+        "size": 13,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "text",
+        "x": 1140,
+        "y": 681,
+        "w": 76,
+        "h": 22,
+        "value": "10 / 11",
+        "size": 13,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 266,
+        "w": 216,
+        "h": 81,
+        "color": "EAF2FA",
+        "line": null,
+        "radius": 8
+      },
+      {
+        "type": "text",
+        "x": 80,
+        "y": 276,
+        "w": 184,
+        "h": 26,
+        "value": "01",
+        "size": 17,
+        "color": "007B76",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 80,
+        "y": 310,
+        "w": 193,
+        "h": 33,
+        "value": "Login",
+        "size": 21,
+        "color": "112B45",
+        "bold": true
+      },
+      {
+        "type": "rect",
+        "x": 298,
+        "y": 266,
+        "w": 216,
+        "h": 81,
+        "color": "EAF2FA",
+        "line": null,
+        "radius": 8
+      },
+      {
+        "type": "text",
+        "x": 314,
+        "y": 276,
+        "w": 184,
+        "h": 26,
+        "value": "02",
+        "size": 17,
+        "color": "007B76",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 314,
+        "y": 310,
+        "w": 193,
+        "h": 33,
+        "value": "Bezirk wählen",
+        "size": 21,
+        "color": "112B45",
+        "bold": true
+      },
+      {
+        "type": "rect",
+        "x": 532,
+        "y": 266,
+        "w": 216,
+        "h": 81,
+        "color": "EAF2FA",
+        "line": null,
+        "radius": 8
+      },
+      {
+        "type": "text",
+        "x": 548,
+        "y": 276,
+        "w": 184,
+        "h": 26,
+        "value": "03",
+        "size": 17,
+        "color": "007B76",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 548,
+        "y": 310,
+        "w": 193,
+        "h": 33,
+        "value": "Angebot öffnen",
+        "size": 21,
+        "color": "112B45",
+        "bold": true
+      },
+      {
+        "type": "rect",
+        "x": 766,
+        "y": 266,
+        "w": 216,
+        "h": 81,
+        "color": "EAF2FA",
+        "line": null,
+        "radius": 8
+      },
+      {
+        "type": "text",
+        "x": 782,
+        "y": 276,
+        "w": 184,
+        "h": 26,
+        "value": "04",
+        "size": 17,
+        "color": "007B76",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 782,
+        "y": 310,
+        "w": 193,
+        "h": 33,
+        "value": "Bild wechseln",
+        "size": 21,
+        "color": "112B45",
+        "bold": true
+      },
+      {
+        "type": "rect",
+        "x": 1000,
+        "y": 266,
+        "w": 216,
+        "h": 81,
+        "color": "EAF2FA",
+        "line": null,
+        "radius": 8
+      },
+      {
+        "type": "text",
+        "x": 1016,
+        "y": 276,
+        "w": 184,
+        "h": 26,
+        "value": "05",
+        "size": 17,
+        "color": "007B76",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 1016,
+        "y": 310,
+        "w": 193,
+        "h": 33,
+        "value": "Zurück + Logout",
+        "size": 21,
+        "color": "112B45",
+        "bold": true
+      },
+      {
+        "type": "image",
+        "x": 64,
+        "y": 377,
+        "w": 560,
+        "h": 241,
+        "path": "/Users/edhar_myronchuk/Documents/GitHub/TopImmo/docs/demo/praesentation-mac/uebersicht-ausschnitt.png"
+      },
+      {
+        "type": "image",
+        "x": 654,
+        "y": 377,
+        "w": 560,
+        "h": 194,
+        "path": "/Users/edhar_myronchuk/Documents/GitHub/TopImmo/docs/demo/praesentation-mac/details-ausschnitt.png"
+      },
+      {
+        "type": "text",
+        "x": 654,
+        "y": 590,
+        "w": 554,
+        "h": 45,
+        "value": "Lokale Demo · gültiger API-Zugang erforderlich",
+        "size": 19,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "text",
+        "x": 64,
+        "y": 640,
+        "w": 1145,
+        "h": 22,
+        "value": "Gesicherte Aufnahmen vom 04.10.2026",
+        "size": 17,
+        "color": "52677C",
+        "bold": false
+      }
+    ],
+    "notes": "Jetzt zur laufenden Anwendung wechseln. Ein vorbereitetes Demokonto anmelden; eine kurze Formularvalidierung nur zeigen, wenn die Zeit reicht. Die Übersicht erklären und einen Bezirk mit Treffern wählen, zum Beispiel Ost, falls dort weiterhin ein Angebot vorhanden ist. Ein Angebot öffnen, bei mehreren Bildern das Bild wechseln und zur Übersicht zurückkehren. Erhaltene Filter- und Kartenmarkierung zeigen, anschließend abmelden. Keine bestimmte Angebotszahl versprechen. Die Live-Demo benötigt Backend und Frontend sowie Internet und API-Kapazität. Bei Ausfall zügig die gesicherten aktuellen Aufnahmen zeigen und ausdrücklich als Aufnahmen vom 04.10.2026 benennen. Demo dient einem konkreten Ablauf, nicht dem Nachweis sämtlicher Fehlerfälle."
+  },
+  {
+    "title": "Welche Technologien braucht der lokale Start?",
+    "duration": "1:00",
+    "dark": false,
+    "items": [
+      {
+        "type": "rect",
+        "x": 0,
+        "y": 0,
+        "w": 1280,
+        "h": 720,
+        "color": "F7F6F2",
+        "line": null,
+        "radius": 0
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 44,
+        "w": 32,
+        "h": 5,
+        "color": "007B76",
+        "line": null,
+        "radius": 0
+      },
+      {
+        "type": "text",
+        "x": 110,
+        "y": 30,
+        "w": 1090,
+        "h": 32,
+        "value": "10 · INSTALLATION",
+        "size": 16,
+        "color": "007B76",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 64,
+        "y": 90,
+        "w": 1160,
+        "h": 115,
+        "value": "Welche Technologien braucht der lokale Start?",
+        "size": 46,
+        "color": "112B45",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 64,
+        "y": 192,
+        "w": 1150,
+        "h": 54,
+        "value": "Die Versionen folgen dem vorhandenen Projekt; SQLite benötigt keinen separaten Server.",
+        "size": 23,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 665,
+        "w": 1152,
+        "h": 1,
+        "color": "DCE4E8",
+        "line": null,
+        "radius": 0
+      },
+      {
+        "type": "text",
+        "x": 64,
+        "y": 681,
+        "w": 1020,
+        "h": 22,
+        "value": "TOPIMMO  /  PROJEKTPRÄSENTATION",
+        "size": 13,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "text",
+        "x": 1140,
+        "y": 681,
+        "w": 76,
+        "h": 22,
+        "value": "11 / 11",
+        "size": 13,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 264,
+        "w": 360,
+        "h": 173,
+        "color": "EAF2FA",
+        "line": null,
+        "radius": 10
+      },
+      {
+        "type": "text",
+        "x": 84,
+        "y": 281,
+        "w": 320,
+        "h": 38,
+        "value": "Frontend",
+        "size": 25,
+        "color": "112B45",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 84,
+        "y": 337,
+        "w": 320,
+        "h": 83,
+        "value": "Node.js 24.x + npm\nAngular / CLI 21.2.x\nTypeScript 5.9.x + RxJS",
+        "size": 21,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 460,
+        "y": 264,
+        "w": 360,
+        "h": 173,
+        "color": "FFFFFF",
+        "line": null,
+        "radius": 10
+      },
+      {
+        "type": "text",
+        "x": 480,
+        "y": 281,
+        "w": 320,
+        "h": 38,
+        "value": "Backend",
+        "size": 25,
+        "color": "112B45",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 480,
+        "y": 337,
+        "w": 320,
+        "h": 83,
+        "value": "C# · .NET 9 SDK · Ziel net9.0\nASP.NET Core + EF Core 9\nSQLite-Provider + BCrypt",
+        "size": 21,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 856,
+        "y": 264,
+        "w": 360,
+        "h": 173,
+        "color": "EAF5F1",
+        "line": null,
+        "radius": 10
+      },
+      {
+        "type": "text",
+        "x": 876,
+        "y": 281,
+        "w": 320,
+        "h": 38,
+        "value": "Lokal vorhanden",
+        "size": 25,
+        "color": "112B45",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 876,
+        "y": 337,
+        "w": 320,
+        "h": 83,
+        "value": "Node 24.21.0 · npm 11.19.0\n.NET 9 SDK: 9.0.318\n.NET / ASP.NET Runtime: 9.0.20",
+        "size": 21,
+        "color": "52677C",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 465,
+        "w": 1152,
+        "h": 45,
+        "color": "FFFFFF",
+        "line": null,
+        "radius": 6
+      },
+      {
+        "type": "text",
+        "x": 81,
+        "y": 475,
+        "w": 237,
+        "h": 31,
+        "value": "1 · Konfiguration",
+        "size": 21,
+        "color": "007B76",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 333,
+        "y": 475,
+        "w": 859,
+        "h": 31,
+        "value": "node scripts/setup-local-config.mjs",
+        "size": 21,
+        "color": "112B45",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 519,
+        "w": 1152,
+        "h": 45,
+        "color": "FFFFFF",
+        "line": null,
+        "radius": 6
+      },
+      {
+        "type": "text",
+        "x": 81,
+        "y": 529,
+        "w": 237,
+        "h": 31,
+        "value": "2 · Backend :5197",
+        "size": 21,
+        "color": "007B76",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 333,
+        "y": 529,
+        "w": 859,
+        "h": 31,
+        "value": "cd Backend/ImmscoutAPI → dotnet run --launch-profile http",
+        "size": 21,
+        "color": "112B45",
+        "bold": false
+      },
+      {
+        "type": "rect",
+        "x": 64,
+        "y": 573,
+        "w": 1152,
+        "h": 45,
+        "color": "FFFFFF",
+        "line": null,
+        "radius": 6
+      },
+      {
+        "type": "text",
+        "x": 81,
+        "y": 583,
+        "w": 237,
+        "h": 31,
+        "value": "3 · Frontend :4200",
+        "size": 21,
+        "color": "007B76",
+        "bold": true
+      },
+      {
+        "type": "text",
+        "x": 333,
+        "y": 583,
+        "w": 859,
+        "h": 31,
+        "value": "cd Frontend/TomInnoFrondEnd → npm ci → npm start",
+        "size": 21,
+        "color": "112B45",
+        "bold": false
+      },
+      {
+        "type": "text",
+        "x": 64,
+        "y": 639,
+        "w": 1152,
+        "h": 22,
+        "value": "Browser: http://localhost:4200  ·  JWT-Key lokal erzeugen; eigener RapidAPI-Key + Internet für Liveangebote.",
+        "size": 17,
+        "color": "52677C",
+        "bold": false
+      }
+    ],
+    "notes": "Für das Frontend benötigt die Maschine Node.js und npm. Der Projektzweig nutzt Angular 21.2 und TypeScript 5.9. Nach offizieller Angular-Matrix passen Node 20.19+, 22.12+ oder 24.x innerhalb der angegebenen Majorlinien; für dieses Projekt wird Node 24.x verwendet. Die lokal gelesenen Versionen sind Node 24.21.0 und npm 11.19.0; package.json benennt npm 11.6.2 als PackageManager, was von der lokalen npm-Version abweicht. npm ci stellt die gesperrten Projektabhängigkeiten her, einschließlich Angular-CLI; eine globale CLI ist nicht nötig. Das Backend zielt auf net9.0. Das .NET 9 SDK enthält Compiler und .NET-/ASP.NET-Core-Runtime; ein alleiniger Runtime-Download reicht zum Entwickeln nicht. SDK 9.0.318 sowie Runtime 9.0.20 sind installiert. Zusätzlich gibt es SDK 10.0.401; ohne global.json wählt dotnet --version hier das neuere SDK. EF-Core-SQLite und JwtBearer 9.0.17 kommen per NuGet. Ein eigener SQLite-Server oder eine zusätzliche .NET-Desktop-Runtime sind nicht nötig. Auf Apple Silicon den Arm64-Installer wählen, auf Intel x64. Im Repositoryhauptordner zuerst node scripts/setup-local-config.mjs ausführen; es erzeugt die ignorierte lokale Konfiguration und einen JWT-Schlüssel. Den eigenen RapidAPI-Schlüssel dort im Backend ergänzen. Terminal 1: in Backend/ImmscoutAPI wechseln und dotnet run --launch-profile http starten. Terminal 2: ab Repositoryhauptordner in Frontend/TomInnoFrondEnd wechseln, npm ci und npm start ausführen. Frontend läuft auf 4200, Backend auf 5197. EF-Migrationen legen beim ersten Start SQLite an. Registrierung/Login benötigen keine externe Immobilienabfrage; Liveangebote benötigen Internet und API-Zugang. Versionsprüfungen: node --version, npm --version, dotnet --list-sdks und dotnet --list-runtimes. Quellen: https://angular.dev/reference/versions und https://learn.microsoft.com/en-us/dotnet/core/install/macos. Für eine spätere Produktionsabgabe zusätzlich Bundlebudget, Servervalidierung und Sitzungsauslauf verbessern."
+  }
+]

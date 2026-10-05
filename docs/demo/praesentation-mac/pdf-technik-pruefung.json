@@ -1,0 +1,43 @@
+{
+  "engine": "CoreGraphics/CoreText",
+  "overflow": [],
+  "pages": 11,
+  "pdf": "TopImmo-Praesentation-Technik.pdf",
+  "totalPages": 11,
+  "allPagesRendered": true,
+  "titles": [
+    "TopImmo",
+    "Eine Karte führt zum passenden Angebot.",
+    "Vier technische Pflichtbestandteile.",
+    "Zwei Datenwege im selben Backend.",
+    "Aus JSON werden Bezirksdaten.",
+    "SQLite speichert Konten und Sitzungsdaten.",
+    "JSON, SQLite und der 5-Minuten-Cache.",
+    "Der Server entscheidet über den Zugriff.",
+    "Frontend sendet Tokens; das Backend prüft sie.",
+    "Vom Login bis zur Detailansicht.",
+    "Welche Technologien braucht der lokale Start?"
+  ],
+  "footerDateRemovedAllPages": true,
+  "titleDateLineRemoved": true,
+  "fourRequirements": [
+    "Angular-Frontend",
+    "C#-Backend",
+    "Externe API",
+    "SQLite"
+  ],
+  "requestedAdjacentPairs": [
+    [
+      6,
+      7
+    ],
+    [
+      8,
+      9
+    ]
+  ],
+  "textChecks": "passed",
+  "sha256": "66e29ee56ce551b9ae57fea809dad6060c838dab6b337bf65eb5a982e1c18831",
+  "pptxChanged": false,
+  "nativeKeynoteImport": "user reports invalid; not claimed fixed"
+}
