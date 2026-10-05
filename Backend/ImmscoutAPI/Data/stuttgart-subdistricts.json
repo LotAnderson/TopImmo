@@ -1,0 +1,762 @@
+[
+  {
+    "number": 201,
+    "name": "Muckensturm",
+    "district": "Bad Cannstatt"
+  },
+  {
+    "number": 202,
+    "name": "Schmidener Vorstadt",
+    "district": "Bad Cannstatt"
+  },
+  {
+    "number": 203,
+    "name": "Espan",
+    "district": "Bad Cannstatt"
+  },
+  {
+    "number": 204,
+    "name": "Kurpark",
+    "district": "Bad Cannstatt"
+  },
+  {
+    "number": 205,
+    "name": "Cannstatt-Mitte",
+    "district": "Bad Cannstatt"
+  },
+  {
+    "number": 206,
+    "name": "Seelberg",
+    "district": "Bad Cannstatt"
+  },
+  {
+    "number": 207,
+    "name": "Winterhalde",
+    "district": "Bad Cannstatt"
+  },
+  {
+    "number": 208,
+    "name": "Wasen",
+    "district": "Bad Cannstatt"
+  },
+  {
+    "number": 209,
+    "name": "Veielbrunnen",
+    "district": "Bad Cannstatt"
+  },
+  {
+    "number": 210,
+    "name": "Im Geiger",
+    "district": "Bad Cannstatt"
+  },
+  {
+    "number": 211,
+    "name": "Neckarvorstadt",
+    "district": "Bad Cannstatt"
+  },
+  {
+    "number": 212,
+    "name": "Pragstraße",
+    "district": "Bad Cannstatt"
+  },
+  {
+    "number": 213,
+    "name": "Altenburg",
+    "district": "Bad Cannstatt"
+  },
+  {
+    "number": 214,
+    "name": "Hallschlag",
+    "district": "Bad Cannstatt"
+  },
+  {
+    "number": 215,
+    "name": "Birkenäcker",
+    "district": "Bad Cannstatt"
+  },
+  {
+    "number": 221,
+    "name": "Burgholzhof",
+    "district": "Bad Cannstatt"
+  },
+  {
+    "number": 231,
+    "name": "Sommerrain",
+    "district": "Bad Cannstatt"
+  },
+  {
+    "number": 241,
+    "name": "Steinhaldenfeld",
+    "district": "Bad Cannstatt"
+  },
+  {
+    "number": 261,
+    "name": "Birkach-Nord",
+    "district": "Birkach"
+  },
+  {
+    "number": 262,
+    "name": "Birkach-Süd",
+    "district": "Birkach"
+  },
+  {
+    "number": 271,
+    "name": "Schönberg",
+    "district": "Birkach"
+  },
+  {
+    "number": 292,
+    "name": "Botnang-Nord",
+    "district": "Botnang"
+  },
+  {
+    "number": 293,
+    "name": "Botnang-Ost",
+    "district": "Botnang"
+  },
+  {
+    "number": 294,
+    "name": "Botnang-Süd",
+    "district": "Botnang"
+  },
+  {
+    "number": 295,
+    "name": "Botnang-West",
+    "district": "Botnang"
+  },
+  {
+    "number": 311,
+    "name": "Degerloch",
+    "district": "Degerloch"
+  },
+  {
+    "number": 312,
+    "name": "Waldau",
+    "district": "Degerloch"
+  },
+  {
+    "number": 313,
+    "name": "Tränke",
+    "district": "Degerloch"
+  },
+  {
+    "number": 314,
+    "name": "Haigst",
+    "district": "Degerloch"
+  },
+  {
+    "number": 321,
+    "name": "Hoffeld",
+    "district": "Degerloch"
+  },
+  {
+    "number": 341,
+    "name": "Feuerbach-Ost",
+    "district": "Feuerbach"
+  },
+  {
+    "number": 342,
+    "name": "Siegelberg",
+    "district": "Feuerbach"
+  },
+  {
+    "number": 343,
+    "name": "Bahnhof Feuerbach",
+    "district": "Feuerbach"
+  },
+  {
+    "number": 344,
+    "name": "Feuerbach-Mitte",
+    "district": "Feuerbach"
+  },
+  {
+    "number": 345,
+    "name": "Lemberg/Föhrich",
+    "district": "Feuerbach"
+  },
+  {
+    "number": 346,
+    "name": "Hohe Warte",
+    "district": "Feuerbach"
+  },
+  {
+    "number": 347,
+    "name": "Feuerbacher Tal",
+    "district": "Feuerbach"
+  },
+  {
+    "number": 348,
+    "name": "An der Burg",
+    "district": "Feuerbach"
+  },
+  {
+    "number": 361,
+    "name": "Hedelfingen",
+    "district": "Hedelfingen"
+  },
+  {
+    "number": 362,
+    "name": "Hafen",
+    "district": "Hedelfingen"
+  },
+  {
+    "number": 371,
+    "name": "Lederberg",
+    "district": "Hedelfingen"
+  },
+  {
+    "number": 381,
+    "name": "Rohracker",
+    "district": "Hedelfingen"
+  },
+  {
+    "number": 401,
+    "name": "Möhringen-Nord",
+    "district": "Möhringen"
+  },
+  {
+    "number": 402,
+    "name": "Möhringen-Mitte",
+    "district": "Möhringen"
+  },
+  {
+    "number": 403,
+    "name": "Wallgraben-Ost",
+    "district": "Möhringen"
+  },
+  {
+    "number": 404,
+    "name": "Möhringen-Süd",
+    "district": "Möhringen"
+  },
+  {
+    "number": 405,
+    "name": "Möhringen-Ost",
+    "district": "Möhringen"
+  },
+  {
+    "number": 406,
+    "name": "Sternhäule",
+    "district": "Möhringen"
+  },
+  {
+    "number": 407,
+    "name": "Fasanenhof-Ost",
+    "district": "Möhringen"
+  },
+  {
+    "number": 411,
+    "name": "Fasanenhof",
+    "district": "Möhringen"
+  },
+  {
+    "number": 421,
+    "name": "Sonnenberg",
+    "district": "Möhringen"
+  },
+  {
+    "number": 441,
+    "name": "Mühlhausen",
+    "district": "Mühlhausen"
+  },
+  {
+    "number": 451,
+    "name": "Freiberg",
+    "district": "Mühlhausen"
+  },
+  {
+    "number": 461,
+    "name": "Mönchfeld",
+    "district": "Mühlhausen"
+  },
+  {
+    "number": 471,
+    "name": "Hofen",
+    "district": "Mühlhausen"
+  },
+  {
+    "number": 481,
+    "name": "Neugereut",
+    "district": "Mühlhausen"
+  },
+  {
+    "number": 501,
+    "name": "Münster",
+    "district": "Münster"
+  },
+  {
+    "number": 521,
+    "name": "Obertürkheim",
+    "district": "Obertürkheim"
+  },
+  {
+    "number": 531,
+    "name": "Uhlbach",
+    "district": "Obertürkheim"
+  },
+  {
+    "number": 551,
+    "name": "Plieningen",
+    "district": "Plieningen"
+  },
+  {
+    "number": 552,
+    "name": "Chausseefeld",
+    "district": "Plieningen"
+  },
+  {
+    "number": 561,
+    "name": "Steckfeld",
+    "district": "Plieningen"
+  },
+  {
+    "number": 571,
+    "name": "Asemwald",
+    "district": "Plieningen"
+  },
+  {
+    "number": 581,
+    "name": "Hohenheim",
+    "district": "Plieningen"
+  },
+  {
+    "number": 601,
+    "name": "Sillenbuch",
+    "district": "Sillenbuch"
+  },
+  {
+    "number": 611,
+    "name": "Heumaden",
+    "district": "Sillenbuch"
+  },
+  {
+    "number": 621,
+    "name": "Riedenberg",
+    "district": "Sillenbuch"
+  },
+  {
+    "number": 641,
+    "name": "Stammheim-Süd",
+    "district": "Stammheim"
+  },
+  {
+    "number": 642,
+    "name": "Stammheim-Mitte",
+    "district": "Stammheim"
+  },
+  {
+    "number": 101,
+    "name": "Oberer Schlossgarten",
+    "district": "Mitte"
+  },
+  {
+    "number": 102,
+    "name": "Rathaus",
+    "district": "Mitte"
+  },
+  {
+    "number": 103,
+    "name": "Neue Vorstadt",
+    "district": "Mitte"
+  },
+  {
+    "number": 104,
+    "name": "Universität",
+    "district": "Mitte"
+  },
+  {
+    "number": 105,
+    "name": "Europaviertel",
+    "district": "Mitte"
+  },
+  {
+    "number": 106,
+    "name": "Hauptbahnhof",
+    "district": "Mitte"
+  },
+  {
+    "number": 107,
+    "name": "Kernerviertel",
+    "district": "Mitte"
+  },
+  {
+    "number": 108,
+    "name": "Diemershalde",
+    "district": "Mitte"
+  },
+  {
+    "number": 109,
+    "name": "Dobel",
+    "district": "Mitte"
+  },
+  {
+    "number": 110,
+    "name": "Heusteigviertel",
+    "district": "Mitte"
+  },
+  {
+    "number": 121,
+    "name": "Relenberg",
+    "district": "Nord"
+  },
+  {
+    "number": 122,
+    "name": "Lenzhalde",
+    "district": "Nord"
+  },
+  {
+    "number": 123,
+    "name": "Am Bismarckturm",
+    "district": "Nord"
+  },
+  {
+    "number": 124,
+    "name": "Killesberg",
+    "district": "Nord"
+  },
+  {
+    "number": 125,
+    "name": "Weißenhof",
+    "district": "Nord"
+  },
+  {
+    "number": 126,
+    "name": "Nordbahnhof",
+    "district": "Nord"
+  },
+  {
+    "number": 127,
+    "name": "Am Pragfriedhof",
+    "district": "Nord"
+  },
+  {
+    "number": 128,
+    "name": "Am Rosensteinpark",
+    "district": "Nord"
+  },
+  {
+    "number": 129,
+    "name": "Auf der Prag",
+    "district": "Nord"
+  },
+  {
+    "number": 130,
+    "name": "Mönchhalde",
+    "district": "Nord"
+  },
+  {
+    "number": 131,
+    "name": "Heilbronner Straße",
+    "district": "Nord"
+  },
+  {
+    "number": 141,
+    "name": "Gänsheide",
+    "district": "Ost"
+  },
+  {
+    "number": 142,
+    "name": "Uhlandshöhe",
+    "district": "Ost"
+  },
+  {
+    "number": 143,
+    "name": "Stöckach",
+    "district": "Ost"
+  },
+  {
+    "number": 144,
+    "name": "Berg",
+    "district": "Ost"
+  },
+  {
+    "number": 145,
+    "name": "Ostheim",
+    "district": "Ost"
+  },
+  {
+    "number": 146,
+    "name": "Gaisburg",
+    "district": "Ost"
+  },
+  {
+    "number": 147,
+    "name": "Gablenberg",
+    "district": "Ost"
+  },
+  {
+    "number": 151,
+    "name": "Frauenkopf",
+    "district": "Ost"
+  },
+  {
+    "number": 161,
+    "name": "Bopser",
+    "district": "Süd"
+  },
+  {
+    "number": 162,
+    "name": "Lehen",
+    "district": "Süd"
+  },
+  {
+    "number": 163,
+    "name": "Weinsteige",
+    "district": "Süd"
+  },
+  {
+    "number": 164,
+    "name": "Karlshöhe",
+    "district": "Süd"
+  },
+  {
+    "number": 165,
+    "name": "Heslach",
+    "district": "Süd"
+  },
+  {
+    "number": 166,
+    "name": "Südheim",
+    "district": "Süd"
+  },
+  {
+    "number": 171,
+    "name": "Kaltental",
+    "district": "Süd"
+  },
+  {
+    "number": 181,
+    "name": "Kräherwald",
+    "district": "West"
+  },
+  {
+    "number": 182,
+    "name": "Hölderlinplatz",
+    "district": "West"
+  },
+  {
+    "number": 183,
+    "name": "Rosenberg",
+    "district": "West"
+  },
+  {
+    "number": 184,
+    "name": "Feuersee",
+    "district": "West"
+  },
+  {
+    "number": 185,
+    "name": "Rotebühl",
+    "district": "West"
+  },
+  {
+    "number": 186,
+    "name": "Vogelsang",
+    "district": "West"
+  },
+  {
+    "number": 187,
+    "name": "Hasenberg",
+    "district": "West"
+  },
+  {
+    "number": 191,
+    "name": "Wildpark",
+    "district": "West"
+  },
+  {
+    "number": 192,
+    "name": "Solitude",
+    "district": "West"
+  },
+  {
+    "number": 661,
+    "name": "Gehrenwald",
+    "district": "Untertürkheim"
+  },
+  {
+    "number": 662,
+    "name": "Flohberg",
+    "district": "Untertürkheim"
+  },
+  {
+    "number": 663,
+    "name": "Untertürkheim",
+    "district": "Untertürkheim"
+  },
+  {
+    "number": 664,
+    "name": "Benzviertel",
+    "district": "Untertürkheim"
+  },
+  {
+    "number": 665,
+    "name": "Lindenschulviertel",
+    "district": "Untertürkheim"
+  },
+  {
+    "number": 666,
+    "name": "Bruckwiesen",
+    "district": "Untertürkheim"
+  },
+  {
+    "number": 671,
+    "name": "Luginsland",
+    "district": "Untertürkheim"
+  },
+  {
+    "number": 681,
+    "name": "Rotenberg",
+    "district": "Untertürkheim"
+  },
+  {
+    "number": 711,
+    "name": "Vaihingen-Mitte",
+    "district": "Vaihingen"
+  },
+  {
+    "number": 712,
+    "name": "Österfeld",
+    "district": "Vaihingen"
+  },
+  {
+    "number": 713,
+    "name": "Höhenrand",
+    "district": "Vaihingen"
+  },
+  {
+    "number": 714,
+    "name": "Wallgraben-West",
+    "district": "Vaihingen"
+  },
+  {
+    "number": 715,
+    "name": "Rosental",
+    "district": "Vaihingen"
+  },
+  {
+    "number": 716,
+    "name": "Heerstraße",
+    "district": "Vaihingen"
+  },
+  {
+    "number": 717,
+    "name": "Lauchäcker",
+    "district": "Vaihingen"
+  },
+  {
+    "number": 718,
+    "name": "Dachswald",
+    "district": "Vaihingen"
+  },
+  {
+    "number": 719,
+    "name": "Pfaffenwald",
+    "district": "Vaihingen"
+  },
+  {
+    "number": 721,
+    "name": "Büsnau",
+    "district": "Vaihingen"
+  },
+  {
+    "number": 731,
+    "name": "Rohr",
+    "district": "Vaihingen"
+  },
+  {
+    "number": 741,
+    "name": "Dürrlewang",
+    "district": "Vaihingen"
+  },
+  {
+    "number": 761,
+    "name": "Wangen",
+    "district": "Wangen"
+  },
+  {
+    "number": 801,
+    "name": "Weilimdorf",
+    "district": "Weilimdorf"
+  },
+  {
+    "number": 802,
+    "name": "Weilimdorf-Nord",
+    "district": "Weilimdorf"
+  },
+  {
+    "number": 811,
+    "name": "Bergheim",
+    "district": "Weilimdorf"
+  },
+  {
+    "number": 821,
+    "name": "Giebel",
+    "district": "Weilimdorf"
+  },
+  {
+    "number": 831,
+    "name": "Hausen",
+    "district": "Weilimdorf"
+  },
+  {
+    "number": 841,
+    "name": "Wolfbusch",
+    "district": "Weilimdorf"
+  },
+  {
+    "number": 861,
+    "name": "Zuffenhausen-Am Stadtpark",
+    "district": "Zuffenhausen"
+  },
+  {
+    "number": 862,
+    "name": "Zuffenhausen-Schützenbühl",
+    "district": "Zuffenhausen"
+  },
+  {
+    "number": 863,
+    "name": "Zuffenhausen-Elbelen",
+    "district": "Zuffenhausen"
+  },
+  {
+    "number": 864,
+    "name": "Zuffenhausen-Frauensteg",
+    "district": "Zuffenhausen"
+  },
+  {
+    "number": 865,
+    "name": "Zuffenhausen-Mitte",
+    "district": "Zuffenhausen"
+  },
+  {
+    "number": 866,
+    "name": "Zuffenhausen-Hohenstein",
+    "district": "Zuffenhausen"
+  },
+  {
+    "number": 867,
+    "name": "Zuffenhausen-Mönchsberg",
+    "district": "Zuffenhausen"
+  },
+  {
+    "number": 868,
+    "name": "Zuffenhausen-Im Raiser",
+    "district": "Zuffenhausen"
+  },
+  {
+    "number": 871,
+    "name": "Neuwirtshaus",
+    "district": "Zuffenhausen"
+  },
+  {
+    "number": 881,
+    "name": "Rot",
+    "district": "Zuffenhausen"
+  },
+  {
+    "number": 891,
+    "name": "Zazenhausen",
+    "district": "Zuffenhausen"
+  }
+]

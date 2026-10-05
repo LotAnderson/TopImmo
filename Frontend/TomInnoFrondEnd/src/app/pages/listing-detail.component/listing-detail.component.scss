@@ -1,0 +1,101 @@
+.listing-detail-page {
+  flex: 1;
+  padding: 24px;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 16px;
+  color: #004488;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.status-message {
+  color: #555;
+}
+
+.listing-detail {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e8e6e0;
+}
+
+.gallery {
+  flex: 1 1 400px;
+  max-width: 480px;
+
+  .main-image {
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+    max-height: 360px;
+  }
+
+  .thumbnails {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+    overflow-x: auto;
+
+    img {
+      width: 72px;
+      height: 54px;
+      object-fit: cover;
+      border-radius: 6px;
+      cursor: pointer;
+      opacity: 0.6;
+
+      &.active {
+        opacity: 1;
+        outline: 2px solid #004488;
+      }
+    }
+  }
+}
+
+.info {
+  flex: 1 1 280px;
+
+  h2 {
+    margin: 0 0 8px;
+  }
+
+  .price {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #004488;
+  }
+
+  .meta,
+  .address,
+  .district,
+  .published {
+    margin: 4px 0;
+    color: #444;
+  }
+
+  .attributes {
+    list-style: none;
+    margin: 16px 0 0;
+    padding: 0;
+
+    li {
+      padding: 4px 0;
+      border-bottom: 1px solid #eee;
+      font-size: 0.9rem;
+
+      .label {
+        font-weight: 600;
+      }
+    }
+  }
+}

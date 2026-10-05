@@ -1,0 +1,94 @@
+.listings-container {
+  padding: 24px;
+  background: #faf9f6;
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #2b2b2b;
+
+  h2 {
+    color: #2b2b2b;
+    margin-bottom: 16px;
+    width: 100%;
+  }
+}
+
+.listings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.listing-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  }
+
+  img {
+    width: 100%;
+    aspect-ratio: 4 / 3;   // фиксируем пропорции, чтобы карточки не "прыгали" по высоте при разных фото
+    object-fit: cover;
+  }
+
+  .card-body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+  }
+
+  h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 0;
+    // обрезаем длинные заголовки объявлений в 2 строки, а не даём им ломать карточку
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #004488;
+  }
+
+  .meta {
+    font-size: 0.9rem;
+    color: #6b6b6b;
+  }
+
+  .address {
+    font-size: 0.85rem;
+    color: #6b6b6b;
+    margin-top: auto;   // прижимает адрес к низу карточки, даже если текста выше мало
+  }
+
+  a {
+    margin-top: 12px;
+    display: inline-block;
+    text-align: center;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: #004488;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: #002d5c;
+    }
+  }
+}

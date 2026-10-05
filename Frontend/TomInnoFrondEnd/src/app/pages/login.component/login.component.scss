@@ -1,0 +1,85 @@
+.auth-page {
+  display: flex;
+  justify-content: center;
+  padding: 48px 16px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 360px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e8e6e0;
+
+  h2 {
+    margin: 0 0 20px;
+    color: #004488;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.9rem;
+  color: #333;
+
+  input {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+}
+
+button {
+  margin-top: 6px;
+  padding: 10px 12px;
+  background: #004488;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.field-error {
+  margin: -8px 0 0;
+  color: #b00020;
+  font-size: 0.8rem;
+}
+
+.form-error {
+  margin: 0;
+  color: #b00020;
+  font-size: 0.9rem;
+}
+
+.info {
+  margin: 0 0 16px;
+  color: #1b6e2e;
+  font-size: 0.9rem;
+}
+
+.switch-link {
+  margin: 20px 0 0;
+  text-align: center;
+  font-size: 0.9rem;
+
+  a {
+    color: #004488;
+  }
+}
